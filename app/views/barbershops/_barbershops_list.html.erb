@@ -1,0 +1,23 @@
+<%= barbershops.each do |barbershop| %>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading preview">
+        <%= image_tag barbershop.cover_photo(:medium) %>
+      </div>
+      <div class="panel-body">
+        <%= link_to barbershop.listing_name, barbershop %><br/>
+        <%= image_tag avatar_url(barbershop.user), class: "img-circle avatar-small" %>
+			  <%= barbershop.stylist_type %>
+        <div id="star_<%= barbershop.id %>"></div> <%= pluralize(barbershop.average_rating, "review") %>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $('#star_<%= barbershop.id %>').raty({
+      path: '/assets',
+      readOnly: true,
+      score: <%= barbershop.average_rating %>
+    });
+  </script>
+<% end %>

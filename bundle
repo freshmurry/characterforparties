@@ -1,0 +1,8 @@
+=> Booting Thin
+=> Rails 5.0.6 application starting in development on http://localhost:8080
+=> Run `rails server -h` for more startup options
+Thin web server (v1.7.2 codename Bachmanity)
+Maximum connections set to 1024
+Listening on localhost:8080, CTRL+C to stop
+Stopping ...
+Exiting
