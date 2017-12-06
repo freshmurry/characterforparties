@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.3'
-gem 'sass-rails', '~> 5.0'
+gem 'rails'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
+gem 'turbolinks'
 gem 'jbuilder', '~> 2.5'
 
 gem 'delayed_job'
@@ -33,16 +33,14 @@ gem 'toastr-rails', '~> 1.0'
 gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
 
-gem 'paperclip', '~> 5.1.0'
+gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '~> 2.8'
 
 gem 'geocoder', '~> 1.4'
 gem 'jquery-ui-rails', '~> 5.0'
 
 gem 'ransack', '~> 1.7'
-gem 'redis'
 gem 'thin'
-gem 'activeadmin', '1.0.0.pre1'
 
 group :production do
   gem 'pg'  
