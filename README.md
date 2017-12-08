@@ -1,6 +1,6 @@
-# Uppercutzz
+# Shindig Space
 
-[*Uppercutzz*](https://uppercutzz-2.herokuapp.com) is an baber appointment booking marketplace that helps connect 
-users with talented barbers.
+[*Shindig Space*](https://shindigspace.herokuapp.com) is an event space booking marketplace that helps connect 
+users with hidden gems for meeting or party venues.
 
 by [Lawrence Murry](http://lawrencemurry.com)
