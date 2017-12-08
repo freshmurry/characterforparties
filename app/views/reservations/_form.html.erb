@@ -24,12 +24,12 @@
               <td>Price</td>
               <td class="text-right">$<%= @barbershop.price %></td>
             </tr>
-            <tr>
-              <td>Fee(s)</td>
-              <td class="text-right">x <span id="reservation_fees"></span></td>
-            </tr>
+            <!--<tr>-->
+            <!--  <td>Fee(s)</td>-->
+            <!--  <td class="text-right">x <span id="reservation_fees"></span></td>-->
+            <!--</tr>-->
             <tr id="special_details">
-              <td colspan="2" class="total">
+              <td colspan="2">
                 Specials Price<br/>
                 <ul id="special_list"></ul>
               </td>
@@ -52,7 +52,6 @@
     <% end %>
   </div>
 </div>
-
 
 <script>
 
@@ -148,7 +147,7 @@
         });
 
         $('#reservation_start_date').datepicker({
-          dateFormat: 'dd-mm-yy',
+          dateFormat: 'mm-dd-yy',
           minDate: 0,
           maxDate: '2m',
           beforeShowDay: checkDate,
@@ -160,7 +159,7 @@
         });
 
         $('#reservation_end_date').datepicker({
-          dateFormat: 'dd-mm-yy',
+          dateFormat: 'mm-dd-yy',
           minDate: 0,
           maxDate: '2m',
           beforeShowDay: checkDate,
@@ -171,6 +170,5 @@
         });
       }
     });
-
   });
 </script>

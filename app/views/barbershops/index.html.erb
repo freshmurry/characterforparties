@@ -18,7 +18,7 @@
               <%= image_tag barbershop.cover_photo(:thumb) %>
             </div>
             <div class="col-md-7">
-              <h4><%= barbershop.listing_name %></h4>
+              <h4><%= link_to barbershop.listing_name, barbershop_path(barbershop) %></h4>
             </div>
             <div class="col-md-3 right">
               <%= link_to "Update", listing_barbershop_path(barbershop), class: "btn btn-form" %>

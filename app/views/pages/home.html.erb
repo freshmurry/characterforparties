@@ -1,70 +1,3 @@
-<style>
-
-/*@media only screen and (-webkit-min-device-pixel-ratio: .5), only screen and (-moz-min-device-pixel-ratio: 2), */
-/*only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen */
-/*and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {*/
-/*    .row .col-md-8{*/
-/*        background-image: url('http://watchdog.org/wp-content/blogs.dir/1/files/2016/06/barbershop.jpg');*/
-/*        background-repeat: no-repeat;*/
-/*        background-size: 100%;*/
-/*        border-radius: 0 !important;*/
-/*        margin-top: 0px auto;*/
-        /*height: 100%;*/
-/*        width: 100%;*/
-/*	}*/
-
-/*    p { */
-/*        float: right;*/
-/*        clear: both;*/
-/*        padding: 5px;*/
-/*        }*/
-            
-/*    h1 {*/
-/*    	color: #14325C;*/
-/*    	float: left; */
-/*       	margin-left: -90px;*/
-/*       	clear: both;*/
-/*    }*/
-    
-/*    .textbox{*/
-/*        background-color: #F6F6F6;*/
-/*        opacity: .5;*/
-        /*filter: alpha(opacity=60); For IE8 and earlier*/
-/*        color: black;*/
-        /*padding: 0;*/
-        /*color: #ecf0f1;*/
-/*        margin-right: 0;*/
-/*        clear: both;*/
-/*        float: left;*/
-/*        font-size: 25px;*/
-/*        font-family: Tahoma;*/
-/*        text-align: left;*/
-/*    }*/
-
-    
-    /*#iframe { */
-    /*    float: right;*/
-    /*    padding: 50px, 5px, 5px, 5px;*/
-    /*    margin-top: 80px;*/
-    /*    margin-left: 100%;*/
-    /*}*/
-        
-/*    footer {
-/*      position: absolute;*
-/*      right: 0;*/
-/*      bottom: 0;*/
-/*      left: 0;*/
-/*      padding: 1rem;*/
-/*      background-color: #gray;*/
-/*      text-align: right;*/
-/*      clear: both;*/
-/*      color: #ecf0f1;*/
-/*    }
-
-/*}*/
-
-</style>
-
 <div class="row">
   <div class="col-md-9 banner">
     <h1><span class="text-blue">Book barbershop appointments</span> simple, easy, and eliminate unecessary waiting.</h1>
@@ -77,15 +10,15 @@
       <%= text_field_tag :search, params[:search], placeholder: "Search for a Barber", class: "form-control", id: "autolocation" %>
     </div>
     
-    <div class="col-md-2">
+    <div class="col-md-3">
       <%= text_field_tag :start_date, params[:start_date], placeholder: "Appointment Date", class: "form-control datepicker" %>
     </div>
 
-    <div class="col-md-2">
-      <%= text_field_tag :end_date, params[:end_date], placeholder: "Time", class: "form-control datepicker" %>
-    </div>
+    <!--<div class="col-md-2">-->
+    <!--  <%= text_field_tag :end_date, params[:end_date], placeholder: "Time", class: "form-control datepicker" %>-->
+    <!--</div>-->
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <%= submit_tag "Search", class: "btn btn-normal btn-block" %>
     </div>
   </div>
@@ -94,7 +27,7 @@
 
 <br><hr><br>
 
-<!-- Barbers -->
+<!-- BARBERS -->
 <div><h3>Super Talented Barbers</h3></div>
 <br/>
 
@@ -105,44 +38,47 @@
 
 <!-- CITIES -->
 <div><h3>Talented Barbers in other Cities</h3></div>
-<br/>
+<!--<br/>-->
 
 <div class="row">
   <div class="col-md-4 col-sm-12">
-		<a href="http://uppercutzz.com/search?utf8=✓&search=chicago">
-			<div class="discovery-card" style="background-image: url('/assets/chicago.jpg')">
-				<div class="va-container">
-					<div class="va-middle text-center">
-						<h2><strong>Chicago</strong></h2>
-					</div>
-				</div>
-			</div>
-		</a>
+    <h4>COMING SOON!</h4>
+      <p>While we are super anxious to enter your city, Uppercutzz is focusing on growing the Chicago market before expanding our horizions.</p>
+      <p>We hope to see you soon!</p>
+<!--		<a href="http://uppercutzz.com/search?utf8=✓&search=chicago">-->
+<!--			<div class="discovery-card" style="background-image: url('/assets/chicago.jpg')">-->
+<!--				<div class="va-container">-->
+<!--					<div class="va-middle text-center">-->
+<!--						<h2><strong>Chicago</strong></h2>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</a>-->
 	</div>
 
-	<div class="col-md-4 col-sm-6">
-		<a href="http://uppercutzz.com/search?utf8=✓&search=los+angeles">
-			<div class="discovery-card" style="background-image: url('/assets/la.jpg')">
-				<div class="va-container">
-					<div class="va-middle text-center">
-						<h2><strong>Los Angeles</strong></h2>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
+<!--	<div class="col-md-4 col-sm-6">-->
+<!--		<a href="http://uppercutzz.com/search?utf8=✓&search=los+angeles">-->
+<!--			<div class="discovery-card" style="background-image: url('/assets/la.jpg')">-->
+<!--				<div class="va-container">-->
+<!--					<div class="va-middle text-center">-->
+<!--						<h2><strong>Los Angeles</strong></h2>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</a>-->
+<!--	</div>-->
 
-	<div class="col-md-4 col-sm-6">
-		<a href="http://uppercutzz.com/search?utf8=✓&search=atlanta">
-			<div class="discovery-card" style="background-image: url('/assets/atlanta.jpg')">
-				<div class="va-container">
-					<div class="va-middle text-center">
-						<h2><strong>Atlanta</strong></h2>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
+<!--	<div class="col-md-4 col-sm-6">-->
+<!--		<a href="http://uppercutzz.com/search?utf8=✓&search=atlanta">-->
+<!--			<div class="discovery-card" style="background-image: url('/assets/atlanta.jpg')">-->
+<!--				<div class="va-container">-->
+<!--					<div class="va-middle text-center">-->
+<!--						<h2><strong>Atlanta</strong></h2>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</a>-->
+<!--	</div>-->
 </div>
 
 <script>

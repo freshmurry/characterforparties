@@ -31,16 +31,20 @@
     <div class="description row-space-3">
       <%= @user.description %>
     </div>
-
-    <h4>Listings (<%= @barbershops.length %>)</h4><br/>
-
-    <div class="row">
-      <%= render partial: "barbershops/barbershops_list", locals: {barbershops: @barbershops} %>
+    
+    <!-- YOUR LISTNGS -->
+    <div class="panel panel-default">
+      <div class="panel-heading">Your Listings (<%= @barbershops.length %>)</div>
+      <div class="panel-body">
+        <%= render partial: "barbershops/barbershops_list", locals: {barbershops: @barbershops} %>
+      </div>
     </div>
-    <br>
-
-    <div class="row">
-      <%= render "reviews/client_list" %>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">Reviews (<%= @client_reviews.length %>)</div>
+      <div class="panel-body">
+        <%= render "reviews/client_list" %>
+      </div>
     </div>
 
   </div>
