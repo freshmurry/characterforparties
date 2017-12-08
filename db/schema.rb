@@ -73,11 +73,12 @@ ActiveRecord::Schema.define(version: 20171024222621) do
 
   create_table "photos", force: :cascade do |t|
     t.integer "barbershop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "image_updated_at"
     t.index ["barbershop_id"], name: "index_photos_on_barbershop_id"
   end
 
