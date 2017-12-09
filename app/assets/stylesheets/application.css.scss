@@ -10,7 +10,7 @@ body {
 }
 
 a {
-  color: #34495E;
+  color: #404d43;
 }
 
 .container {
@@ -18,7 +18,7 @@ a {
 }
 
 .text-babu, .icon-babu {
-  color: #34495E;
+  color: #404d43;
 }
 
 .text-blue, .icon-red {
@@ -31,7 +31,7 @@ a {
 }
 
 .navbar-default .navbar-brand {
-  color: #34495E;
+  color: #404d43;
   font-size: 2.5em;
   font-weight: bold; font-family: Ubuntu;
 }
@@ -81,8 +81,8 @@ a {
 }
 
 .btn.btn-form {
-  border: 1px solid #34495E;
-  background-color: #34495E;
+  border: 1px solid #404d43;
+  background-color: #404d43;
 }
 
 .btn.btn-form:active {
@@ -105,7 +105,7 @@ a {
 // PANELS
 .panel-default .panel-heading {
   color: #ffffff;
-  background-color: #2C3E50;
+  background-color: #404d43;
   font-size: 18px;
   font-weight: 400;
 }
@@ -161,11 +161,11 @@ a {
 
 .form-group input {
   height: 45px;
-  border: 1px solid #34495E;
+  border: 1px solid #404d43;
 }
 
 .form-group textarea {
-  border: 1px solid #34495E;
+  border: 1px solid #404d43;
 }
 
 .form-group input[type="radio"] {
@@ -181,7 +181,7 @@ a {
   width: 100%;
   color: #565a5c;
   background-color: white;
-  border: 1px solid #34495E;
+  border: 1px solid #404d43;
   border-radius: 2px;
   padding: 10px;
   appearance: none;
@@ -193,7 +193,7 @@ a {
   content: '\25bc';
   font-size: 1.2em;
   position: absolute;
-  color: #34495E;
+  color: #404d43;
   top: 35px;
   right: 30px;
   transform: scale(0.94, 0.62);
@@ -205,7 +205,7 @@ a {
   margin-bottom: -0.25em;
   margin-right: 5px;
   vertical-align: top;
-  border: 1px solid #34495E;
+  border: 1px solid #404d43;
   border-radius: 2px;
   appearance: none;
   -moz-appearance: none;
@@ -218,7 +218,7 @@ a {
   font-size: 0.95em;
   text-align: center;
   width: 1.25em;
-  color: #34495E;
+  color: #404d43;
 }
 
 // SIDEBAR
@@ -307,9 +307,9 @@ a {
 }
 
 .form-control.datepicker {
-  color: #34495E;
+  color: #404d43;
   background-color: white;
-  border: 1px solid #34495E;
+  border: 1px solid #404d43;
   text-align: center;
 }
 
@@ -343,7 +343,7 @@ a {
   text-align: center;
   font-size: 16px;
   font-weight: 600;
-  color: #34495E;
+  color: #404d43;
 }
 
 // HOME PAGE
@@ -384,7 +384,7 @@ a {
 }
 
 .fc-content {
-  background-color: #34495E;
+  background-color: #404d43;
   height: 40px;
   border-radius: 20px;
 }
@@ -459,13 +459,13 @@ a {
 
 .field:focus,
 .field.StripeElement--focus {
-  border-color: #34495E;
+  border-color: #404d43;
 }
 
 #add-card button {
   float: left;
   display: block;
-  background-image: linear-gradient(-180deg, #34495E 0%, #2C3E50 100%);
+  background-image: linear-gradient(-180deg, #404d43 0%, #404d43 100%);
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10), inset 0 -1px 0 0 #34495D;
   color: white;
   border-radius: 15px;
@@ -480,7 +480,7 @@ a {
 }
 
 #add-card button:focus {
-  background: #34495E;
+  background: #404d43;
 }
 
 #add-card button:active {

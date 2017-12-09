@@ -12,38 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20171024222621) do
 
-  create_table "barbershops", force: :cascade do |t|
-    t.string "location_type"
-    t.string "address"
-    t.string "stylist_type"
-    t.string "style_type"
-    t.string "listing_name"
-    t.text "summary"
-    t.boolean "is_accept_card"
-    t.boolean "is_accept_cash"
-    t.string "payment_type"
-    t.string "additional_service"
-    t.integer "price"
-    t.integer "tip"
-    t.boolean "active"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "instant", default: 1
-    t.string "service"
-    t.float "latitude"
-    t.float "longitude"
-    t.index ["user_id"], name: "index_barbershops_on_user_id"
-  end
-
   create_table "calendars", force: :cascade do |t|
     t.date "day"
     t.integer "price"
     t.integer "status"
-    t.integer "barbershop_id"
+    t.integer "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["barbershop_id"], name: "index_calendars_on_barbershop_id"
+    t.index ["venue_id"], name: "index_calendars_on_venue_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -72,44 +48,42 @@ ActiveRecord::Schema.define(version: 20171024222621) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer "barbershop_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "venue_id"
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.index ["barbershop_id"], name: "index_photos_on_barbershop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["venue_id"], name: "index_photos_on_venue_id"
   end
 
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "barbershop_id"
+    t.integer "venue_id"
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "price"
     t.integer "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status", default: 0
-    t.index ["barbershop_id"], name: "index_reservations_on_barbershop_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
+    t.index ["venue_id"], name: "index_reservations_on_venue_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
     t.integer "star", default: 1
-    t.integer "barbershop_id"
+    t.integer "venue_id"
     t.integer "reservation_id"
-    t.integer "barber_id"
-    t.integer "client_id"
+    t.integer "guest_id"
+    t.integer "host_id"
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["barber_id"], name: "index_reviews_on_barber_id"
-    t.index ["barbershop_id"], name: "index_reviews_on_barbershop_id"
-    t.index ["client_id"], name: "index_reviews_on_client_id"
+    t.index ["guest_id"], name: "index_reviews_on_guest_id"
+    t.index ["host_id"], name: "index_reviews_on_host_id"
     t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
+    t.index ["venue_id"], name: "index_reviews_on_venue_id"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -152,6 +126,35 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.string "location_type"
+    t.string "venue_type"
+    t.string "event_type"
+    t.integer "accommodate"
+    t.integer "rest_room"
+    t.string "listing_name"
+    t.text "summary"
+    t.string "address"
+    t.boolean "is_kitchen"
+    t.boolean "is_tables"
+    t.boolean "is_chairs"
+    t.boolean "is_microphone"
+    t.boolean "is_projector"
+    t.boolean "is_bar"
+    t.boolean "is_self_parking"
+    t.boolean "is_valet_parking"
+    t.boolean "is_garage_parking"
+    t.boolean "is_air"
+    t.boolean "is_heating"
+    t.boolean "is_wifi"
+    t.integer "price"
+    t.boolean "active"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_venues_on_user_id"
   end
 
 end

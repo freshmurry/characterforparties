@@ -1,0 +1,22 @@
+<% venues.each do |venue| %>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading preview">
+        <%= image_tag venue.cover_photo(:medium) %>
+      </div>
+      <div class="panel-body">
+        <%= image_tag avatar_url(venue.user), class: "img-circle avatar-small" %>
+        <%= link_to venue.listing_name, venue %><br/>
+        <div id="star_<%= venue.id %>"></div> <%= pluralize(venue.average_rating, "review") %>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $('#star_<%= venue.id %>').raty({
+      path: '/assets',
+      readOnly: true,
+      score: <%= venue.average_rating %>
+    });
+  </script>
+<% end %>

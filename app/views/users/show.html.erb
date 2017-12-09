@@ -34,16 +34,25 @@
     
     <!-- YOUR LISTNGS -->
     <div class="panel panel-default">
-      <div class="panel-heading">Your Listings (<%= @barbershops.length %>)</div>
+      <div class="panel-heading">Your Listings (<%= @venues.length %>)</div>
       <div class="panel-body">
-        <%= render partial: "barbershops/barbershops_list", locals: {barbershops: @barbershops} %>
+        <%= render partial: "venues/veues_list", locals: {venues: @venues} %>
       </div>
     </div>
     
-    <div class="panel panel-default">
-      <div class="panel-heading">Reviews (<%= @client_reviews.length %>)</div>
+    <!-- YOUR REVIEWS -->
+    <div class="panel panel-default">  
+      <div class="panel-heading">Reviews From Guests (<%= @guest_reviews.count %>)</div>
       <div class="panel-body">
-        <%= render "reviews/client_list" %>
+        <%= render "reviews/guest_list" %>
+      </div>
+    </div>  
+    <br/>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">Reviews from Host (<%= @host_reviews.count %>)</div>
+      <div class="panel-body">
+        <%= render "reviews/host_list" %>
       </div>
     </div>
 

@@ -35,9 +35,9 @@
 
     <!-- Your Listings -->
     <div class="panel panel-default">
-      <div class="panel-heading">Your Listings (<%= @barbershops.length %>)</div>
+      <div class="panel-heading">Your Listings (<%= @venues.length %>)</div>
       <div class="panel-body">
-        <%= render partial: "barbershops/barbershops_list", locals: {barbershops: @barbershops} %>
+        <%= render partial: "venues/venues_list", locals: {venues: @venues} %>
       </div>
     </div>
 

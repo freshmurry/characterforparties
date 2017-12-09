@@ -7,13 +7,13 @@ class CalendarsController < ApplicationController
     date_to = Date.parse(calendar_params[:end_date])
 
     (date_from..date_to).each do |date|
-      calendar = Calendar.where(barbershop_id: params[:barbershop_id], day: date)
+      calendar = Calendar.where(venue_id: params[:venue_id], day: date)
 
       if calendar.present?
         calendar.update_all(price: calendar_params[:price], status: calendar_params[:status])
       else
         Calendar.create(
-          barbershop_id: params[:barbershop_id],
+          venue_id: params[:venue_id],
           day: date,
           price: calendar_params[:price],
           status: calendar_params[:status]
@@ -21,36 +21,36 @@ class CalendarsController < ApplicationController
       end
     end
 
-    redirect_to barber_calendar_path
+    redirect_to host_calendar_path
   end
   
-  def barber
-    @barbershops = current_user.barbershops
+  def host
+    @venues = current_user.venues
 
     params[:start_date] ||= Date.current.to_s
-    params[:barbershop_id] ||= @barbershops[0] ? @barbershops[0].id : nil
+    params[:venue_id] ||= @venues[0] ? @venues[0].id : nil
 
     if params[:q].present?
       params[:start_date] = params[:q][:start_date]
-      params[:barbershop_id] = params[:q][:barbershop_id]
+      params[:venue_id] = params[:q][:venue_id]
     end
 
     @search = Reservation.ransack(params[:q])
 
-    if params[:barbershop_id]
-      @barbershop = Barbershop.find(params[:barbershop_id])
+    if params[:venue_id]
+      @venue = Venue.find(params[:venue_id])
       start_date = Date.parse(params[:start_date])
 
       first_of_month = (start_date - 1.months).beginning_of_month # => Jun 1
       end_of_month = (start_date + 1.months).end_of_month # => Aug 31
 
-      @events = @barbershop.reservations.joins(:user)
+      @events = @venue.reservations.joins(:user)
                       .select('reservations.*, users.fullname, users.image, users.email, users.uid')
                       .where('(start_date BETWEEN ? AND ?) AND status <> ?', first_of_month, end_of_month, 2)
       @events.each{ |e| e.image = avatar_url(e) }
-      @days = Calendar.where("barbershop_id = ? AND day BETWEEN ? AND ?", params[:barbershop_id], first_of_month, end_of_month)
+      @days = Calendar.where("venue_id = ? AND day BETWEEN ? AND ?", params[:venue_id], first_of_month, end_of_month)
     else
-      @barbershop = nil
+      @venue = nil
       @events = []
       @days = []
     end

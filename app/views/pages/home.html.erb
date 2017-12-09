@@ -1,21 +1,22 @@
 <div class="row">
   <div class="col-md-9 banner">
-    <h1><span class="text-blue">Book barbershop appointments</span> simple, easy, and eliminate unecessary waiting.</h1>
+    <h1><span class="text-blue">Book a venue for your next event 
+    <br/></span>simple and easy.</h1>
   </div>
 </div>
 
 <%= form_tag search_path, method: :get do %>
   <div class="row">
     <div class="col-md-6">
-      <%= text_field_tag :search, params[:search], placeholder: "Search for a Barber", class: "form-control", id: "autolocation" %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search for an Event Space", class: "form-control", id: "autolocation" %>
     </div>
     
     <div class="col-md-3">
-      <%= text_field_tag :start_date, params[:start_date], placeholder: "Appointment Date", class: "form-control datepicker" %>
+      <%= text_field_tag :start_date, params[:start_date], placeholder: "Event Date", class: "form-control datepicker" %>
     </div>
 
     <!--<div class="col-md-2">-->
-    <!--  <%= text_field_tag :end_date, params[:end_date], placeholder: "Time", class: "form-control datepicker" %>-->
+    <!--  <%= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-control datepicker" %>-->
     <!--</div>-->
 
     <div class="col-md-3">
@@ -27,25 +28,25 @@
 
 <br><hr><br>
 
-<!-- BARBERS -->
-<div><h3>Super Talented Barbers</h3></div>
+<!-- VENUES -->
+<div><h3>Event Spaces</h3></div>
 <br/>
 
 <div class="row">
-  <%= render partial: "barbershops/barbershops_list", locals: {barbershops: @barbershops} %>
+  <%= render partial: "venues/venues_list", locals: {venues: @venues} %>
 </div>
 
 
 <!-- CITIES -->
-<div><h3>Talented Barbers in other Cities</h3></div>
+<div><h3>Great Event Spaces in other Cities</h3></div>
 <!--<br/>-->
 
 <div class="row">
   <div class="col-md-4 col-sm-12">
     <h4>COMING SOON!</h4>
-      <p>While we are super anxious to enter your city, Uppercutzz is focusing on growing the Chicago market before expanding our horizions.</p>
+      <p>While we are super anxious to enter your city, Shindig Space is focusing on growing the Chicago market before expanding our horizions.</p>
       <p>We hope to see you soon!</p>
-<!--		<a href="http://uppercutzz.com/search?utf8=✓&search=chicago">-->
+<!--		<a href="http://shindigspace.com/search?utf8=✓&search=chicago">-->
 <!--			<div class="discovery-card" style="background-image: url('/assets/chicago.jpg')">-->
 <!--				<div class="va-container">-->
 <!--					<div class="va-middle text-center">-->
@@ -57,7 +58,7 @@
 	</div>
 
 <!--	<div class="col-md-4 col-sm-6">-->
-<!--		<a href="http://uppercutzz.com/search?utf8=✓&search=los+angeles">-->
+<!--		<a href="http://shindigspace.com/search?utf8=✓&search=los+angeles">-->
 <!--			<div class="discovery-card" style="background-image: url('/assets/la.jpg')">-->
 <!--				<div class="va-container">-->
 <!--					<div class="va-middle text-center">-->
@@ -69,7 +70,7 @@
 <!--	</div>-->
 
 <!--	<div class="col-md-4 col-sm-6">-->
-<!--		<a href="http://uppercutzz.com/search?utf8=✓&search=atlanta">-->
+<!--		<a href="http://shindigspace.com/search?utf8=✓&search=atlanta">-->
 <!--			<div class="discovery-card" style="background-image: url('/assets/atlanta.jpg')">-->
 <!--				<div class="va-container">-->
 <!--					<div class="va-middle text-center">-->
@@ -85,7 +86,7 @@
   $('#start_date').datepicker({
     dateFormat: 'mm/dd/yy',
     minDate: 0, 
-    maxDate: '2m',
+    maxDate: '6m',
     onSelect: function(selected) {
       $('#end_date').datepicker("option", "minDate", selected);
       $('#end_date').attr("disabled", false);
@@ -95,7 +96,7 @@
   $('#end_date').datepicker({
     dateFormat: 'mm/dd/yy',
     minDate: 0, 
-    maxDate: '2m',
+    maxDate: '6m',
     onSelect: function(selected) {
       $('#start_date').datepicker("option", "maxDate", selected);
     }
@@ -107,6 +108,5 @@
 </script>
 </br>
 <footer>
-	 <p class="copyright ng-binding">© 2017 Uppercutzz, Inc. All rights reserved.</p>
+	 <p class="copyright ng-binding">© 2017 Shindig Space, Inc. All rights reserved.</p>
 </footer>
-

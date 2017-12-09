@@ -1,4 +1,4 @@
-Rails.application.routes.draw do		  Rails.application.routes.draw do
+Rails.application.routes.draw do
    root "pages#home"		 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  		
    devise_for :users,		
@@ -13,14 +13,13 @@ Rails.application.routes.draw do		  Rails.application.routes.draw do
      end		
    end		
    		
-   resources :barbershops, except: [:edit] do		
+   resources :venues, except: [:edit] do		
      member do		
        get 'listing'		
        get 'pricing'		
        get 'description'		
        get 'photo_upload'		
-       get 'extras'		
-       get 'service'		
+       get 'amenities'		
        get 'location'		
        get 'preload'		
        get 'preview'		
@@ -31,10 +30,10 @@ Rails.application.routes.draw do		  Rails.application.routes.draw do
      resources :calendars		
    end		
      		
-   resources :barber_reviews, only: [:create, :destroy]		
-   resources :client_reviews, only: [:create, :destroy]		
+   resources :guest_reviews, only: [:create, :destroy]		
+   resources :host_reviews, only: [:create, :destroy]		
   		
-   get '/your_appointments' => 'reservations#your_appointments'		
+   get '/your_events' => 'reservations#your_events'		
    get '/your_reservations' => 'reservations#your_reservations'		
    		
    get 'search' => 'pages#search'		
@@ -55,7 +54,7 @@ Rails.application.routes.draw do		  Rails.application.routes.draw do
      resources :messages, only: [:index, :create]		
    end		
  		
-   get '/barber_calendar' => "calendars#barber"		
+   get '/host_calendar' => "calendars#host"	
    get '/payment_method' => "users#payment"		
    get '/payout_method' => "users#payout"		
    post '/add_card' => "users#add_card"		
@@ -63,8 +62,7 @@ Rails.application.routes.draw do		  Rails.application.routes.draw do
    get '/notification_settings' => 'settings#edit'		
    post '/notification_settings' => 'settings#update'		
  		
-   get '/notifications' => 'notifications#index'		
- 		
-  mount ActionCable.server => '/cable'
-end
+   get '/notifications' => 'notifications#index'
+
+   mount ActionCable.server => '/cable'
 end

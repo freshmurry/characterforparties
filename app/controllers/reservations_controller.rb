@@ -3,9 +3,9 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:approve, :decline]
 
   def create
-    barbershop = Barbershop.find(params[:barbershop_id])
+    venue = Venue.find(params[:venue_id])
 
-    if current_user == barbershop.user
+    if current_user == venue.user
       flash[:alert] = "You cannot book your own service!"
     elsif current_user.stripe_id.blank?
        flash[:alert] = "Please update your payment method!"
@@ -15,46 +15,46 @@ class ReservationsController < ApplicationController
       end_date = Date.parse(reservation_params[:end_date])
       days = (end_date - start_date).to_i + 1
 
-      special_dates = barbershop.calendars.where(
+      special_dates = venue.calendars.where(
         "status = ? AND day BETWEEN ? AND ? AND price <> ?",
-        0, start_date, end_date, barbershop.price
+        0, start_date, end_date, venue.price
       )
       
       @reservation = current_user.reservations.build(reservation_params)
-      @reservation.barbershop = barbershop
-      @reservation.price = barbershop.price
-      # @reservation.total = barbershop.price * days
+      @reservation.venue = venue
+      @reservation.price = venue.price
+      # @reservation.total = venue.price * days
       # @reservation.save
       
-      @reservation.total = barbershop.price * (days - special_dates.count)
+      @reservation.total = venue.price * (days - special_dates.count)
       special_dates.each do |date|
           @reservation.total += date.price
       end
       
       if @reservation.Waiting!
-        if barbershop.Request?
+        if venue.Request?
           flash[:notice] = "Request sent successfully"
         else
-          charge(barbershop, @reservation)
+          charge(venue, @reservation)
         end
       else
         flash[:alert] = "Cannot book an appointment"
       end
       
     end
-    redirect_to barbershop
+    redirect_to venue
   end
 
-  def your_appointments
-    @appointments = current_user.reservations.order(start_date: :asc)
+  def your_events
+    @events = current_user.reservations.order(start_date: :asc)
   end
 
   def your_reservations
-    @barbershops = current_user.barbershops
+    @venues = current_user.venues
   end
   
   def approve
-    charge(@reservation.barbershop, @reservation)
+    charge(@reservation.venue, @reservation)
     redirect_to your_reservations_path
   end
 
@@ -65,33 +65,33 @@ class ReservationsController < ApplicationController
 
   private
   
-  def send_sms(barbershop, reservation)
-    @client = Twilio::REST::Client.new
-    @client.messages.create(
+  def send_sms(venue, reservation)
+    @host = Twilio::REST::Client.new
+    @host.messages.create(
       from: '+3125488878',
-      to: barbershop.user.phone_number,
-      body: "#{reservation.user.fullname} booked a '#{barbershop.style_type}'"
+      to: venue.user.phone_number,
+      body: "#{reservation.user.fullname} booked a '#{venue.style_type}'"
     )
   end  
   
-    def charge(barbershop, reservation)
+    def charge(venue, reservation)
       if !reservation.user.stripe_id.blank?
         customer = Stripe::Customer.retrieve(reservation.user.stripe_id)
         charge = Stripe::Charge.create(
           :customer => customer.id,
           :amount => reservation.total * 100,
-          :description => barbershop.listing_name,
+          :description => venue.listing_name,
           :currency => "usd", 
           :destination => {
             :amount => reservation.total * 88, # 88% of the total amount goes to the Barber
-            :account => barbershop.user.merchant_id # Barber's Stripe customer ID
+            :account => venue.user.merchant_id # Barber's Stripe customer ID
           }
         )
   
         if charge
           reservation.Approve!
-          ReservationMailer.send_email_to_client(reservation.user, barbershop).deliver_later if reservation.user.setting.enable_email
-          send_sms(barbershop, reservation) if barbershop.user.setting.enable_sms
+          ReservationMailer.send_email_to_client(reservation.user, venue).deliver_later if reservation.user.setting.enable_email
+          send_sms(venue, reservation) if venue.user.setting.enable_sms
           flash[:notice] = "Reservation created successfully!"
         else
           reservation.Declined!

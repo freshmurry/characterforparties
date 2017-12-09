@@ -13,92 +13,150 @@
       <br/>
       <div class="collapse" id="collapsePanel">
 
-          <%= search_form_for @search, url: search_path, remote: true do |f| %>
+        <%= search_form_for @search, url: search_path, remote: true do |f| %>
 
-              <div class="row">
-                <div class="col-md-8">
-                  <label>Price range:</label>
-                  <div id="slider-range"></div>
-                </div>
-                <div class="col-md-2">
-                  <label>Min Price:</label>
-                  <%= f.text_field :price_gteq, class: "form-control" %>
-                </div>
-                <div class="col-md-2">
-                  <label>Max Price:</label>
-                  <%= f.text_field :price_lteq, class: "form-control" %>
-                </div>
-              </div>
-              <hr/>
+          <div class="row">
+            <div class="col-md-8">
+              <label>Price range:</label>
+              <div id="slider-range"></div>
+            </div>
+            <div class="col-md-2">
+              <label>Min Price:</label>
+              <%= f.text_field :price_gteq, class: "form-control" %>
+            </div>
+            <div class="col-md-2">
+              <label>Max Price:</label>
+              <%= f.text_field :price_lteq, class: "form-control" %>
+            </div>
+          </div>
+          <hr/>
 
-              <div class="row">
-                <div class="col-md-6">
-                  <%= text_field_tag :start_date, params[:start_date], readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
-                </div>
-                <div class="col-md-6">
-                  <%= text_field_tag :end_date, params[:end_date], readonly: true, placeholder: "End Date", class: "form-control datetimepicker" %>
-                </div>
-              </div>
-              <hr/>
+          <div class="row">
+            <div class="col-md-6">
+              <%= text_field_tag :start_date, params[:start_date], readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
+            </div>
+            <div class="col-md-6">
+              <%= text_field_tag :end_date, params[:end_date], readonly: true, placeholder: "End Date", class: "form-control datetimepicker" %>
+            </div>
+          </div>
+          <hr/>
 
-              <div class="row">
-                <div class="col-md-4">
-                  <label>Style Type</label></br>
-                  <%= check_box_tag "q[style_type_eq_any][]", "Even All Around" %> Even All Around
+          <div class="row">
+            <div class="panel panel-default">
+              <div class="panel-heading">Event</div>
+                <div class="panel-body">
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[event_type_eq_any][]", "Business Meeting" %> Business Meeting
                   </div>
-                <div class="col-md-4"></br>
-                  <%= check_box_tag "q[style_type_eq_any][]", "Mohawk" %> Mohawk
-                </div>
-                <div class="col-md-4"></br>
-                  <%= check_box_tag "q[style_type_eq_any][]", "Box Shape Up" %> Box Shape Up
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[event_type_eq_any][]", "Baby Shower" %> Baby Shower
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[event_type_eq_any][]", "Bridal Shower" %> Bridal Shower
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[event_type_eq_any][]", "Bridal Party Dinner" %> Bridal Party Dinner
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[event_type_eq_any][]", "Repast" %> Repast
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[event_type_eq_any][]", "Birthday Party" %> Birthday Party
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[event_type_eq_any][]", "Rehearsal" %> Rehersal
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[event_type_eq_any][]", "Filming/Photography" %> Filming/Photography
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[event_type_eq_any][]", "Other" %> Other
+                  </div>
                 </div>
               </div>
-              <hr/>
+            </div>
+          <hr/>
               
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group select">
-                    <label>Stylist Type</label>
-                    <%= f.select :stylist_type_gteq, [["Barber", "Barber"]], id: "stylist_type", prompt: "Select...", class: "form-control" %>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group select">
+              <label>Accommodate</label>
+                <%= f.select :accommodate_gteq, [["10-50", 10-50], ["50-100", 50-100], ["100-150", 100-150], ["100-150", 100-150], ["150-200", 150-200], ["200+", 200]], id: "accommodate", prompt: "Select...", class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group select">
+                <label>Venue Type</label>
+                <%= f.select :venue_type_gteq, [["Church", "Church"], ["Park District", "Park District"], ["Town Hall", "Town Hall"], ["Golf Club", "Golf CLub"], ["Parking Lot", "Parking Lot"], 
+                ["Back Yard", "Back Yard"], ["Warehouse", "Warehouse"], ["Art Gallery", "Art Gallery"], ["Boutique/Clothing Store", "Boutique/Clothing Store"]], id: "venue_type", prompt: "Select...", class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group select">
+                <label>Rest Rooms</label>
+                <%= f.select :rest_room_gteq, [["1", "1"], ["2", "2"], ["3", "3"], ["4+", "4"]], id: "rest_room", prompt: "Select...", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <hr/>
+
+          <div class="row">
+            <div class="panel panel-default">
+              <div class="panel-heading">Amenities</div>
+                <div class="panel-body">
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_table_eq_any]", "true" %> Kitchen
                   </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group select">
-                    <label>Barber Services</label>
-                    <%= f.select :style_type_gteq, [["Haircut", "Haircut"], ["Lining", "Lining"], ["Shave", "Shave"]],
-                            id: "style_type", prompt: "Select...", class: "form-control" %>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_tables_eq_any]", "true" %> Tables
                   </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group select">
-                    <label>Additional Services</label>
-                    <%= f.select :additional_service_gteq, [["Razor Lining", "Razor Lining"], ["Tapper", "Tapper"], ["Wash & Dry", "Wash & Dry"], 
-                    ["Hot Towl Treatment", "Hot Towl Treatment"], ["Part", "Part"], ["None", "None"]], id: "additional_service", prompt: "Select...", class: "form-control" %>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_chairs_eq_any]", "true" %> Chairs
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_microphone_eq_any]", "true" %> Microphone
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_projector_eq_any]", "true" %> Projector
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_bar_eq_any]", "true" %> Bar
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_self_parking_eq_any]", "true" %> Self-Parking
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_valet_parking_parking_eq_any]", "true" %> Valet Parking
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_garage_parking_eq_any]", "true" %> Garage Parking
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_air_eq_any]", "true" %> Air Conditioning
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_heating_eq_any]", "true" %> Heating
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_wifi_eq_any]", "true" %> Wifi
                   </div>
                 </div>
               </div>
-              <hr/>
+            </div>
 
-              <div class="row">
-                <div class="col-md-4">
-                  <label>Payment Type</label></br>
-                    <%= check_box_tag "q[is_accept_card_eq_any][]", "Card" %> Card
-                </div>
+          <hr/>
 
-              </div>
-              <hr/>
-
-              <div class="row text-center">
-                <%= f.submit "Search", class: "btn btn-form" %>
-              </div>
-          <% end %>
+          <div class="row text-center">
+            <%= f.submit "Search", class: "btn btn-form" %>
+          </div>
+        <% end %>
       </div>
+      
       <br/>
 
-      <div class="row" id="barbershop_listing">
-        <%= render partial: "barbershops/barbershops_list", locals: {barbershops: @arrBarbershops} %>
+      <div class="row" id="venue_listing">
+        <%= render partial: "venues/venues_list", locals: {venues: @arrVenues} %>
       </div>
-
     </div>
   </div>
 
@@ -110,11 +168,11 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwN_tpAAKnHhy14HzNqK-XeuarVJhNHg8"></script>
     
     <script>
-      function initialize(barbershops) {
+      function initialize(venues) {
         var location = {lat: 41.881832, lng: -87.623177}
         
-        if (barbershops.length > 0) {
-          location = {lat: barbershops[0].latitude, lng: barbershops[0].longitude}
+        if (venues.length > 0) {
+          location = {lat: venues[0].latitude, lng: venues[0].longitude}
         }
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -124,14 +182,14 @@
 
         var marker, inforwindow;
 
-        barbershops.forEach(function(barbershop) {
+        venues.forEach(function(venue) {
           marker = new google.maps.Marker({
-            position: {lat: barbershop.latitude, lng: barbershop.longitude},
+            position: {lat: venue.latitude, lng: venue.longitude},
             map: map
           });
 
           inforwindow = new google.maps.InfoWindow({
-            content: "<div class='map_price'>$" + barbershop.price + "</div>"
+            content: "<div class='map_price'>$" + venue.price + "</div>"
           });
 
           inforwindow.open(map, marker);
@@ -139,7 +197,7 @@
       }
 
       google.maps.event.addDomListener(window, 'load', function() {
-        initialize(<%= raw @arrBarbershops.to_json %>)
+        initialize(<%= raw @arrVenues.to_json %>)
       });
     </script>
   </div>
@@ -150,7 +208,7 @@
   $('#start_date').datepicker({
     dateFormat: 'mm-dd-yyyy',
     minDate: 0,
-    maxDate: '2m',
+    maxDate: '6m',
     onSelect: function(selected) {
       $('#end_date').datepicker("option", "minDate", selected);
       $('#end_date').attr("disabled", false);
@@ -160,7 +218,7 @@
   $('#end_date').datepicker({
     dateFormat: 'mm-dd-yyyy',
     minDate: 0, 
-    maxDate: '2m',
+    maxDate: '6m',
     onSelect: function(selected) {
       $('#start_date').datepicker("option", "maxDate", selected);
     }
@@ -185,22 +243,22 @@
 
 <script>
   $(function() {
-    $("#q_price_gteq").val('5');
-    $("#q_price_lteq").val('100');
+    $("#q_price_gteq").val('8');
+    $("#q_price_lteq").val('150');
 
     $("#slider-range").slider({
       range: true,
-      min: 5,
+      min: 8,
       max: 150,
-      values: [5, 100],
+      values: [8, 150],
       slide: function(event, ui) {
         $("#q_price_gteq").val(ui.values[0]);
         $("#q_price_lteq").val(ui.values[1]);
       }
     });
 
-    $(".ui-widget-header").css('background', '#2C3E50');
+    $(".ui-widget-header").css('background', '#404d43');
     $(".ui-state-default, .ui-widget-content").css('background', 'white');
-    $(".ui-state-default, .ui-widget-content").css('border-color', '#2C3E50');
+    $(".ui-state-default, .ui-widget-content").css('border-color', '#404d43');
   })
 </script>

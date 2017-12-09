@@ -1,7 +1,7 @@
 class ReservationMailer < ApplicationMailer
-  def send_email_to_client(client, barbershop)
-    @recipient = client
-    @barbershop = barbershop
-    mail(to: @recipient.email, subject: "Enjoy Your New Barbershop Experience! 💈")
+  def send_email_to_client(host, venue)
+    @recipient = host
+    @venue = venue
+    mail(to: @recipient.email, subject: "We hope that you enjoy your event!💯")
   end
 end

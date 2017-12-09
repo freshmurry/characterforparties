@@ -1,10 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <span><% if @barbershop.Instant? %><i class="fa fa-bolt" style="color: #ffb400"></i> <% end %> $<%= @barbershop.price %></span>
-    <span class="pull-right">Fresh</span>
+    <span><% if @venue.Instant? %><i class="fa fa-bolt" style="color: #ffb400"></i> <% end %> $<%= @venue.price %></span>
+    <span class="pull-right">/Day</span>
   </div>
   <div class="panel-body">
-    <%= form_for([@barbershop, @barbershop.reservations.new]) do |f| %>
+    <%= form_for([@venue, @venue.reservations.new]) do |f| %>
       <div class="row">
         <div class="col-md-6">
           <label>Check-In</label>
@@ -22,7 +22,7 @@
           <tbody>
             <tr>
               <td>Price</td>
-              <td class="text-right">$<%= @barbershop.price %></td>
+              <td class="text-right">$<%= @venue.price %></td>
             </tr>
             <!--<tr>-->
             <!--  <td>Fee(s)</td>-->
@@ -44,7 +44,7 @@
 
       <br/>
       
-      <% if @barbershop.Instant? %>
+      <% if @venue.Instant? %>
         <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>        
       <% else %>
         <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
@@ -70,7 +70,7 @@
 
       var start_date = $('#reservation_start_date').datepicker('getDate');
       var end_date = $('#reservation_end_date').datepicker('getDate');
-      var nights = (end_date - start_date)/1000/60/60/24 + 1
+      var days = (end_date - start_date)/1000/60/60/24 + 1
 
       var input = {
         'start_date': start_date,
@@ -78,7 +78,7 @@
       }
 
       $.ajax({
-        url: '<%= preview_barbershop_path(@barbershop) %>',
+        url: '<%= preview_venue_path(@venue) %>',
         data: input,
         success: function (data) {
 
@@ -108,7 +108,7 @@
                 return selectedDates.indexOf(d) !== -1;
             });
             
-            var total = (nights - selectedSpecialDate.length) * <%= @barbershop.price %>;
+            var total = (days - selectedSpecialDate.length) * <%= @venue.price %>;
             if (selectedSpecialDate.length > 0) {
               $('#special_details').show();
 
@@ -122,7 +122,7 @@
 
             //----------- END NEW UPDATE
 
-            $('#reservation_nights').text(nights);
+            $('#reservation_days').text(days);
             $('#reservation_total').text(total);
           }
         }
@@ -130,7 +130,7 @@
     }
 
     $.ajax({
-      url: '<%= preload_barbershop_path(@barbershop) %>',
+      url: '<%= preload_venue_path(@venue) %>',
       dateTyp: 'json',
       success: function(data) {
 

@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'venue_menu' %>
+  </div>
+    
+    <div class="col-md-6">
+      <div class="panel panel-default">
+  
+        <div class="panel-heading">
+          Amenities
+        </div>
+  
+          <div class="panel-body">
+            <div class="container">
+              <%= form_for @venue do |f| %>
+    
+              <div class="row form-group">
+                <div class="col-md-4">
+                  <%= f.check_box :is_table %> Tables
+                </div>
+                <div class="col-md-4">
+                  <%= f.check_box :is_kitchen %> Kitchen
+                </div>
+                <div class="col-md-4">
+                  <%= f.check_box :is_chairs %> Chairs
+                </div>
+              </div>
+              
+            <div class="row form-group">
+              <div class="col-md-4">
+                <%= f.check_box :is_microphone %> Microphone
+              </div>
+              <div class="col-md-4">
+                <%= f.check_box :is_projector %> Projector
+              </div>
+              <div class="col-md-4">
+                <%= f.check_box :is_bar %> Bar
+              </div>
+            </div>
+            
+            <div class="row form-group">
+              <div class="col-md-4">
+                <%= f.check_box :is_self_parking %> Self-Parking
+              </div>
+              <div class="col-md-4">
+                <%= f.check_box :is_valet_parking %> Valet Parking
+              </div>
+              <div class="col-md-4">
+                <%= f.check_box :is_garage_parking %> Garage Parking
+              </div>
+            </div>
+            
+            <div class="row form-group">
+              <div class="col-md-4">
+                <%= f.check_box :is_air %> Air Conditioning
+              </div>
+              <div class="col-md-4">
+                <%= f.check_box :is_heating %> Heating
+              </div>
+              <div class="col-md-4">
+                <%= f.check_box :is_wifi %> Wifi
+              </div>
+            </div>
+            
+            <br/><br/>
+
+          <div class="text-center">
+            <%= f.submit "Save", class: "btn btn-form" %>
+          </div>
+
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

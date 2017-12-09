@@ -2,6 +2,6 @@ class DashboardsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @barbershops = current_user.barbershops
+    @venues = current_user.venues
   end
 end

@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @barbershops = @user.barbershops
+    @venues = @user.venues
 
-    # Display all the barber reviews to barber (if this user is a client)
-    @stylist_reviews = Review.where(type: "BarberReview", barber_id: @user.id)
+    # Display all the guest reviews to guest (if this user is a host)
+    @guest_reviews = Review.where(type: "GuestReview", guest_id: @user.id)
 
-    # Display all the client reviews to client (if this user is a barber)
-    @client_reviews = Review.where(type: "ClientReview", client_id: @user.id)
+    # Display all the host reviews to host (if this user is a guest)
+    @host_reviews = Review.where(type: "HostReview", host_id: @user.id)
   end
 
   def update_phone_number

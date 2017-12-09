@@ -9,10 +9,10 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  # Show full error reports.
-  config.consider_all_requests_local = true
-
-  # Enable/disable caching. By default caching is disabled.
+  # Show full error reports and disable caching.
+  config.consider_all_requests_local       = true
+  
+   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
 
@@ -27,12 +27,15 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.perform_caching = false
-
+  config.action_mailer.raise_delivery_errors = true
+  
+  config.action_controller.perform_caching = false
+  
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+  
+  # Send emails using letteropener in dev mode to open emails in a browser
+  config.action_mailer.delivery_method = :letter_opener
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
@@ -42,13 +45,62 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  # Suppress logger output for asset requests.
-  config.assets.quiet = true
+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+  # yet still be able to expire them through the digest params.
+  config.assets.digest = true
 
+  # Adds additional error checking when serving assets at runtime.
+  # Checks for improperly declared sprockets dependencies.
+  # Raises helpful error messages.
+  config.assets.raise_runtime_errors = true
+
+  config.assets.quiet = true
+  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  # Use an evented file watcher to asynchronously detect changes in source code,
-  # routes, locales, etc. This feature depends on the listen gem.
-  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.action_cable.url = "ws://localhost:3000/cable"
+  
+  #Required for Heroku
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  #Mailgun Integration
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mailgun.org',
+    port: 2525,
+    domain: 'sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
+    authentication: 'plain',
+    user_name: 'postmaster@sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
+    password: '20e436f9190a67c9fbb9b852ab52cae8'
+  }
+  
+  # Gmail Integration
+  
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.gmail.com',
+  #   port: '2525',
+  #   enable_starttls_auto: true,
+  #   authentication: 'plain',
+  #   user_name: 'lawrencemurry15@gmail.com',
+  #   password: 'ltmurrn6'
+  # }
+  
+  # config.active_record.raise_in_transactional_callbacks = true
+  
+  # config.paperclip_defaults = {
+  #   storage: :s3,
+  #   path: ':class/:attachment/:id/:style/:filename',
+  #   s3_host_name: 's3-ap-us-east-2.amazonaws.com',
+  #   s3_credentials: {
+  #     bucket: 'YOUR_S3_BUCKET_NAME',
+  #     access_key_id: 'YOUR_S3_ACCESS_KEY',
+  #     secret_access_key: 'YOUR_S3_SECRET_ACCESS_KEY',
+  #     s3_region: 'ap-us-east-2'
+  #   }
+  # }
 end
