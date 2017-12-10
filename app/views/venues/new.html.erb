@@ -8,14 +8,22 @@
       <%= form_for @venue, html: {multipart: true} do |f| %>
 
         <div class="row">
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Event Type</label>
+              <%= f.select :event_type, [["Public Event Space", "Public Event Space"], ["Private Event Space", "Private Event Space"]], 
+              id: "event_type", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
           
           <div class="col-md-4 select">
             <div class="form-group">
-              <label>Location Type</label>
-              <%= f.select :location_type, [["Church", "Church"], ["Park District", "Park District"], ["Town Hall", "Town Hall"],
+              <label>Venue Type</label>
+              <%= f.select :venue_type, [["Church", "Church"], ["Park District", "Park District"], ["Town Hall", "Town Hall"],
                 ["Parking Lot", "Parking Lot"], ["Back Yard", "Back Yard"], ["Vine Yard", "Vine Yard"], ["Golf Course", "Gold Course"], 
                 ["Warehouse", "Warehouse"], ["Art Gallery", "Art Gallery"], ["Boutique/Clothing Store", "Boutique/Clothing Store"]],
-                id: "location_type", prompt: "Select...", class: "form-control" %>
+                id: "venue_type", prompt: "Select...", class: "form-control" %>
             </div>
           </div>
           
@@ -30,15 +38,6 @@
             <div class="form-group">
               <label>Booking Type</label>
               <%= f.select :instant, Venue.instants.map {|key,value| [key.humanize, key]}, selected: 'Instant', prompt: "Select...", class: "form-control" %>
-            </div>
-          </div>
-          
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <label>Event Type</label>
-              <%= f.select :event_type, [["Meeting", "Meeting"], ["Baby Shower", "Baby Shower"], ["Bridal Shower", "Bridal Shower"],
-              ["Bridal Party Dinner", "Bridal Party Dinner"], ["Repast", "Repast"], ["Birthday Party", "Birthday Party"]], 
-              id: "event_type", prompt: "Select...", class: "form-control" %>
             </div>
           </div>
           
