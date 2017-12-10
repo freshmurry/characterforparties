@@ -19,7 +19,7 @@ class GuestReviewsController < ApplicationController
 
       if @has_reviewed.nil?
           # Allow to review
-          @barber_review = current_user.guest_reviews.create(guest_review_params)
+          @guest_review = current_user.guest_reviews.create(guest_review_params)
           flash[:success] = "Review created..."
       else
           # Already reviewed
