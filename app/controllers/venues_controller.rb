@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   before_action :set_venue, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
-  before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :address, :update]
+  before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :amenities, :address, :update]
 
   def index
     @venues = current_user.venues
@@ -12,13 +12,13 @@ class VenuesController < ApplicationController
   end
 
   def create
-    if current_user.is_active_guest
+    if current_user.is_active_host
       return redirect_to payout_method_path, alert: "Please Connect to Stripe Express first."
     end
       
     @venue = current_user.venues.build(venue_params)
     if @venue.save
-      redirect_to listing_barbershop_path(@venue), notice: "Saved..."
+      redirect_to listing_venue_path(@venue), notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
       render :new
@@ -108,7 +108,7 @@ class VenuesController < ApplicationController
     end
 
     def venue_params
-      params.require(:venue).permit(:location_type, :address, :venue_type, :event_type, :listing_name, :summary, :is_kitchen, 
+      params.require(:venue).permit(:venue_type, :event_type, :address, :listing_name, :summary, :is_kitchen, 
       :is_tables, :is_chairs, is_microphone, :is_projector, :is_bar, :is_self_parking, :is_valet_parking, :is_garage_parking, 
       :is_air, :is_heating, :is_wifi, :amenities, :price, :active, :instant)
     end

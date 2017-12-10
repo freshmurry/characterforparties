@@ -40,7 +40,7 @@ class GuestReviewsController < ApplicationController
   end
 
   private
-    def barber_review_params
+    def guest_review_params
       params.require(:guest_review).permit(:comment, :star, :venue_id, :reservation_id, :host_id)
     end
 end
