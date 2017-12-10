@@ -36,17 +36,14 @@
     <div class="panel panel-default">
       <div class="panel-heading">Your Listings (<%= @venues.length %>)</div>
       <div class="panel-body">
-        <%= render partial: "venues/veues_list", locals: {venues: @venues} %>
+        <%= render partial: "venues/venues_list", locals: {venues: @venues} %>
       </div>
     </div>
     
     <!-- YOUR REVIEWS -->
-    <div class="panel panel-default">  
-      <div class="panel-heading">Reviews From Guests (<%= @guest_reviews.count %>)</div>
-      <div class="panel-body">
-        <%= render "reviews/guest_list" %>
-      </div>
-    </div>  
+    <div class="row">
+      <%= render partial: "reviews/guest_list" %>
+    </div>
     <br/>
     
     <div class="panel panel-default">

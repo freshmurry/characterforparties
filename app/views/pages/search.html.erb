@@ -43,7 +43,7 @@
 
           <div class="row">
             <div class="panel panel-default">
-              <div class="panel-heading">Event</div>
+              <div class="panel-heading">Event Type</div>
                 <div class="panel-body">
                   <div class="col-md-4">
                     <%= check_box_tag "q[event_type_eq_any][]", "Business Meeting" %> Business Meeting
@@ -206,9 +206,9 @@
 
 <script>
   $('#start_date').datepicker({
-    dateFormat: 'mm-dd-yyyy',
+    dateFormat: 'mm/dd/yy',
     minDate: 0,
-    maxDate: '6m',
+    maxDate: '3m',
     onSelect: function(selected) {
       $('#end_date').datepicker("option", "minDate", selected);
       $('#end_date').attr("disabled", false);
@@ -216,9 +216,9 @@
   });
 
   $('#end_date').datepicker({
-    dateFormat: 'mm-dd-yyyy',
+    dateFormat: 'mm/dd/yy',
     minDate: 0, 
-    maxDate: '6m',
+    maxDate: '3m',
     onSelect: function(selected) {
       $('#start_date').datepicker("option", "maxDate", selected);
     }
@@ -243,22 +243,22 @@
 
 <script>
   $(function() {
-    $("#q_price_gteq").val('8');
-    $("#q_price_lteq").val('150');
+    $("#q_price_gteq").val('10');
+    $("#q_price_lteq").val('5000');
 
     $("#slider-range").slider({
       range: true,
-      min: 8,
-      max: 150,
-      values: [8, 150],
+      min: 10,
+      max: 5000,
+      values: [10, 5000],
       slide: function(event, ui) {
         $("#q_price_gteq").val(ui.values[0]);
         $("#q_price_lteq").val(ui.values[1]);
       }
     });
 
-    $(".ui-widget-header").css('background', '#404d43');
+    $(".ui-widget-header").css('background', '#3B685E');
     $(".ui-state-default, .ui-widget-content").css('background', 'white');
-    $(".ui-state-default, .ui-widget-content").css('border-color', '#404d43');
+    $(".ui-state-default, .ui-widget-content").css('border-color', '#3B685E');
   })
 </script>
