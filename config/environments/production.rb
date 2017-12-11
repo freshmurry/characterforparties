@@ -80,7 +80,7 @@ Rails.application.configure do
 
   #Required for Heroku
   #Note to set this to your actual host
-  config.action_mailer.default_url_options = { :host => 'http://shindigspace-freshmurry.c9users.io:8080/' }
+  config.action_mailer.default_url_options = { :host => 'http://shindigspace.herokuapp.com/' }
   
   config.paperclip_defaults = {
     :storage => :s3,
