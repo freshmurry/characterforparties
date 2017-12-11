@@ -12,7 +12,7 @@ class VenuesController < ApplicationController
   end
 
   def create
-    if current_user.is_active_host
+    if !current_user.is_active_host
       return redirect_to payout_method_path, alert: "Please Connect to Stripe Express first."
     end
       
@@ -27,7 +27,8 @@ class VenuesController < ApplicationController
   
   def show
     @photos = @venue.photos
-    @guest_reviews = Review.where(type: "GuestReview")
+    @guest_reviews = @venue.guest_reviews
+    # @guest_reviews = Review.where(type: "GuestReview")
   end
   
   def listing
@@ -46,7 +47,7 @@ class VenuesController < ApplicationController
   def amenities
   end
 
-  def location
+  def address
   end
 
   def update
@@ -108,8 +109,8 @@ class VenuesController < ApplicationController
     end
 
     def venue_params
-      params.require(:venue).permit(:venue_type, :event_type, :address, :listing_name, :summary, :is_kitchen, 
-      :is_tables, :is_chairs, is_microphone, :is_projector, :is_bar, :is_self_parking, :is_valet_parking, :is_garage_parking, 
-      :is_air, :is_heating, :is_wifi, :amenities, :price, :active, :instant)
+      params.require(:venue).permit(:venue_type, :event_type, :amenities, :address, :listing_name, :summary, :is_kitchen, 
+      :is_tables, :is_chairs, :is_microphone, :is_projector, :is_bar, :is_self_parking, :is_valet_parking, :is_garage_parking, 
+      :is_air, :is_heating, :is_wifi, :price, :active, :instant)
     end
 end
