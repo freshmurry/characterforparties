@@ -129,7 +129,6 @@ ActiveRecord::Schema.define(version: 20171024222621) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string "location_type"
     t.string "venue_type"
     t.string "event_type"
     t.integer "accommodate"
@@ -155,7 +154,6 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "instant", default: 1
-    t.string "service"
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
 
