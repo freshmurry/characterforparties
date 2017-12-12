@@ -11,7 +11,6 @@ class Venue < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   
-  validates :location_type, presence: true
   validates :venue_type, presence: true
   validates :event_type, presence: true
   validates :accomodate, presence: true

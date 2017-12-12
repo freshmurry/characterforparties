@@ -33,9 +33,10 @@ a {
 .navbar-default .navbar-brand {
   color: #3B685E;
   font-size: 2em;
-  font-weight: bold; font-family: Ubuntu;
-  height: auto;
-  width: auto;
+  font-weight: 400; 
+  font-family: Ubuntu;
+  // height: 100%;
+  // width: auto;
   }
 
 // BUTTONS
@@ -154,6 +155,7 @@ a {
 // FORMS
 .form-group {
   margin-bottom: 25px;
+  width: auto;
 }
 
 .form-control {
@@ -162,7 +164,7 @@ a {
 }
 
 .form-group input {
-  height: 45px;
+  height: 35px;
   border: 1px solid #3B685E;
 }
 
