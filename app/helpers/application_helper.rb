@@ -9,6 +9,6 @@ module ApplicationHelper
   end
   
   def stripe_express_path
-    "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_BbF7P33JByDX2Ctz0xrzJxMRtBdw6GX8&scope=read_write"
+    "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_BvZmyFOTeRGkcyhLyEcAVxGm7CvtBUDA&scope=read_write"
   end
 end

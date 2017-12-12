@@ -4,7 +4,7 @@
 @import "fullcalendar";
 
 body {
-  color: #565a5c;
+  color: #565A5C;
   background-color: #F8F8F8;
   font-family: "Varela Round", "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
@@ -21,8 +21,8 @@ a {
   color: #3B685E;
 }
 
-.text-blue, .icon-red {
-  color: #565a5C;
+.text-green, .icon-red {
+  color: #3B685E;
 }
 
 // NAVBARS
@@ -63,21 +63,21 @@ a {
   width: 100%;
   border-color: #c4c4c4;
   background: white;
-  color: #484848;
+  color: #3B685E;
   border-radius: 2px;
   padding: 10px 0;
   margin-top: 10px;
 }
 
 .btn.btn-normal {
-  border: 1px solid #565a5C;
-  background-color: #565a5C;
+  border: 1px solid #3B685E;
+  background-color: #3B685E;
 }
 
 .btn.btn-normal:active {
   outline: none;
-  border-color: #14325C;
-  background-color: #14325C;
+  border-color: #3B685E;
+  background-color: #3B685E;
 }
 
 .btn.btn-form {
