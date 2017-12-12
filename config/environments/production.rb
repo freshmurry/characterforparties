@@ -1,6 +1,16 @@
 Rails.application.configure do
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+    :s3_region => 'us-east-1',
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
+  
   # Settings specified here will take precedence over those in config/application.rb.
-
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -80,16 +90,25 @@ Rails.application.configure do
 
   #Required for Heroku
   #Note to set this to your actual host
-  # config.action_mailer.default_url_options = { :host => 'http://shindigspace.herokuapp.com/' }
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-    :s3_region => 'us-east-1',
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
+  config.action_mailer.default_url_options = { :host => 'http://shindigspace.herokuapp.com/' }
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mailgun.org',
+    port: 2525,
+    domain: 'sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
+    authentication: 'plain',
+    user_name: 'postmaster@sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
+    password: '20e436f9190a67c9fbb9b852ab52cae8'
   }
+  
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
+  end
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 end
