@@ -1,9 +1,8 @@
 <!-- Static navbar -->
 <nav class="navbar navbar-default navbar-static-top">
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
-      data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -12,7 +11,7 @@
       <%= link_to "Shindig Space", root_path, class: "navbar-brand" %>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div id="navbar" class="navbar-collapse">
+    <div id="navbar" class="navbar-collapse collapse">
      <%= form_tag search_path, class: "nav navbar-nav navbar-form navbar-left", method: :get do %>
           <div class="form-group">
             <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control", id:"autoaddress" %>
