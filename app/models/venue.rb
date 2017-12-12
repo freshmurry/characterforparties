@@ -13,7 +13,7 @@ class Venue < ApplicationRecord
   
   validates :venue_type, presence: true
   validates :event_type, presence: true
-  validates :accomodate, presence: true
+  validates :accommodate, presence: true
   validates :rest_room, presence: true
 
   def cover_photo(size)
