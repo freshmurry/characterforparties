@@ -154,6 +154,8 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "instant", default: 1
+    t.string "service"
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
 
