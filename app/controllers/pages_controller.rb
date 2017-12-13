@@ -42,7 +42,7 @@ class PagesController < ApplicationController
         ).limit(1)
         
         not_available_in_calendar = Calendar.where(
-          "barbershop_id = ? AND status = ? AND day <= ? AND day >= ?",
+          "venue_id = ? AND status = ? AND day <= ? AND day >= ?",
           venue.id, 1, end_date, start_date
         ).limit(1)
         
