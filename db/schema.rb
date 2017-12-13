@@ -121,8 +121,9 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.string "pin"
     t.boolean "phone_verified"
     t.string "stripe_id"
-    t.string "merchant_id"
     t.integer "unread", default: 0
+    t.string "merchant_id"
+    t.string "access_token"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -83,8 +83,8 @@ class ReservationsController < ApplicationController
           :description => venue.listing_name,
           :currency => "usd", 
           :destination => {
-            :amount => reservation.total * 88, # 88% of the total amount goes to the Barber
-            :account => venue.user.merchant_id # Barber's Stripe customer ID
+            :amount => reservation.total * 85, # 85% of the total amount goes to the Venue
+            :account => venue.user.merchant_id # Venue's Stripe customer ID
           }
         )
   
