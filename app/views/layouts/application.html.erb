@@ -4,8 +4,7 @@
     <title>Shindig Space | Book your next event space with Shindig Space! Sign up today for free!</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= action_cable_meta_tag %>
-    
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwN_tpAAKnHhy14HzNqK-XeuarVJhNHg8&libraries=places"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -28,29 +27,29 @@
     <meta property="og:description" content="The Airbnb of event spaces is here!" />
     <meta property="og:type" content="website"/>
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="http://watchdog.org/wp-content/blogs.dir/1/files/2016/06/barbershop.jpg" />
+    <meta property="og:image" content=" " />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:url" content="http://www.shindigspace.com">
     <meta name="twitter:title" content="The Airbnb of event spaces is here!" />
-    <meta name="twitter:image" content="http://watchdog.org/wp-content/blogs.dir/1/files/2016/06/barbershop.jpg" />
+    <meta name="twitter:image" content=" " />
   </head>
   
-    <body>
+  <body>
+    
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/message' %>
       
-      <%= render 'shared/navbar' %>
-      <%= render 'shared/message' %>
+    <% if current_user %>
+      <input type="hidden" id="user_id" value="<%= current_user.id %>">
+    <% end %>
+    
+    <div class="container">
+    	<%= yield %>
+    </div>
+        
+    <script>
       
-      <% if current_user %>
-        <input type="hidden" id="user_id" value="<%= current_user.id %>">
-      <% end %>
-      
-      <div class="container">
-      	<%= yield %>
-      </div>
+    </script>
         
-      <script>
-        
-      </script>
-        
-    </body>  
+  </body>  
 </html>
