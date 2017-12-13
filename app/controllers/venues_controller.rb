@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   before_action :set_venue, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
-  before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :amenities, :address, :update]
+  before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :amenities, :address, :location, :update]
 
   def index
     @venues = current_user.venues
@@ -47,7 +47,7 @@ class VenuesController < ApplicationController
   def amenities
   end
 
-  def address
+  def location
   end
 
   def update
