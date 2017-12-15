@@ -18,7 +18,7 @@ class PhotosController < ApplicationController
     @venue = @photo.venue
 
     @photo.destroy
-    @photos = Photo.where(barbershop_id: @venue.id)
+    @photos = Photo.where(venue_id: @venue.id)
 
     respond_to :js
   end

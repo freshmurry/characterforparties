@@ -11,7 +11,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
-  
+
   def stripe_connect
     auth_data = request.env["omniauth.auth"]
     @user = current_user
@@ -26,8 +26,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         account = Stripe::Account.retrieve(current_user.merchant_id)
         account.payout_schedule.delay_days = 7
         account.payout_schedule.interval = "daily"
-        # account.payout_schedule.monthly_anchor = 30
+
+        # account.payout_schedule.monthly_anchor = 15
         # account.payout_schedule.interval = "monthly"
+
         account.save
 
         logger.debug "#{account}"
@@ -41,7 +43,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to dashboard_path
     end
   end
-  
+
   def failure
     redirect_to root_path
   end

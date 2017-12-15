@@ -13,49 +13,48 @@
 
     <!-- Listing Name -->
     <div class="row">
-      <div class="col-md-8">
-        <h1><%= @venue.listing_name %></h1>
-        <%= @venue.address %>
-      </div>
-      <div class="col-md-4 text-center">
-        <%= image_tag avatar_url(@venue.user), class: "img-circle avatar-large" %><br/><br/>
+      <div class="col-md-3 text-center">
+        <%= image_tag avatar_url(@venue.user), class: "img-circle avatar-large" %><br/> 
         <%= @venue.user.fullname %>
+      </div>
+      <div>
+        <h2><%= @venue.listing_name %></h2>
+        <%= @venue.address %>
       </div>
     </div>
     <hr/>
-
-    <!-- Barber Info -->
+    
+    <!-- Host Info -->
     <div class="row text-babu">
       <div class="row text-center row-space-1">
         <div class="col-md-3">
           <i class="fa fa-home fa-2x"></i>
         </div>
         <div class="col-md-3">
-          <i class="fa fa-user-circle-o fa-2x"></i>
+          <i class="fa fa-map-marker fa-2x"></i>
         </div>
         <div class="col-md-3">
-          <i class="fa fa-scissors fa-2x"></i>
+          <i class="fa fa-users fa-2x"></i>
         </div>
         <div class="col-md-3">
-          <i class="fa fa-credit-card fa-2x"></i>
+          <i class="fa fa-bath fa-2x"></i>
         </div>
       </div>
 
       <div class="row text-center">
+        <div class="col-md-3"><%= @venue.event_type %></div>
         <div class="col-md-3"><%= @venue.venue_type %></div>
-        <div class="col-md-3"><%= @venue.location_type %></div>
-        <div class="col-md-3"><%= @venue.rest_room %></div>
         <div class="col-md-3"><%= @venue.accommodate %></div>
+        <div class="col-md-3"><%= @venue.rest_room %></div>
       </div>
     </div>
     <hr/>
 
     <!-- About -->
-    
-    
+
     <div class="row">
       <div class="panel panel-default">
-        <div class="panel-heading">About This Listing</div>
+        <div class="panel-heading">About This Venue</div>
           <div class="panel-body">
             <p><%= @venue.summary %></p>
         </div>
@@ -63,40 +62,40 @@
     </div>
     <br/>
 
-    <!-- AMINITIES --> 
+    <!-- AMENITIES --> 
     <div class="row">
       <div class="col-md-3">
-        <h4>Aminities</h4>
+        <h4>Amenities</h4>
       </div>
 
       <div class="col-md-9">
         <div class="row">
           <div class="col-md-6">
             <ul class=" ">
-              <li class="< 'text-line-through' if !@venue.is_kitchen %>">Kitchen</li>
-              <li class="< 'text-line-through' if !@venue.is_tables %>">Tables</li>
-              <li class="< 'text-line-through' if !@venue.is_chairs %>">Chairs</li>
+              <li class="<%= 'text-line-through' if !@venue.is_kitchen %>">Kitchen</li>
+              <li class="<%= 'text-line-through' if !@venue.is_tables %>">Tables</li>
+              <li class="<%= 'text-line-through' if !@venue.is_chairs %>">Chairs</li>
             </ul>
           </div>
           <div class="col-md-6">
             <ul class=" ">
-              <li class="< 'text-line-through' if !@venue.is_microphone %>">Microphone</li>
-              <li class="< 'text-line-through' if !@venue.is_projector %>">Projector</li>
-              <li class="< 'text-line-through' if !@venue.is_bar %>">Bar</li>
+              <li class="<%= 'text-line-through' if !@venue.is_microphone %>">Microphone</li>
+              <li class="<%= 'text-line-through' if !@venue.is_projector %>">Projector</li>
+              <li class="<%= 'text-line-through' if !@venue.is_bar %>">Bar</li>
             </ul>
           </div>
           <div class="col-md-6">
             <ul class=" ">
-              <li class="< 'text-line-through' if !@venue.is_self_parking %>">Self-Parking</li>
-              <li class="< 'text-line-through' if !@venue.is_valet_parking %>">Valet Parking</li>
-              <li class="< 'text-line-through' if !@venue.is_garage_parking %>">Garage Parking</li>
+              <li class="<%= 'text-line-through' if !@venue.is_self_parking %>">Self-Parking</li>
+              <li class="<%= 'text-line-through' if !@venue.is_valet_parking %>">Valet Parking</li>
+              <li class="<%= 'text-line-through' if !@venue.is_garage_parking %>">Garage Parking</li>
             </ul>
           </div>
           <div class="col-md-6">
             <ul class=" ">
-              <li class="< 'text-line-through' if !@venue.is_air %>">Air Conditioning</li>
-              <li class="< 'text-line-through' if !@venue.is_heating %>">Heating</li>
-              <li class="< 'text-line-through' if !@venue.is_wifi %>">Wifi</li>
+              <li class="<%= 'text-line-through' if !@venue.is_air %>">Air Conditioning</li>
+              <li class="<%= 'text-line-through' if !@venue.is_heating %>">Heating</li>
+              <li class="<%= 'text-line-through' if !@venue.is_wifi %>">Wifi</li>
             </ul>
           </div>
         </div>
@@ -142,10 +141,10 @@
     <!-- REVIEWS -->
     <div class="row">
       <div class="panel panel-default">
-        <div class="panel-heading">Reviews (<%= @guest_reviews.length %>) <span id="average_rating"></span></div>
+        <div class="panel-heading">Guest Reviews (<%= @guest_reviews.length %>) <span id="average_rating"></span></div>
           <div class="container">
             <div class="panel-body">
-              <%= render "reviews/guest_list" %>
+
             </div>
           </div>
       </div>
@@ -153,7 +152,6 @@
     
     <!-- GOOGLE MAP -->
     <div class="row">
-
       <div id="map" style="width: 100%; height: 400px"></div>
           <script src="https://maps.googleapis.com/maps/api/js"></script>
       <script>
@@ -185,7 +183,7 @@
     <!-- NEARBY SHINDIG EVENT HOSTS -->
     <div class="row">
       <div class="panel panel-default">
-        <div class="panel-heading">Nearby</div>
+        <div class="panel-heading">Nearby Venue Spaces</div>
         <% for venue in @venue.nearbys(10) %>
           <div class="col-md-4">
               <div class="panel panel-default">

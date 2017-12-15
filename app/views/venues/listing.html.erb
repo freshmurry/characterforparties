@@ -16,12 +16,28 @@
             <div class="row">
 
               <div class="col-md-4 select">
+                <div class="form-group">
+                  <label>Event Type</label>
+                  <%= f.select :event_type, [["Public Event Space", "Public Event Space"], ["Private Event Space", "Private Event Space"]], 
+                  id: "event_type", prompt: "Select...", class: "form-control" %>
+                </div>
+              </div>
+            
+              <div class="col-md-4 select">
               <div class="form-group">
                 <label>Venue Type</label>
                 <%= f.select :venue_type, [["Church", "Church"], ["Park District", "Park District"], ["Town Hall", "Town Hall"],
                 ["Parking Lot", "Parking Lot"], ["Back Yard", "Back Yard"], ["Vine Yard", "Vine Yard"], ["Golf Course", "Gold Course"], 
-                ["Warehouse", "Warehouse"], ["Art Gallery", "Art Gallery"], ["Boutique/Clothing Store", "Boutique/Clothing Store"]], 
+                ["Warehouse", "Warehouse"], ["Art Gallery", "Art Gallery"], ["Boutique/Clothing Store", "Boutique/Clothing Store"], ["Other", "Other"]], 
                 id: "venue_type", prompt: "Select...", class: "form-control" %>
+              </div>
+            </div>
+            
+            <div class="col-md-4 select">
+              <div class="form-group">
+                <label>Accommodate</label>
+                <%= f.select :accommodate, [["10-50", "10-50"], ["50-100", "50-100"], ["100-150", "100-150"], ["100-150", "100-150"], ["150-200", "150-200"], ["200+", "200+"]],
+                id: "accommodate", prompt: "Select...", class: "form-control" %>
               </div>
             </div>
             
@@ -31,14 +47,6 @@
                 <%= f.select :rest_room, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], id: "rest_room", prompt: "Select...", class: "form-control" %>
               </div>
             </div>
-              
-            <div class="col-md-4 select">
-              <div class="form-group">
-                <label>Event Type</label>
-                <%= f.select :event_type, [["Public Event Space", "Public Event Space"], ["Private Event Space", "Private Event Space"]], 
-                id: "event_type", prompt: "Select...", class: "form-control" %>
-              </div>
-            </div>
             
             <div class="col-md-4 select">
               <div class="form-group">
@@ -46,14 +54,7 @@
                 <%= f.select :instant, Venue.instants.map {|key,value| [key.humanize, key]}, selected: 'Instant', prompt: "Select...", class: "form-control" %>
               </div>
             </div>
-            
-            <div class="col-md-4 select">
-              <div class="form-group">
-                <label>Accommodate</label>
-                <%= f.select :accommodate, ["10-50", 10-50], ["50-100", 50-100], ["100-150", 100-150], ["100-150", 100-150], ["150-200", 150-200], ["200+", 200]],
-                id: "accommodate", prompt: "Select...", class: "form-control" %>
-              </div>
-            </div>
+
           </div>
   
           <div><%= f.submit "Save", class: "btn btn-normal" %></div>

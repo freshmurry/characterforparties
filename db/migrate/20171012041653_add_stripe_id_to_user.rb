@@ -1,4 +1,4 @@
-class AddStripeIdToUser < ActiveRecord::Migration[5.1]
+class AddStripeIdToUser < ActiveRecord::Migration[5.0]
   def change
     add_column :users, :stripe_id, :string
   end

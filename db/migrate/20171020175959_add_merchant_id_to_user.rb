@@ -1,4 +1,4 @@
-class AddMerchantIdToUser < ActiveRecord::Migration[5.1]
+class AddMerchantIdToUser < ActiveRecord::Migration[5.0]
   def change
     add_column :users, :merchant_id, :string
   end

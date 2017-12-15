@@ -9,6 +9,12 @@ module ApplicationHelper
   end
   
   def stripe_express_path
-    "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_BvZmyFOTeRGkcyhLyEcAVxGm7CvtBUDA&scope=read_write"
+    # "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_BvZmyFOTeRGkcyhLyEcAVxGm7CvtBUDA&scope=read_write"
+    
+    # TEST
+    # "https://connect.stripe.com/express/oauth/authorize?redirect_uri=http://shindigspace-freshmurry.c9users.io:8080/auth/stripe_connect/callback&client_id=ca_BvZmyFOTeRGkcyhLyEcAVxGm7CvtBUDA&state={STATE_VALUE}"
+    
+    # LIVE
+    "https://connect.stripe.com/express/oauth/authorize?redirect_uri=http://shindigspace.herokuapp.com/auth/stripe_connect/callback&client_id=ca_BvZm6NBsxhq2zw0BWbuIGvXymsaDdlXY&state={STATE_VALUE}"
   end
 end

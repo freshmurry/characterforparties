@@ -7,6 +7,7 @@
       <div class="panel-body">
         <%= image_tag avatar_url(venue.user), class: "img-circle avatar-small" %>
         <%= link_to venue.listing_name, venue %><br/>
+        $<%= venue.price %> | <%= venue.venue_type %><hr/>
         <div id="star_<%= venue.id %>"></div> <%= pluralize(venue.average_rating, "review") %>
       </div>
     </div>

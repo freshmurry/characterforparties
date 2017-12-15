@@ -70,7 +70,7 @@ class ReservationsController < ApplicationController
     @host.messages.create(
       from: '+3125488878',
       to: venue.user.phone_number,
-      body: "#{reservation.user.fullname} booked a '#{venue.style_type}'"
+      body: "#{reservation.user.fullname} booking a '#{venue.venue_type} venue for your event'"
     )
   end  
   
