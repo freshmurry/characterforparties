@@ -100,16 +100,16 @@
         $('#new_calendar').modal('show');
 
         $('#calendar_start_date').datepicker({
-          dateFormat: "mm/dd/yy",
+          dateFormat: "yy-mm-dd",
           setDate: start_date
         });
-        $('#calendar_start_date').val(start_date.format("MM/DD/YYYY"));
+        $('#calendar_start_date').val(start_date.format("YYYY-MM-DD"));
 
         $('#calendar_end_date').datepicker({
-          dateFormat: "mm/dd/yy",
+          dateFormat: "yy-mm-dd",
           setDate: end_date
         });
-        $('#calendar_end_date').val(end_date.format("MM/DD/YYYY"));
+        $('#calendar_end_date').val(end_date.format("YYYY-MM-DD"));
       }
     }
   });
@@ -117,14 +117,14 @@
   $('.fc-prev-button').click(function() {
     var current = new Date($('#start-date').val());
     var prev = new Date(current.getFullYear(), current.getMonth() - 1, 1)
-    $('#start-date').val(moment(prev).format('MM/DD/YYYY'))
+    $('#start-date').val(moment(prev).format('YYYY-MM-DD'))
     $('#start-date').trigger('change')
   });
 
   $('.fc-next-button').click(function() {
     var current = new Date($('#start-date').val());
     var next = new Date(current.getFullYear(), current.getMonth() + 1, 1)
-    $('#start-date').val(moment(next).format('MM/DD/YYYY'))
+    $('#start-date').val(moment(next).format('YYYY-MM-DD'))
     $('#start-date').trigger('change')
   });
 

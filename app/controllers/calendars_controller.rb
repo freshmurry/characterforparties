@@ -36,7 +36,7 @@ class CalendarsController < ApplicationController
     end
 
     @search = Reservation.ransack(params[:q])
-
+  
     if params[:venue_id]
       @venue = Venue.find(params[:venue_id])
       start_date = Date.parse(params[:start_date])

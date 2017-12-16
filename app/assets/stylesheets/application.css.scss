@@ -25,6 +25,10 @@ a {
   color: #3B685E;
 }
 
+h1 {
+  text-shadow: 1px 2px #BDC3C7
+}
+
 // NAVBARS
 .navbar-default {
   background-color: #FFFFFF;
@@ -33,10 +37,14 @@ a {
 .navbar-default .navbar-brand {
   color: #3B685E;
   font-size: 2em;
-  font-weight: 400; 
   font-family: Ubuntu;
-  // height: 100%;
-  // width: auto;
+  font-weight: bold;
+  text-shadow: 1px 2px #BDC3C7;
+  display: inline-block;
+  height: 100%;
+  width: auto;
+  // padding-left: 5px;
+  margin-left: -10px;
   }
 
 // BUTTONS

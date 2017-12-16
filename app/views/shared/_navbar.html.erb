@@ -1,5 +1,5 @@
 <!-- Static navbar -->
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top" style ="margin-bottom: 0px">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -8,7 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Shindig Space", root_path, class: "navbar-brand" %>
+
+      <div class="text-center">
+        <%= link_to image_tag("icon.svg", alt: "logo"), root_path, class: "navbar-brand" %>
+        <%= link_to "Shindig Space", root_path, class: "navbar-brand" %>
+      </div>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div id="navbar" class="navbar-collapse collapse">
@@ -60,7 +64,7 @@
 </nav>
 
 <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/venues/#{params[:id]}")%>
-    <nav class="navbar navbar-default static-top" style="color: white; background-color: #565A5C; margin-top: -20px">
+    <nav class="navbar navbar-default static-top" style="color: white; background-color: #565A5C;">
       <div class="container">
         <ul class="nav navbar-nav">
           <li <% if current_page?(dashboard_path) %> class="active" <% end %> ><%= link_to "Dashboard", dashboard_path %></li>
