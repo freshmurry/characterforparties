@@ -6,7 +6,7 @@
         <div class="container text-center">
           <% if @reservations.blank? %>
               <h3>You don't have any reservations</h3><br/>
-              <%= link_to "Become a Shindig Space Host to earn income", new_venue_path, class: "btn btn-normal" %>
+              <%= link_to "Host a Venue to Earn", new_venue_path, class: "btn btn-normal" %>
           <% else %>
               <%= column_chart @this_week_revenue, colors: ["#16A085"] %>
           <% end %>

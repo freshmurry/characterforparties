@@ -1,7 +1,7 @@
 Rails.configuration.stripe = {
   #---- TEST ----
-  # :publishable_key => 'pk_test_SZlZj99vzoclqVZRRLswAQ8h',
-  # :secret_key => 'sk_test_f4TIZbC578AuDRAuSQwIXhIg'
+  # :publishable_key => 'pk_test_vo9J2U9984kIRlQQgnpdKgAw',
+  # :secret_key => 'sk_test_lvX0KUqSHUGyfjoughDVVcCe'
   
   #---- LIVE ----
   :publishable_key => ENV['PUBLISHABLE_KEY'],

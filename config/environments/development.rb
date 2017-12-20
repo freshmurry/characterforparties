@@ -66,12 +66,14 @@ Rails.application.configure do
   config.web_console.whitelisted_ips << "10.240.0.0/16"
   
   #Required for Heroku
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.default_url_options = { host: 'http://shindigspace-freshmurry.c9users.io', port: 8080 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 8080 }
   
   #Mailgun Integration
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
+    # address: 'http://shindigspace-freshmurry.c9users.io:8080/'
     address: 'smtp.mailgun.org',
     port: 2525,
     domain: 'sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
