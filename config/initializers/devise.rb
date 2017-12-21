@@ -279,5 +279,5 @@ Devise.setup do |config|
   #----- TEST -----
   # config.omniauth :stripe_connect, 'ca_Bz12s2Z5ijkGknATCnWx9EmDZIvGMf0e', 'sk_test_uQnVqs5Vnt9upqbJJNCSmiYy', scope: 'read_write', stripe_landing: 'login'
   #----- LIVE -----
-  config.omniauth :stripe_connect, 'ca_ByR5qEQGduFZMoLMA89FFdEB0IiNoAOs', ['SECRET_KEY'], scope: 'read_write', stripe_landing: 'login'
+  config.omniauth :stripe_connect, 'ca_Bz129rceytBvxCIxgLptuWQeV6JayofE', ['SECRET_KEY'], scope: 'read_write', stripe_landing: 'login'
 end
