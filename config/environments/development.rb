@@ -71,28 +71,28 @@ Rails.application.configure do
   
   #Mailgun Integration
   
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    # address: 'http://shindigspace-freshmurry.c9users.io:8080/'
-    address: 'smtp.mailgun.org',
-    port: 2525,
-    domain: 'sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
-    authentication: 'plain',
-    user_name: 'postmaster@sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
-    password: '20e436f9190a67c9fbb9b852ab52cae8'
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   # address: 'http://shindigspace-freshmurry.c9users.io:8080/'
+  #   address: 'smtp.mailgun.org',
+  #   port: 2525,
+  #   domain: 'sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
+  #   authentication: 'plain',
+  #   user_name: 'postmaster@sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
+  #   password: '20e436f9190a67c9fbb9b852ab52cae8'
+  # }
   
   # Gmail Integration
   
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.gmail.com',
-  #   port: '2525',
-  #   enable_starttls_auto: true,
-  #   authentication: 'plain',
-  #   user_name: 'lawrencemurry15@gmail.com',
-  #   password: 'ltmurrn6'
-  # }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: '2525',
+    enable_starttls_auto: true,
+    authentication: 'plain',
+    user_name: 'lawrencemurry15@gmail.com',
+    password: 'ltmurrn6'
+  }
   
   # config.active_record.raise_in_transactional_callbacks = true
   

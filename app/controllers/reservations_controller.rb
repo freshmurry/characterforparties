@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
     venue = Venue.find(params[:venue_id])
 
     if current_user == venue.user
-      flash[:alert] = "You cannot book your own service!"
+      flash[:alert] = "You cannot book your own venue!"
     elsif current_user.stripe_id.blank?
        flash[:alert] = "Please update your payment method!"
        returen redirect_to payment_method_path
@@ -38,7 +38,7 @@ class ReservationsController < ApplicationController
           charge(venue, @reservation)
         end
       else
-        flash[:alert] = "Cannot book an appointment"
+        flash[:alert] = "Cannot book a venue"
       end
       
     end
@@ -83,7 +83,7 @@ class ReservationsController < ApplicationController
           :description => venue.listing_name,
           :currency => "usd", 
           :destination => {
-            :amount => reservation.total * 85, # 85% of the total amount goes to the Venue
+            :amount => reservation.total * 88, # 88% of the total amount goes to the Host Venue
             :account => venue.user.merchant_id # Venue's Stripe customer ID
           }
         )
@@ -95,7 +95,7 @@ class ReservationsController < ApplicationController
           flash[:notice] = "Reservation created successfully!"
         else
           reservation.Declined!
-          flash[:notice] = "Cannot charege with this payment method!"
+          flash[:notice] = "Cannot charge with this payment method!"
         end
       end
     rescue Stripe::CardError => e  
