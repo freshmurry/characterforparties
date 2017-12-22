@@ -25,6 +25,15 @@ class VenuesController < ApplicationController
     end
   end
   
+  # def destroy
+  #   @venue = Venue.find(params[:id])
+
+  #   @venue.destroy
+  #   @venue = Venue.where(venue_id: @venue.id)
+
+  #   respond_to :js
+  # end
+  
   def show
     @photos = @venue.photos
     @guest_reviews = @venue.guest_reviews
@@ -111,6 +120,6 @@ class VenuesController < ApplicationController
     def venue_params
       params.require(:venue).permit(:venue_type, :event_type, :rest_room, :accommodate, :address, :listing_name, :summary, :is_kitchen, 
       :is_tables, :is_chairs, :is_microphone, :is_projector, :is_bar, :is_self_parking, :is_valet_parking, :is_garage_parking, 
-      :is_air, :is_heating, :is_wifi, :price, :active, :instant)
+      :is_air, :is_heating, :is_wifi, :is_custodial, :is_accessible, :is_tablecloths, :is_wheelchair, :is_garbage_removal, :is_stage, :price, :active, :instant)
     end
 end

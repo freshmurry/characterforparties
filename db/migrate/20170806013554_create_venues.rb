@@ -3,7 +3,7 @@ class CreateVenues < ActiveRecord::Migration[5.0]
     create_table :venues do |t|
       t.string :venue_type #Church, Park District, Town Hall, Parking Lot, Back Yard, Vine Yard, Golf Course, Warehouse
       t.string :event_type #Public Event or Private Event
-      t.string :accommodate #10-50, 50-100, 100-150, 150-200, 200-250, 250-300, 300+
+      t.integer :accommodate #10-50, 50-100, 100-150, 150-200, 200-250, 250-300, 300+
       t.integer :rest_room
       t.string :listing_name
       t.text :summary
@@ -20,6 +20,12 @@ class CreateVenues < ActiveRecord::Migration[5.0]
       t.boolean :is_air
       t.boolean :is_heating
       t.boolean :is_wifi
+      t.boolean :is_custodial
+      t.boolean :is_accessible
+      t.boolean :is_tablecloths
+      t.boolean :is_wheelchair
+      t.boolean :is_garbage_removal
+      t.boolean :is_stage
       t.integer :price
       t.boolean :active
       t.references :user, index: true, foreign_key: true

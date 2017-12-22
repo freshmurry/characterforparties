@@ -49,11 +49,12 @@ ActiveRecord::Schema.define(version: 20171024222621) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "venue_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "image_updated_at"
     t.index ["venue_id"], name: "index_photos_on_venue_id"
   end
 
@@ -113,9 +114,6 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "fullname"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "image"
     t.string   "phone_number"
     t.string   "address"
     t.text     "description"
@@ -125,6 +123,9 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.string   "access_token"
     t.string   "stripe_id"
     t.string   "merchant_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "image"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -133,7 +134,7 @@ ActiveRecord::Schema.define(version: 20171024222621) do
   create_table "venues", force: :cascade do |t|
     t.string   "venue_type"
     t.string   "event_type"
-    t.string   "accommodate"
+    t.integer  "accommodate"
     t.integer  "rest_room"
     t.string   "listing_name"
     t.text     "summary"
@@ -150,15 +151,20 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.boolean  "is_air"
     t.boolean  "is_heating"
     t.boolean  "is_wifi"
+    t.boolean  "is_custodial"
+    t.boolean  "is_accessible"
+    t.boolean  "is_tablecloths"
+    t.boolean  "is_wheelchair"
+    t.boolean  "is_garbage_removal"
+    t.boolean  "is_stage"
     t.integer  "price"
     t.boolean  "active"
     t.integer  "user_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "instant",           default: 1
+    t.integer  "instant",            default: 1
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
-
 end

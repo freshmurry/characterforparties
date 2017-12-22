@@ -5,9 +5,8 @@
         <%= image_tag venue.cover_photo(:medium) %>
       </div>
       <div class="panel-body">
-        <%= image_tag avatar_url(venue.user), class: "img-circle avatar-small" %>
         <%= link_to venue.listing_name, venue %><br/>
-        $<%= venue.price %> | <%= venue.venue_type %><hr/>
+        $<%= venue.price %> &nbsp; <%= venue.venue_type %> &nbsp; <div class="fa fa-users"></div> <%= venue.accommodate %>
         <div id="star_<%= venue.id %>"></div> <%= pluralize(venue.average_rating, "review") %>
       </div>
     </div>
