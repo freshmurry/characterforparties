@@ -89,6 +89,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     ffi (1.9.18-java)
+    figaro (1.1.1)
+      thor (~> 0.14)
     fullcalendar-rails (3.4.0.0)
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
@@ -285,6 +287,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   delayed_job
   devise (~> 4.2)
+  figaro
   fullcalendar-rails (~> 3.4.0)
   geocoder (~> 1.4)
   jbuilder (~> 2.5)

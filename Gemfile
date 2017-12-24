@@ -47,6 +47,7 @@ gem 'jquery-ui-rails', '~> 5.0'
 
 gem 'ransack', '~> 1.7'
 gem 'thin'
+gem 'figaro'
 
 group :production do
   gem 'pg'  
