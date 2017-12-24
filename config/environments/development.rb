@@ -91,7 +91,7 @@ Rails.application.configure do
   #   enable_starttls_auto: true,
   #   authentication: 'plain',
   #   user_name: 'lawrencemurry15@gmail.com',
-  #   password: 'ltmurrn6'
+  #   password: ''
   # }
   
   # config.active_record.raise_in_transactional_callbacks = true
