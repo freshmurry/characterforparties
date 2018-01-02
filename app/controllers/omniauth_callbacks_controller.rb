@@ -40,7 +40,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     else
       session["devise.stripe_connect_data"] = request.env["omniauth.auth"]
-      redirect_to new_venue_path
+      redirect_to dashboard_path
     end
   end
 

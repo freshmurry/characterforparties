@@ -167,4 +167,5 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.integer  "instant",            default: 1
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
+
 end
