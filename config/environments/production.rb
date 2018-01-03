@@ -98,10 +98,10 @@ Rails.application.configure do
     # address: 'http://shindigspace-freshmurry.c9users.io:8080/'
     address: 'smtp.mailgun.org',
     port: 2525,
-    domain: 'sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
-    authentication: 'plain',
-    user_name: 'postmaster@sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
-    password: '20e436f9190a67c9fbb9b852ab52cae8'
+    domain: 'shindigspace.herokuapp.com',
+    user_name: 'postmaster@shindigspace.herokuapp.com',
+    password: 'aace431c21d48f2ba81d6d7169a42e85',
+    authentication: 'plain'
   }
   
   if ENV["RAILS_LOG_TO_STDOUT"].present?
