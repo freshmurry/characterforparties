@@ -1,5 +1,4 @@
-<div class="container">
-
+<!--<div class="container">-->
   <%- if controller_name != 'sessions' %>
     <%= link_to "Log in", new_session_path(resource_name),class: "btn btn-primary btn-sm" %>
   <% end -%>
@@ -25,4 +24,4 @@
       <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br/>
     <% end -%>
   <% end -%>
-</div>
+<!--</div>-->
