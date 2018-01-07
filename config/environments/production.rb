@@ -104,7 +104,7 @@ Rails.application.configure do
   #   authentication: 'plain'
   # }
 
-  config.action_mailer.default_url_options = { host: 'http://shindigspace.lawrencemurry.com', port: 8080 }
+  config.action_mailer.default_url_options = { host: 'http://shindigspace.lawrencemurry.com' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
