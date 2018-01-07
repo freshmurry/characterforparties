@@ -104,16 +104,27 @@ Rails.application.configure do
   #   authentication: 'plain'
   # }
 
-  config.action_mailer.default_url_options = { host: 'http://shindigspace.lawrencemurry.com' }
+  # config.action_mailer.default_url_options = { host: 'http://shindigspace.lawrencemurry.com' }
 
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.mailgun.org',
+  #   port: 2525,
+  #   domain: 'shindigspace.lawrencemurry.com',
+  #   user_name: 'postmaster@shindigspace.lawrencemurry.com',
+  #   password: 'cfb791aef34233ff49e4498d5b0e991a',
+  #   authentication: 'plain'
+  # }
+  
+  config.action_mailer.default_url_options = { host: 'http://shindigspace.lawrencemurry.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.mailgun.org',
-    port: 2525,
-    domain: 'shindigspace.lawrencemurry.com',
-    user_name: 'postmaster@shindigspace.lawrencemurry.com',
-    password: 'cfb791aef34233ff49e4498d5b0e991a',
-    authentication: 'plain'
+    address: 'smtp.gmail.com',
+    port: '587',
+    enable_starttls_auto: true,
+    authentication: 'plain',
+    user_name: ENV['gmail_address'],
+    password: ENV['gmail_password']
   }
   
   if ENV["RAILS_LOG_TO_STDOUT"].present?

@@ -86,11 +86,11 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
   #   address: 'smtp.gmail.com',
-  #   port: '2525',
+  #   port: '587',
   #   enable_starttls_auto: true,
   #   authentication: 'plain',
-  #   user_name: 'lawrencemurry15@gmail.com',
-  #   password: ''
+  #   user_name: ENV['gmail_address'],
+  #   password: ENV['gmail_password']
   # }
   
   # config.active_record.raise_in_transactional_callbacks = true
