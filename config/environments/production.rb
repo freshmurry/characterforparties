@@ -115,7 +115,7 @@ Rails.application.configure do
     authentication: 'plain'
   }
   
-  # config.action_mailer.default_url_options = { host: 'http://shindigspace.herokuapp.com', port: 8080 }
+  # config.action_mailer.default_url_options = { host: 'http://shindigspace.herokupp.com', port: 8080 }
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
   #   address: 'smtp.gmail.com',
