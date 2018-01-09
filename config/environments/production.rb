@@ -90,40 +90,16 @@ Rails.application.configure do
 
   #Required for Heroku
   #Note to set this to your actual host
-  # config.action_mailer.default_url_options = { :host => 'https://shindigspace.herokuapp.com/', port: 8080 }
+  # config.action_mailer.default_url_options = { host: 'https://shindigspace.herokuapp.com', port: 8080 }
 
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
-  #   # address: 'http://shindigspace-freshmurry.c9users.io:8080/'
   #   address: 'smtp.mailgun.org',
-  #   port: 2525,
-  #   domain: 'shindigspace.herokuapp.com',
-  #   user_name: 'postmaster@shindigspace.herokuapp.com',
-  #   password: 'aace431c21d48f2ba81d6d7169a42e85',
+  #   port: 8080,
+  #   domain: 'shindigspace.lawrencemurry.com',
+  #   user_name: 'postmaster@shindigspace.lawrencemurry.com',
+  #   password: 'cfb791aef34233ff49e4498d5b0e991a',
   #   authentication: 'plain'
-  # }
-
-  config.action_mailer.default_url_options = { host: 'https://shindigspace.herokuapp.com', port: 8080 }
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.mailgun.org',
-    port: 8080,
-    domain: 'shindigspace.lawrencemurry.com',
-    user_name: 'postmaster@shindigspace.lawrencemurry.com',
-    password: 'cfb791aef34233ff49e4498d5b0e991a',
-    authentication: 'plain'
-  }
-  
-  # config.action_mailer.default_url_options = { host: 'http://shindigspace.herokupp.com', port: 8080 }
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.gmail.com',
-  #   port: '2525',
-  #   enable_starttls_auto: true,
-  #   authentication: 'plain',
-  #   user_name: ENV['gmail_address'],
-  #   password: ENV['gmail_password']
   # }
   
   if ENV["RAILS_LOG_TO_STDOUT"].present?
@@ -131,7 +107,4 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
-
-  # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
 end

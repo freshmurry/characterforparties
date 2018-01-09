@@ -136,7 +136,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = false
+  config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
@@ -276,7 +276,7 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   # config.omniauth :facebook, '1518262284959364', '309d726626a5e3d8156e7b98c693b966', scope: 'email', info_fields: 'email, name'
-  config.omniauth :facebook, "FB_APP_ID", "FB_APP_SECRET", scope: 'email', info_fields: 'email,name',
+  config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], :display => 'popup', scope: 'email', info_fields: 'email,name',
     client_options: {
                     site: 'https://graph.facebook.com/v2.11',
                     authorize_url: "https://www.facebook.com/v2.11/dialog/oauth"
@@ -286,5 +286,5 @@ Devise.setup do |config|
   # config.omniauth :stripe_connect, 'ca_Bz12s2Z5ijkGknATCnWx9EmDZIvGMf0e', 'sk_test_uQnVqs5Vnt9upqbJJNCSmiYy', scope: 'read_write', stripe_landing: 'login'
   
   #----- STRIPE LIVE -----
-  config.omniauth :stripe_connect, 'ENV[STRIPE_PUBLISHABLE_KEY]', ENV['STRIPE_SECRET_KEY'], scope: 'read_write', stripe_landing: 'login'
+  config.omniauth :stripe_connect, ENV['STRIPE_PUBLISHABLE_KEY'], ENV['STRIPE_SECRET_KEY'], scope: 'read_write', stripe_landing: 'login'
 end
