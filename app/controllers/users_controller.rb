@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    redirect_to root_path, notice: "You don't have permission to see this profile" unless current_user == @user
+
     @venues = @user.venues
 
     # Display all the guest reviews to host (if this user is a host)
@@ -69,7 +71,7 @@ class UsersController < ApplicationController
     flash[:alert] = e.message
     redirect_to payment_method_path
   end
-
+  
   private
 
     def user_params

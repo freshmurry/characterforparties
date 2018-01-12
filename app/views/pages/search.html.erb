@@ -36,7 +36,7 @@
               <%= text_field_tag :start_date, params[:start_date], readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
             </div>
             <div class="col-md-6">
-              <%= text_field_tag :end_date, params[:end_date], readonly: true, placeholder: "End Date", class: "form-control datetimepicker" %>
+              <%= text_field_tag :end_date, params[:end_date], readonly: true, placeholder: "End Date", class: "form-control datepicker" %>
             </div>
           </div>
           <hr/>
@@ -243,14 +243,14 @@
 
 <script>
   $(function() {
-    $("#q_price_gteq").val('10');
+    $("#q_price_gteq").val('50');
     $("#q_price_lteq").val('5000');
 
     $("#slider-range").slider({
       range: true,
-      min: 10,
+      min: 0,
       max: 5000,
-      values: [10, 5000],
+      values: [50, 5000],
       slide: function(event, ui) {
         $("#q_price_gteq").val(ui.values[0]);
         $("#q_price_lteq").val(ui.values[1]);

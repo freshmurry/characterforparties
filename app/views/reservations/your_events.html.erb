@@ -9,7 +9,7 @@
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        My Shindig Venues
+        My Shindig Spaces
       </div>
       <div class="panel-body">
 
@@ -27,7 +27,7 @@
             <div class="col-md-5">
               <%= link_to event.venue.listing_name, venue_path(event.venue) %><br/><br/>
               <span>
-                <%= image_tag avatar_url(event.venue.user), class: "img-circle avatar-small" %>
+                <%= image_tag image_url(event.venue.user.image), class: "img-circle avatar-small" %>
                 <%= link_to user_path(event.venue.user) do %>
                     <%= event.venue.user.fullname %>
                 <% end %>

@@ -1,10 +1,15 @@
 class User < ApplicationRecord
+  belongs_to :user
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/blank.jpg"
+  validates_attachment_presence :image
+  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, 
-         :omniauthable
-         
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :confirmable
+  
   validates :fullname, presence: true, length: {maximum: 50}
   
   has_many :venues

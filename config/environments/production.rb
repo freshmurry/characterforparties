@@ -90,17 +90,22 @@ Rails.application.configure do
 
   #Required for Heroku
   #Note to set this to your actual host
-  # config.action_mailer.default_url_options = { host: 'https://shindigspace.herokuapp.com', port: 8080 }
 
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.mailgun.org',
-  #   port: 8080,
-  #   domain: 'shindigspace.lawrencemurry.com',
-  #   user_name: 'postmaster@shindigspace.lawrencemurry.com',
-  #   password: 'cfb791aef34233ff49e4498d5b0e991a',
-  #   authentication: 'plain'
-  # }
+  config.action_mailer.raise_delivery_errors = true
+    
+    config.action_mailer.delivery_method = :smtp
+    host = 'shindigspace.herokuapp.com'
+    config.action_mailer.default_url_options = { host: host }
+    ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => ENV['SENDGRID_USERNAME'],
+      :password       => ENV['SENDGRID_PASSWORD'],
+      :domain         => 'heroku.com',
+      :enable_starttls_auto => true
+  
+    }
   
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
