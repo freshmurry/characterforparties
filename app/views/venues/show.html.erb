@@ -14,7 +14,7 @@
     <!-- Listing Name -->
     <div class="row">
       <div class="col-md-3 text-center">
-        <%= image_tag image_url(@venue.user), class: "img-circle avatar-large" %><br/> 
+        <%= image_tag (@venue.user.image), class: "img-circle avatar-large" %><br/> 
         <%= @venue.user.fullname %>
       </div>
       <div>

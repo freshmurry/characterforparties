@@ -1,7 +1,7 @@
 module ApplicationHelper
-  def image_url(user)
+  def image(user)
     if user.image
-      @user.image.url
+      @user.image_url
     else
       "https://graph.facebook.com/#{user.uid}/picture?type=large"
       
@@ -10,13 +10,13 @@ module ApplicationHelper
     end
   end
   
-  def image(user)
-    if @user.image.empty?
-      "/assets/blank.jpg"
-    else
-      @user.image.url
-    end
-  end
+  # def image(user)
+  #   if @user.image.empty?
+  #     "assets/images/blank.jpg"
+  #   else
+  #     @user.image.url
+  #   end
+  # end
   
   def stripe_express_path
   # ----- TEST -----

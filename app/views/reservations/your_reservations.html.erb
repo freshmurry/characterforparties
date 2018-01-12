@@ -35,7 +35,7 @@
                     <%= link_to reservation.venue.listing_name, venue_path(reservation.venue) %><br/><br/>
                     <span>
                       <%= link_to user_path(reservation.user) do %>
-                        <%= image_tag image_url(reservation.user.image), class: "img-circle avatar-small" %>
+                        <%= image_tag (reservation.user.image), class: "img-circle avatar-small" %>
                         <%= reservation.user.fullname %>
                       <% end %>
                     </span>
