@@ -43,7 +43,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
               role="button" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag (current_user.image), class: "avatar-small" %>&nbsp;
+              <%= image_tag (current_user.image.url), class: "avatar-small" %>&nbsp;
               <%= current_user.fullname %> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
