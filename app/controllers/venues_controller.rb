@@ -25,19 +25,9 @@ class VenuesController < ApplicationController
     end
   end
   
-  # def destroy
-  #   @venue = Venue.find(params[:id])
-
-  #   @venue.destroy
-  #   @venue = Venue.where(venue_id: @venue.id)
-
-  #   respond_to :js
-  # end
-  
   def show
     @photos = @venue.photos
     @guest_reviews = @venue.guest_reviews
-    # @guest_reviews = Review.where(type: "GuestReview")
   end
   
   def listing
