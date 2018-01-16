@@ -1,49 +1,39 @@
-<div class="col-md-12">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4>Reviews From Guest (<%= @guest_reviews.count %>)</h4>
-    </div>
-  
-    <div class="panel-body">
-      <div class="container">
-        <% if @guest_reviews.count == 0 %>
-          <div class="text-center">
-            <h4>There are no reviews.</h4>
-          </div>  
-        <% else %>
+<% if @host_reviews.count == 0 %>
+  <div class="text-center">
+    <h4>There are no reviews.</h4>
+  </div>
+  <% else %>
         
-          <% @guest_reviews.order(id: :desc).each do |r| %>
-            <hr/>
-            <div class="row">
-              <div class="col-md-3 text-center">
-                <%= image_tag (r.guest.image), class: "img-circle avatar-medium" %><br/><br/>
-                <strong><%= r.guest.fullname %></strong>
-              </div>
-              <div class="col-md-9">
-                <div id="star_<%= r.id %>"></div>
-        
-                <% if current_user && current_user == r.guest %>
-                    <span class="pull-right">
-                      <%= link_to r, method: :delete, data: {confirm: "Are you sure?"} do %>
-                          <i class="fa fa-trash-o fa-lg"></i>
-                      <% end %>
-                    </span>
-                <% end %>
-                <div><%= r.created_at.strftime("%v") %></div>
-                <div><%= r.comment %></div>
-              </div>
-            </div>  
-            
-            <script>
-              $('#star_<%= r.id %>').raty({
-              path: '/assets',
-              readOnly: true,
-              score: <%= r.star %>
-              });
-            </script>
+    <% @guest_reviews.order(id: :desc).each do |r| %>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3 text-center">
+          <%= image_tag (r.guest.image), class: "img-circle avatar-medium" %><br/><br/>
+          <strong><%= r.guest.fullname %></strong>
+        </div>
+        <div class="col-md-9">
+          <div id="star_<%= r.id %>"></div>
+
+          <% if current_user && current_user == r.guest %>
+            <span class="pull-right">
+              <%= link_to r, method: :delete, data: {confirm: "Are you sure?"} do %>
+                <i class="fa fa-trash-o fa-lg"></i>
+              <% end %>
+            </span>
           <% end %>
-        <% end %>
+          <div><%= r.created_at.strftime("%v") %></div>
+          <div><%= r.comment %></div>
+        </div>
       </div>
-    </div>  
+
+      <script>
+        $('#star_<%= r.id %>').raty({
+        path: '/assets',
+        readOnly: true,
+        score: <%= r.star %>
+        });
+      </script>
+    <% end %>
   </div>
 </div>
+<% end %>

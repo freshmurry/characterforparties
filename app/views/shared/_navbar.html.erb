@@ -8,22 +8,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
-      <div class="text-center">
-        <!--< link_to image_tag("icon.svg", alt: "logo"), root_path, class: "navbar-brand" %>-->
-        <%= link_to "Shindig Space", root_path, class: "navbar-brand" %>
-      </div>
+      <%= link_to "Shindig Space", root_path, class: "navbar-brand" %>
+      <!--< link_to image_tag("icon.svg", alt: "logo"), root_path, class: "navbar-brand" %>-->
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div id="navbar" class="navbar-collapse collapse">
-     <%= form_tag search_path, class: "nav navbar-nav navbar-form navbar-left", method: :get do %>
+     <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
           <div class="form-group">
             <%= text_field_tag :search, params[:search], placeholder: "Spaces Near You", class: "form-control", id:"autoaddress" %>
           </div>
       <% end %>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+          <button class="btn btn-form btn-small">
+            <%= link_to "List a Space", new_venue_path, style: "color: white; text-decoration: none;" %>
+          </button>
+        </li>
+          
         <% if (!user_signed_in?) %>
           <li><%= link_to "Login", new_user_session_path %></li>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
@@ -34,11 +36,11 @@
               <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
             <% end %>
           </li>
-          <li>
-            <button class="btn btn-form btn-small">
-              <%= link_to "List a Space", new_venue_path, style: "color: white; text-decoration: none;" %>
-            </button>
-          </li>
+          <!--<li>-->
+          <!--  <button class="btn btn-form btn-small">-->
+          <!--    < link_to "List a Space", new_venue_path, style: "color: white; text-decoration: none;" %>-->
+          <!--  </button>-->
+          <!--</li>-->
           
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" 

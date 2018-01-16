@@ -41,11 +41,13 @@
     </div>
     
     <!-- YOUR REVIEWS -->
-    <div class="row">
-      <%= render partial: "reviews/guest_list" %>
+    <div class="panel panel-default">
+      <div class="panel-heading">Reviews from Guest (<%= @guest_reviews.count %>)</div>
+      <div class="panel-body">
+        <%= render "reviews/guest_list" %>
+      </div>
     </div>
-    <br/>
-    
+
     <div class="panel panel-default">
       <div class="panel-heading">Reviews from Host (<%= @host_reviews.count %>)</div>
       <div class="panel-body">

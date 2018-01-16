@@ -7,15 +7,17 @@
       <div class="panel-heading"><%= current_user.fullname %></div>
       <div class="panel-body">
         <ul class="sidebar-list">
-          <% if current_user.confirmation_token %>
-            <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-          <% end %>
-          <% if current_user.provider %>
-            <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-          <% end %>
-          <% if current_user.phone_verified %>
-            <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-          <% end %>
+          <div class="container">
+            <% if current_user.confirmation_token %>
+              <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+            <% end %>
+            <% if current_user.provider %>
+              <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+            <% end %>
+            <% if current_user.phone_verified %>
+              <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+            <% end %>
+          </div>  
         </ul>
       </div>
     </div>
@@ -27,9 +29,11 @@
     <div class="panel panel-default">
       <div class="panel-heading">Notifications</div>
       <div class="panel-body">
+        <div class="container">
           <%= link_to notifications_path do %>
             You have <span id="num_of_unread"><%= current_user.unread %></span> notification(s).
           <% end %>
+        </div>  
       </div>
     </div>
 
@@ -37,7 +41,9 @@
     <div class="panel panel-default">
       <div class="panel-heading">Your Listings (<%= @venues.length %>)</div>
       <div class="panel-body">
-        <%= render partial: "venues/venues_list", locals: {venues: @venues} %>
+        <div class="container">
+          <%= render partial: "venues/venues_list", locals: {venues: @venues} %>
+        </div>  
       </div>
     </div>
 
