@@ -56,7 +56,9 @@
       <div class="panel panel-default">
         <div class="panel-heading">About This Venue</div>
           <div class="panel-body">
-            <p><%= @venue.summary %></p>
+            <div class="container">
+              <p><%= @venue.summary %></p>
+            </div>  
         </div>
       </div>
     </div>
@@ -67,37 +69,39 @@
       <div class="panel panel-default">
         <div class="panel-heading">Amenities</div>
           <div class="panel-body">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-4">
-                  <ul class="amenities">
-                    <li class="<%= 'text-line-through' if !@venue.is_kitchen %>">Kitchen</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_tables %>">Tables</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_chairs %>">Chairs</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_microphone %>">Microphone</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_custodial %>">Custodial Services</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_accessible %>">Accessible</li>
-                  </ul>
-                </div>
-                <div class="col-md-4">
-                  <ul class="amenities">
-                    <li class="<%= 'text-line-through' if !@venue.is_projector %>">Projector</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_bar %>">Bar</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_self_parking %>">Self-Parking</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_valet_parking %>">Valet Parking</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_tablecloths %>">Tablecloths</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_wheelchair %>">Wheelchair</li>
-                  </ul>
-                </div>
-                <div class="col-md-4">
-                  <ul class="amenities">
-                    <li class="<%= 'text-line-through' if !@venue.is_garage_parking %>">Garage Parking</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_air %>">Air Conditioning</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_heating %>">Heating</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_wifi %>">Wifi</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_garbage_removal %>">Garbage Removal</li>
-                    <li class="<%= 'text-line-through' if !@venue.is_stage %>">Stage</li>
-                  </ul>
+            <div class="container">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-4">
+                    <ul class="amenities">
+                      <li class="<%= 'text-line-through' if !@venue.is_kitchen %>">Kitchen</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_tables %>">Tables</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_chairs %>">Chairs</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_microphone %>">Microphone</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_custodial %>">Custodial Services</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_accessible %>">Accessible</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <ul class="amenities">
+                      <li class="<%= 'text-line-through' if !@venue.is_projector %>">Projector</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_bar %>">Bar</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_self_parking %>">Self-Parking</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_valet_parking %>">Valet Parking</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_tablecloths %>">Tablecloths</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_wheelchair %>">Wheelchair</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <ul class="amenities">
+                      <li class="<%= 'text-line-through' if !@venue.is_garage_parking %>">Garage Parking</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_air %>">Air Conditioning</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_heating %>">Heating</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_wifi %>">Wifi</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_garbage_removal %>">Garbage Removal</li>
+                      <li class="<%= 'text-line-through' if !@venue.is_stage %>">Stage</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,7 +151,7 @@
         <div class="panel-heading">Guest Reviews (<%= @guest_reviews.length %>) <span id="average_rating"></span></div>
           <div class="container">
             <div class="panel-body">
-
+              <div><%= render "reviews/guest_list" %></div>
             </div>
           </div>
       </div>
