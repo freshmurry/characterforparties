@@ -23,5 +23,5 @@
 /config/application.yml
 
 /public/system
-
-.c9/metadata/workspace
+.c9
+.c9/metadata
