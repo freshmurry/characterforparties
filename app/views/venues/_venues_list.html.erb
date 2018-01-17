@@ -4,11 +4,11 @@
       <div class="panel-heading preview">
         <%= image_tag venue.cover_photo(:medium) %>
         <div class="price-box-wrapper">
-          <span style="font-weight: bold; font-size: 10px;">$<%= venue.price %> /day</span>
+          <span style="font-size: 10px">$<%= venue.price %> /day</span>
         </div>
       </div>
       <div class="panel-body">
-        <div class="container-fluid">
+        <div class="container container-fluid">
           <%= link_to venue.listing_name, venue %><br/>
           $<%= venue.price %> &nbsp; <%= venue.venue_type %> &nbsp; <div class="fa fa-users"></div> <%= venue.accommodate %>
         </div>
