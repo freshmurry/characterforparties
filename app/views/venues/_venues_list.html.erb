@@ -8,15 +8,14 @@
         </div>
       </div>
       <div class="panel-body">
-        <div class="container container-fluid">
+        <div class="container">
           <%= link_to venue.listing_name, venue %><br/>
           $<%= venue.price %> &nbsp; <%= venue.venue_type %> &nbsp; <div class="fa fa-users"></div> <%= venue.accommodate %>
-        </div>
         <div id="star_<%= venue.id %>"></div> <%= pluralize(venue.average_rating, "review") %>
+        </div>
       </div>
     </div>
   </div>
-
   <script>
     $('#star_<%= venue.id %>').raty({
       path: '/assets',
