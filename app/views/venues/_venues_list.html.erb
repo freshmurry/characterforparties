@@ -2,12 +2,12 @@
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="price-box-wrapper">
-        <span style="font-size: 10px">$<%= venue.price %> /day</span>
+        <span>$<%= venue.price %> /day</span>
       </div>
       <div class="panel-heading preview">
         <%= image_tag venue.cover_photo(:medium) %>
         <div class="box-wrapper">
-          <span style="font-size: 10px"><%= venue.venue_type %> &nbsp; <div class="fa fa-users"></div> <%= venue.accommodate %></span>
+          <span style="font-weight: bold;"><%= venue.venue_type %> &nbsp; <div class="fa fa-users"></div> <%= venue.accommodate %></span>
         </div>
       </div>
       <div class="panel-body">
