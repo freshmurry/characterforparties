@@ -322,11 +322,17 @@ button.btn.btn-form.btn-small {
 
 div.price-box-wrapper {
   position: absolute;
-  bottom: 0px;
   padding: 4px 8px;
   color: #fff;
   background-color: rgba(0,0,0,.5);
   text-align: center;
+  box-sizing: border-box;
+}
+
+div.box-wrapper {
+  padding: 4px 8px;
+  color: #fff;
+  background-color: rgba(0,0,0,.5);
   box-sizing: border-box;
 }
 
