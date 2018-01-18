@@ -10,17 +10,19 @@
     <div class="panel panel-default">
       <div class="panel-heading">Verification</div>
       <div class="panel-body">
-        <ul class="sidebar-list">
-          <% if @user.confirmation_token %>
-            <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-          <% end %>
-          <% if @user.provider %>
-            <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-          <% end %>
-          <% if current_user.phone_verified %>
-            <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-          <% end %>
-        </ul>
+        <div class="container">
+          <ul class="sidebar-list">
+            <% if @user.confirmation_token %>
+              <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+            <% end %>
+            <% if @user.provider %>
+              <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+            <% end %>
+            <% if current_user.phone_verified %>
+              <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+            <% end %>
+          </ul>
+        </div>  
       </div>
     </div>
   </div>
@@ -35,9 +37,11 @@
     <!-- YOUR LISTNGS -->
     <div class="panel panel-default">
       <div class="panel-heading">Your Listings (<%= @venues.length %>)</div>
-      <div class="panel-body">
-        <%= render partial: "venues/venues_list", locals: {venues: @venues} %>
-      </div>
+        <div class="panel-body">
+          <div class="container">
+            <%= render partial: "venues/venues_list", locals: {venues: @venues} %>
+          </div>
+        </div>
     </div>
     
     <!-- YOUR REVIEWS -->
