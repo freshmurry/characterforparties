@@ -3,13 +3,6 @@
     <div class="panel panel-default">
       <div class="panel-heading">Your Conversations</div>
       <div class="panel-body">
-        <div class="container">
-          
-          <% if @message.count == 0 %>
-            <div class="text-center">
-              <h4>There are no messages.</h4>
-            </div>
-          <% else %>
 
           <% @conversations.each do |conversation| %>
               <% other = current_user == conversation.sender ? conversation.recipient : conversation.sender %>
