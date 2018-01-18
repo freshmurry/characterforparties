@@ -1,11 +1,18 @@
-<div class="panel">
-  <div class="panel-body">
-    <%= image_tag (message.user.image), class: "img-circle avatar-medium" %>
-    <strong><%= message.user.fullname %></strong>
-    <span class="pull-right"><%= message.message_time %></span>
-    <br/>
-    <div class="row-space-2">
-      <%= message.context %>
+<% if @message.count == 0 %>
+  <div class="text-center">
+    <h4>There are no messages.</h4>
+  </div>
+  <% else %>
+
+  <div class="panel">
+    <div class="panel-body">
+      <%= image_tag (message.user.image), class: "img-circle avatar-medium" %>
+      <strong><%= message.user.fullname %></strong>
+      <span class="pull-right"><%= message.message_time %></span>
+      <br/>
+      <div class="row-space-2">
+        <%= message.context %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
