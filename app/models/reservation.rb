@@ -1,6 +1,8 @@
 class Reservation < ApplicationRecord
   enum instant: {Waiting: 0, Approved: 1, Declined: 2}
   
+  after_create_commit :create_notification
+  
   belongs_to :user
   belongs_to :venue
   

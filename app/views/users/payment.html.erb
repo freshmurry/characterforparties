@@ -35,7 +35,6 @@
                   <p>*Card info is never saved, super secure, and fully protected by 256-bit SSL encryption</p>
                 <% end %>
 
-
             <% end %>
         </div>
       </div>
@@ -47,7 +46,7 @@
 <script>
   $(function() {
 
-    var stripe = Stripe('<%= Rails.configuration.stripe[:publishable_key] %>');
+    var stripe = Stripe('pk_live_tPxK7gw5a2XVBKxCgAdATbwf');
     var elements = stripe.elements();
 
     var card = elements.create('card', {
