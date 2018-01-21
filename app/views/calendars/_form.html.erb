@@ -7,16 +7,18 @@
       <div class="modal-body">
         <%= form_for [@venue, Calendar.new] do |f| %>
             <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= f.text_field :start_date, readonly: true, value: Date.today, class: "form-control datepicker" %>
+              <div class="container">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= f.text_field :start_date, readonly: true, value: Date.today, class: "form-control datepicker" %>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= f.text_field :end_date, readonly: true, value: Date.today, class: "form-control datepicker" %>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= f.text_field :end_date, readonly: true, value: Date.today, class: "form-control datepicker" %>
+                  </div>
                 </div>
-              </div>
+              </div>  
             </div>
 
             <div class="form-group">
@@ -28,17 +30,19 @@
             </div>
 
             <div class="row new-pricing">
-              <div class="col-md-10">
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <%= f.text_field :price, class: "form-control", value: @venue.price, required: true %>
+              <div class="container">
+                <div class="col-md-10">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <%= f.text_field :price, class: "form-control", value: @venue.price, required: true %>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-2">
-                <p style="margin-top: 10px">Per Day</p>
-              </div>
+                <div class="col-md-2">
+                  <p style="margin-top: 10px">Per Day</p>
+                </div>
+              </div>  
             </div>
 
             <div class="no-pricing hide">

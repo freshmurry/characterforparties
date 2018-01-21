@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.integer  "venue_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["venue_id"], name: "index_photos_on_venue_id"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "venue_id"
@@ -103,18 +113,18 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.string   "phone_number"
     t.string   "address"
     t.text     "description"
-    t.string   "pin"
-    t.boolean  "phone_verified"
-    t.integer  "unread",                 default: 0
-    t.string   "access_token"
-    t.string   "stripe_id"
-    t.string   "merchant_id"
     t.string   "provider"
     t.string   "uid"
     t.string   "image"
+    t.string   "access_token"
+    t.string   "pin"
+    t.boolean  "phone_verified"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "stripe_id"
+    t.string   "merchant_id"
+    t.integer  "unread",                 default: 0
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

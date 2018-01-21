@@ -12,14 +12,16 @@
       <div class="panel-body">
         <div class="container">
           <%= form_for @venue do |f| %>
-
-            <div class="row">
-              <div class="form-group">
-                <label>Address</label>
-                <%= f.text_field :address, placeholder: "Where is your venue located?", class: "form-control", required: true, id: "autoaddress" %>
+            
+            <div class="container">
+              <div class="row">
+                <div class="form-group">
+                  <label>Address</label>
+                  <%= f.text_field :address, placeholder: "Where is your venue located?", class: "form-control", required: true, id: "autoaddress" %>
+                </div>
               </div>
             </div>
-
+            
             <div class="text-center">
               <%= f.submit "Save", class: "btn btn-form" %>
             </div>

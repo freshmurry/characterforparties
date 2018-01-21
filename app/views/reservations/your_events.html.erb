@@ -15,26 +15,28 @@
 
         <% @events.each do |event| %>
           <div class="row">
-            <div class="col-md-2">
-              <%= event.start_date.strftime('%v') %>
-              <p><%= event.status %></p>
-            </div>
-            <div class="col-md-2">
-              <%= link_to venue_path(event.venue) do %>
-                <%= image_tag event.venue.cover_photo(:thumb) %>
-              <% end %>
-            </div>
-            <div class="col-md-5">
-              <%= link_to event.venue.listing_name, venue_path(event.venue) %><br/><br/>
-              <span>
-                <%= image_tag (event.venue.user.image), class: "img-circle avatar-small" %>
-                <%= link_to user_path(event.venue.user) do %>
-                    <%= event.venue.user.fullname %>
+            <div class="conainer">
+              <div class="col-md-2">
+                <%= event.start_date.strftime('%v') %>
+                <p><%= event.status %></p>
+              </div>
+              <div class="col-md-2">
+                <%= link_to venue_path(event.venue) do %>
+                  <%= image_tag event.venue.cover_photo(:thumb) %>
                 <% end %>
-              </span>
-            </div>
-            <div class="col-md-3 text-right">
-              <%= render partial: "reviews/guest_form", locals: {reservation: event} if event.Approve? %>
+              </div>
+              <div class="col-md-5">
+                <%= link_to event.venue.listing_name, venue_path(event.venue) %><br/><br/>
+                <span>
+                  <%= image_tag (event.venue.user.image), class: "img-circle avatar-small" %>
+                  <%= link_to user_path(event.venue.user) do %>
+                      <%= event.venue.user.fullname %>
+                  <% end %>
+                </span>
+              </div>
+              <div class="col-md-3 text-right">
+                <%= render partial: "reviews/guest_form", locals: {reservation: event} if event.Approve? %>
+              </div>
             </div>
           </div>
           <hr/>

@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default" style="margin-right: -45px; margin-left: -45px;">
   <div class="panel-heading">
     Create your Venue Space
   </div>
@@ -6,9 +6,7 @@
     <div class="container">
 
       <%= form_for @venue, html: {multipart: true} do |f| %>
-
-        <div class="row">
-
+      
           <div class="col-md-4 select">
             <div class="form-group">
               <label>Event Type</label>
@@ -50,9 +48,7 @@
             </div>
           </div>
           
-        </div>
-
-        <div><%= f.submit "Create My Listing", class: "btn btn-normal" %></div>
+        <div class="col-md-12"><%= f.submit "Create My Listing", class: "btn btn-normal" %></div>
 
       <% end %>
 

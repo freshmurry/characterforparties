@@ -45,7 +45,10 @@
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   $(function() {
-
+    
+    // ----- TEST -----
+    // var stripe = Stripe('pk_test_WYMTzyGZ9KXIM7ckP4mIDQEa');
+    // ----- LIVE -----
     var stripe = Stripe('pk_live_tPxK7gw5a2XVBKxCgAdATbwf');
     var elements = stripe.elements();
 
