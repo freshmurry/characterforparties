@@ -14,6 +14,16 @@ class ConversationsController < ApplicationController
 
     redirect_to conversation_messages_path(@conversation)
   end
+  
+  def destroy
+    @conversation = Conversation.find(params[:id])
+    @message = @conversation.message
+
+    @conversation.destroy
+    @conversations = Conversation.where(conversation_id: @conversation_id)
+
+    respond_to :js
+  end
 
   private
 

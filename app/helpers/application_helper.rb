@@ -1,20 +1,19 @@
 module ApplicationHelper
-  def image(user)
+  def image_url(user)
     if user.image
-      @user.image_url
     else
       "https://graph.facebook.com/#{user.uid}/picture?type=large"
       
-      # gravatar_id = Digest::MD5::hexdigest(user.email).downcase
-      # "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identical&s=150"
+      gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+      "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identical&s=150"
     end
   end
   
   # def image(user)
-  #   if @user.image.empty?
-  #     "assets/images/blank.jpg"
+  #   if user.image
+  #     "assets/blank.jpg"
   #   else
-  #     @user.image.url
+  #     user.image
   #   end
   # end
   

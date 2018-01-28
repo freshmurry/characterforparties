@@ -3,7 +3,7 @@
     <ul class="sidebar-list">
       <li class="sidebar-item"><%= link_to "Your Listings", venues_path, class: "sidebar-link active" %></li>
       <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Your Appointments", your_events_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Spaces", your_events_path, class: "sidebar-link" %></li>
     </ul>
   </div>
   <div class="col-md-9">
@@ -14,8 +14,8 @@
       <div class="panel-body">
         <div class="container">
           <% @venues.each do |venue| %>
-            <div class="row">
-              <div class="container">
+            <div class="container">
+              <div class="row">
                 <div class="col-md-2">
                   <%= image_tag venue.cover_photo(:thumb) %>
                 </div>

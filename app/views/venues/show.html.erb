@@ -14,13 +14,18 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3 text-center">
-            <%= image_tag (@venue.user.image), class: "avatar-large" %><br/> 
+            <%= image_tag (@venue.user.image), class: "img-circle avatar-large" %><br/>
+            <%= link_to user_path(@venue.user) do %>
             <%= @venue.user.fullname %>
+            <% end %>
           </div>
           <div>
             <h2><%= @venue.listing_name %></h2>
             <%= @venue.address %>
           </div>
+          <div>
+            <span id="average_rating"></span>
+          </div>  
         </div>
       </div>  
       <hr/>
@@ -201,26 +206,26 @@
       <br/>
   
       <!-- NEARBY SHINDIG EVENT HOSTS -->
-      <div class="container">
-        <div class="row">
-          <div class="panel panel-default">
-            <div class="panel-heading">Nearby Venue Spaces</div>
-            <% for venue in @venue.nearbys(10) %>
-              <div class="col-md-4">
-                  <div class="panel panel-default">
-                    <div class="panel-heading preview">
-                      <%= image_tag venue.cover_photo(:medium) %>
-                    </div>
-                    <div class="panel-body">
-                      <%= link_to venue.listing_name, venue %><br/>
-                      (<%= venue.distance.round(2) %> mi away)
-                    </div>
-                  </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Nearby Venue Spaces</div>
+        <% for venue in @venue.nearbys(10) %>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading preview">
+                <%= image_tag venue.cover_photo(:medium) %>
+              </div>
+              <div class="panel-body">
+                <div class="container">
+                  <%= link_to venue.listing_name, venue %><br/>
+                  (<%= venue.distance.round(2) %> mi away)
                 </div>
-            <% end %>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
+  
     </div>
   
     <!-- RIGHT PANEL -->

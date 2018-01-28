@@ -67,7 +67,7 @@ class VenuesController < ApplicationController
     reservations = @venue.reservations.where("(start_date >= ? OR end_date >= ?) AND status = ?", today, today, 1)
     unavailable_dates = @venue.calendars.where("status = ? AND day > ?", 1, today)
 
-    special_dates = @venue.calendars.where("status = ? AND day > ? AND price <> ?",0, today, @venue.price)
+    special_dates = @venue.calendars.where("status = ? AND day > ? AND price <> ?", 0, today, @venue.price)
     
     render json: {
         reservations: reservations,

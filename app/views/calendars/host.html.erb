@@ -34,7 +34,7 @@
         name: e.fullname,
         start: e['start_date'],
         end: e['end_date'],
-        avatar: e.image,
+        image: e.image,
         status: e.status
       }
     })
@@ -52,7 +52,7 @@
       return $(`
         <a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end">
           <div class="fc-content ${event.status}">
-            <span class="fc-title"><img class="img-circle avatar-small" src="${event.image}"> ${event.name}</span>
+            <span class="fc-title"><img class="img-circle avatar-small" "${event.image}"> ${event.name}</span>
           </div>
         </a>
       `);

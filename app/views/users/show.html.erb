@@ -3,7 +3,7 @@
     <div class="center">
       <%= image_tag (@user.image), class: "avatar-full" %>
       <% if current_user && current_user != @user %>
-        <% link_to "Send Message", conversation_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class: "btn btn-default" %>
+        <%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class: "btn btn-default" %>
       <% end %>
     </div>
     <br/>
@@ -28,7 +28,7 @@
   </div>
 
   <div class="col-md-9">
-    <h2 class="text-green"><%= @user.fullname %></h2>
+    <h2 class="text-blue"><%= @user.fullname %></h2>
 
     <div class="description row-space-3">
       <%= @user.description %>
@@ -47,16 +47,16 @@
     <!-- YOUR REVIEWS -->
     <div class="panel panel-default">
       <div class="panel-heading">Reviews from Guest (<%= @guest_reviews.count %>)</div>
-      <div class="panel-body">
-        <%= render "reviews/guest_list" %>
-      </div>
+        <div class="panel-body">
+          <%= render "reviews/guest_list" %>
+        </div>
     </div>
 
     <div class="panel panel-default">
       <div class="panel-heading">Reviews from Host (<%= @host_reviews.count %>)</div>
-      <div class="panel-body">
-        <%= render "reviews/host_list" %>
-      </div>
+        <div class="panel-body">
+          <%= render "reviews/host_list" %>
+        </div>
     </div>
 
   </div>

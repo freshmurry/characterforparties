@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
       flash[:alert] = "You cannot book your own venue!"
     elsif current_user.stripe_id.blank?
        flash[:alert] = "Please update your payment method!"
-       returen redirect_to payment_method_path
+       return redirect_to payment_method_path
     else
       start_date = Date.parse(reservation_params[:start_date])
       end_date = Date.parse(reservation_params[:end_date])
@@ -38,7 +38,7 @@ class ReservationsController < ApplicationController
           charge(venue, @reservation)
         end
       else
-        flash[:alert] = "Cannot book a venue"
+        flash[:alert] = "Cannot make a reservation"
       end
       
     end
@@ -66,13 +66,13 @@ class ReservationsController < ApplicationController
   private
   
   def send_sms(venue, reservation)
-    @host = Twilio::REST::Client.new
-    @host.messages.create(
+    @client = Twilio::REST::Client.new
+    @client.messages.create(
       from: '+3125488878',
       to: venue.user.phone_number,
-      body: "#{reservation.user.fullname} booking a '#{venue.venue_type} venue for your event'"
+      body: "#{reservation.user.fullname} booked your '#{venue.listing_name}'"
     )
-  end  
+  end
   
     def charge(venue, reservation)
       if !reservation.user.stripe_id.blank?
@@ -89,8 +89,8 @@ class ReservationsController < ApplicationController
         )
   
         if charge
-          reservation.Approve!
-          ReservationMailer.send_email_to_client(reservation.user, venue).deliver_later if reservation.user.setting.enable_email
+          reservation.Approved!
+          ReservationMailer.send_email_to_guest(reservation.user, venue).deliver_later if reservation.user.setting.enable_email
           send_sms(venue, reservation) if venue.user.setting.enable_sms
           flash[:notice] = "Reservation created successfully!"
         else

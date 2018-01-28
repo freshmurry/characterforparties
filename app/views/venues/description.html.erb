@@ -14,21 +14,25 @@
           <%= form_for @venue do |f| %>
 
             <div class="row">
-              <div class="form-group">
-                <label>Listing name</label>
-                <%= f.text_field :listing_name, placeholder: "What is your listing name?", class: "form-control", required: true %>
-              </div>
+              <div class="container">  
+                <div class="form-group">
+                  <label>Listing name</label>
+                  <%= f.text_field :listing_name, placeholder: "What is your listing name?", class: "form-control", required: true %>
+                </div>
+              </div>  
             </div>
 
             <div class="row">
-              <div class="form-group">
-                <label>Summary</label>
-                <%= f.text_area :summary, rows: 5, placeholder: "Summary of your Shindig Space", class: "form-control", required: true %>
-              </div>
+              <div class="container">
+                <div class="form-group">
+                  <label>Summary</label>
+                  <%= f.text_area :summary, rows: 5, placeholder: "Summary of your Shindig Space", class: "form-control", required: true %>
+                </div>
+              </div>  
             </div>
 
             <div class="text-center">
-              <%= f.submit "Save", class: "btn btn-form" %>
+              <%= f.submit "Save", class: "btn btn-normal" %>
             </div>
 
           <% end %>
