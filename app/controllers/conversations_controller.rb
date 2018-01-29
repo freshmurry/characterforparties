@@ -17,10 +17,9 @@ class ConversationsController < ApplicationController
   
   def destroy
     @conversation = Conversation.find(params[:id])
-    @message = @conversation.message
-
     @conversation.destroy
-    @conversations = Conversation.where(conversation_id: @conversation_id)
+    
+    redirect_back(fallback_location: request.referer, notice: "Removed...!")
 
     respond_to :js
   end

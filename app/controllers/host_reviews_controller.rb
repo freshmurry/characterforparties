@@ -1,4 +1,4 @@
-class ClientReviewsController < ApplicationController
+class HostReviewsController < ApplicationController
 
   def create
     # Step 1: Check if the reservation exist (venue_id, host_id)
