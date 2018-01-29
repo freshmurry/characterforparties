@@ -19,9 +19,9 @@ class UsersController < ApplicationController
     current_user.generate_pin
     current_user.send_pin
 
-    redirect_to edit_user_registration_path, notice: "Saved..."
+    redirect_to user_path, notice: "Saved..."
   rescue Exception => e
-    redirect_to edit_user_registration_path, alert: "#{e.message}"
+    redirect_to user_path, alert: "#{e.message}"
   end
 
   def verify_phone_number
