@@ -19,9 +19,8 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
     @conversation.destroy
     
-    redirect_back(fallback_location: request.referer, notice: "Removed...!")
+    redirect_back(fallback_location: request.referer, notice: "Conversation Deleted!")
 
-    respond_to :js
   end
 
   private
