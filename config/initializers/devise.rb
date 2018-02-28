@@ -283,8 +283,8 @@ Devise.setup do |config|
                 }
 
   #----- STRIPE TEST -----
-  # config.omniauth :stripe_connect, 'ca_Bz12s2Z5ijkGknATCnWx9EmDZIvGMf0e', 'sk_test_uQnVqs5Vnt9upqbJJNCSmiYy', scope: 'read_write', stripe_landing: 'login'
+  config.omniauth :stripe_connect, 'ca_Bz12s2Z5ijkGknATCnWx9EmDZIvGMf0e', 'sk_test_uQnVqs5Vnt9upqbJJNCSmiYy', scope: 'read_write', stripe_landing: 'login'
   
   #----- STRIPE LIVE -----
-  config.omniauth :stripe_connect, ENV['STRIPE_PUBLISHABLE_KEY'], ENV['STRIPE_SECRET_KEY'], scope: 'read_write', stripe_landing: 'login'
+  # config.omniauth :stripe_connect, ENV['STRIPE_PUBLISHABLE_KEY'], ENV['STRIPE_SECRET_KEY'], scope: 'read_write', stripe_landing: 'login'
 end
