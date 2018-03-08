@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
    	<meta name="author" content="" />
-    <meta name="keywords" content="Event space in Chicago, cool event spaces in Chicago, event spaces near me, event halls in Chicago, 
+    <meta name="keywords" content="Best Church halls rental in Chicago, Venue Spaces in Chicago, Best Church Venues for Rent in Chicago metro area, 
     Best event spaces in Chicago" />
     <meta name="description" content="Non-traditional and cool event spaces is here!">
     <meta name="google-site-verification" content="DO0yqvdoS6_M3JZwnZVhczIRYC58JLcZiIw0CYR7tUI" />
@@ -49,16 +49,20 @@
     <div class="container">
     	<%= yield %>
     </div>
-        
+    <div class="clearfix">
+      <%= render 'layouts/footer' %>
+      <% debug(params) if Rails.env.development?%>
+    </div>
+    
     <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111559616-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111559616-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
   
-    gtag('config', 'UA-111559616-1');
-  </script>
-
+      gtag('config', 'UA-111559616-1');
+    </script>
+    
   </body>
 </html>
