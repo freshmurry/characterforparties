@@ -21,16 +21,6 @@
                       <div class="col-md-8">
                         <%= conversation.messages.last.context %>
                       </div>
-                      
-                      <div class="pull-right">
-                        <span>
-                          <%= link_to conversations_path, remote: true, method: :delete,
-                            data: {confirm: "Are you sure?"} do %>
-                            <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
-                          <% end %>
-                        </span>
-                      </div>
-                      
                     <% end %>
                   </div>
                 </div>
