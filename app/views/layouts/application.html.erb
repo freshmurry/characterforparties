@@ -49,10 +49,6 @@
     <div class="container">
     	<%= yield %>
     </div>
-    <div class="clearfix">
-      <%= render 'layouts/footer' %>
-      <% debug(params) if Rails.env.development?%>
-    </div>
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111559616-1"></script>
@@ -64,5 +60,10 @@
       gtag('config', 'UA-111559616-1');
     </script>
     
+    <footer>
+      <%= render 'layouts/footer' %>
+      <% debug(params) if Rails.env.development?%>
+    </footer>
+  
   </body>
 </html>

@@ -558,12 +558,15 @@ div.box-wrapper {
 ========================================================== */
 
 footer {
-	background: #3a3a3a;
+	background: #3A3A3A;
 	margin: 30px 0 0;
-	padding: 0 0 30px;
+// 	padding: 0 0 30px;
 	color: #aaa;
 	display: block;
-	width: 100%;
+	width: auto;
+	position: relative;
+  bottom: 0;
+  min-height: 206px;
 }
 
 footer a {
