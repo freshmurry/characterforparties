@@ -50,7 +50,7 @@ Rails.application.routes.draw do
  		
    resources :revenues, only: [:index]		
  		
-   resources :conversations, only: [:index, :create, :destroy]  do		
+   resources :conversations, only: [:index, :create]  do		
      resources :messages, only: [:index, :create]
    end		
  		
