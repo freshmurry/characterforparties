@@ -5,7 +5,7 @@
       <div class="panel-body">
         <div class="container">
           <% @conversations.each do |conversation| %>
-            <% other = current_user == conversation.sender ? conversation.recipient : conversation.sender %>
+            <% @other = current_user == conversation.sender ? conversation.recipient : conversation.sender %>
             <%= link_to conversation_messages_path(conversation) do %>
                 
               <div class="container">
@@ -15,7 +15,7 @@
                       <%= image_tag (@other.image), class: "img-circle avatar-medium" %>
                     </div>
                     <div class="col-md-2">
-                      <b><%= other.fullname %></b>
+                      <b><%= @other.fullname %></b>
                       <%= conversation.messages.last.message_time %>
                     </div>
                     <div class="col-md-8">
