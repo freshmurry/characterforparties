@@ -557,16 +557,16 @@ div.box-wrapper {
 ! Footer
 ========================================================== */
 
-footer {
+.footerSection {
 	background: #3A3A3A;
 	margin: 30px 0 0;
-// 	padding: 0 0 30px;
+	padding: 0 0 30px;
 	color: #aaa;
 	display: block;
-	width: auto;
+	width: 100%;
 	position: relative;
-  bottom: 0;
-  min-height: 206px;
+  margin-bottom: 0;
+//  min-height: 206px;
 }
 
 footer a {
