@@ -12,14 +12,10 @@
                 <div class="row conversation">
                   <% if conversation.messages.any? %>
                     <div class="col-md-2">
-                      <% if other %>
-                        <%= image_tag (other.image), class: "img-circle avatar-medium" %>
-                      <% end %>  
+                      <%= image_tag (other.image), class: "img-circle avatar-medium" %>
                     </div>
                     <div class="col-md-2">
-                      <% if other %>
-                        <b><%= other.fullname %></b>
-                      <% end %>
+                      <b><%= other.fullname %></b>
                       <%= conversation.messages.last.message_time %>
                     </div>
                     <div class="col-md-8">
