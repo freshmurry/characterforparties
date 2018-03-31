@@ -12,7 +12,9 @@
                 <div class="row conversation">
                   <% if conversation.messages.any? %>
                     <div class="col-md-2">
-                      <%= image_tag (other.image), class: "img-circle avatar-medium" %>
+                      <% if other %>
+                        <%= image_tag (other.image), class: "img-circle avatar-medium" %>
+                      <% end %>  
                     </div>
                     <div class="col-md-2">
                       <b><%= other.fullname %></b>
