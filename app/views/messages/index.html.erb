@@ -2,8 +2,6 @@
   <div class="col-md-3 text-center">
     <% if @other %>
       <%= image_tag (@other.image), class: "img-circle avatar-medium" %>
-    <% end %>
-    <% if @other %>
       <b><%= @other.fullname %></b>
     <% end %>
     <%= link_to "View Profile", @other, class: "btn btn-default" %>&nbsp;
@@ -11,7 +9,9 @@
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Conversation with <%= @other.fullname %>
+        <% if @other %>
+          Conversation with <%= @other.fullname %>
+        <% if @other %>  
         <input id="conversation_id" type="hidden" value="<%= @conversation.id %>">
       </div>
       <div class="panel-body">
