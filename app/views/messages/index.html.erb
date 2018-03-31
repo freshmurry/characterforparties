@@ -11,7 +11,7 @@
       <div class="panel-heading">
         <% if @other %>
           Conversation with <%= @other.fullname %>
-        <% if @other %>  
+        <% end %>  
         <input id="conversation_id" type="hidden" value="<%= @conversation.id %>">
       </div>
       <div class="panel-body">
