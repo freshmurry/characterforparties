@@ -17,7 +17,9 @@
                       <% end %>  
                     </div>
                     <div class="col-md-2">
-                      <b><%= other.fullname %></b>
+                      <% if other %>
+                        <b><%= other.fullname %></b>
+                      <% end %>
                       <%= conversation.messages.last.message_time %>
                     </div>
                     <div class="col-md-8">
