@@ -13,9 +13,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
     devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :phone_number, :description, :image])
   end
-  
-  rescue_from ActionController::RoutingError do |exception|
-    logger.error 'Routing error occurred'
-    render plain: '404 Not found', status: 404 
-  end
 end

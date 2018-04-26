@@ -65,5 +65,4 @@ Rails.application.routes.draw do
    get '/notifications' => 'notifications#index'
 
    mount ActionCable.server => '/cable'
-   match "*path", to: "welcome#catch_404", via: :all
 end
