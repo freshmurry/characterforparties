@@ -7,12 +7,14 @@
           <% @conversations.each do |conversation| %>
             <% other = current_user == conversation.sender ? conversation.recipient : conversation.sender %>
             <%= link_to conversation_messages_path(conversation) do %>
-                
+                            
               <div class="container">
                 <div class="row conversation">
                   <% if conversation.messages.any? %>
                     <div class="col-md-2">
-                      <%= image_tag (other.image), class: "img-circle avatar-medium" %>
+                      <% if other %>
+                        <%= image_tag (other.image), class: "img-circle avatar-medium" %>
+                      <% end %>  
                     </div>
                     <div class="col-md-2">
                       <b><%= other.fullname %></b>
