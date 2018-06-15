@@ -17,14 +17,14 @@
             <%= image_tag (@venue.user.image), class: "img-circle avatar-large" %><br/>
             <%= link_to user_path(@venue.user) do %>
             <%= @venue.user.fullname %>
+            <div class="col-md-12">
+              <span id="average_rating"></span>
+            </div>
             <% end %>
           </div>
           <div class="col-md-9">
             <h2><%= @venue.listing_name %></h2>
             <%= @venue.address %>
-          </div>
-          <div class="col-md-6">
-            <span id="average_rating"></span>
           </div>
         </div>
       </div>  

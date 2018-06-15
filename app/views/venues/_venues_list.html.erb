@@ -13,7 +13,7 @@
       <div class="panel-body">
         <div class="container">
           <span style="font-weight: 500;"><%= link_to venue.listing_name, venue %></span></br>
-          <div id="star_<%= venue.id %>"></div><%= pluralize(venue.guest_reviews.count, "review") %>
+          <%= pluralize(venue.guest_reviews.count, "review") %><div id="star_<%= venue.id %>"></div>
         </div>
       </div>
     </div>

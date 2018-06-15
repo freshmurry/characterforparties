@@ -9,7 +9,7 @@
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Conversation with <% if @other %><%= @other.fullname %><% end %>  
+          Conversation with <%= @other.fullname %><% end %>  
         <input id="conversation_id" type="hidden" value="<%= @conversation.id %>">
       </div>
       <div class="panel-body">
