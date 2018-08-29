@@ -14,7 +14,7 @@ class VenuesController < ApplicationController
   def create
     # This code makes host register with Stripe first. We want people to create their listing without having to signup with Stripe first.
     if !current_user.is_active_host
-      return redirect_to payout_method_path, alert: "Please Connect to Stripe Express first."
+      return redirect_to payout_path, alert: "Please Connect to Stripe Express first."
     end
       
     @venue = current_user.venues.build(venue_params)
