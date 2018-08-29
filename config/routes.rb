@@ -55,8 +55,8 @@ Rails.application.routes.draw do
    end		
  		
    get '/host_calendar' => "calendars#host"	
-   get '/payment_method' => "users#payment"		
-   get '/payout_method' => "users#payout"
+   get '/payment' => "users#payment"		
+   get '/payout' => "users#payout"
    post '/add_card' => "users#add_card"		
  		
    get '/notification_settings' => 'settings#edit'		
