@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def payout
     if !current_user.merchant_id.blank?
       account = Stripe::Account.retrieve(current_user.merchant_id)
-      @login_link = account.login_links.create()
+      # @login_link = account.login_links.create()
     end
   end
 
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
     end
 
     flash[:notice] = "Your card is saved."
-    redirect_to payment_method_path
+    redirect_to payment_path
     rescue Stripe::CardError => e
     flash[:alert] = e.message
     redirect_to payment_path
