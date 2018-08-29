@@ -69,7 +69,7 @@ class UsersController < ApplicationController
     redirect_to payment_method_path
     rescue Stripe::CardError => e
     flash[:alert] = e.message
-    redirect_to payment_method_path
+    redirect_to payment_path
   end
   
   private
