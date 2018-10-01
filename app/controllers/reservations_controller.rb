@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
       flash[:alert] = "You cannot book your own venue!"
     elsif current_user.stripe_id.blank?
        flash[:alert] = "Please update your payment method!"
-       return redirect_to payment_method_path
+       return redirect_to payment_path
     else
       start_date = Date.parse(reservation_params[:start_date])
       end_date = Date.parse(reservation_params[:end_date])

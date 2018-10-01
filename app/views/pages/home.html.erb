@@ -23,24 +23,35 @@
 
 <% end %>
 
-<br><hr><br>
+<br>
 
 <!-- EVENT SPACES -->
-<div><h3>Event Spaces</h3></div>
+<div class="text-center"><h2>Event Spaces</h2>
+  <p>Book a unique event space</p>
+</div>
 <br/>
 
 <div class="row">
   <%= render partial: "venues/venues_list", locals: {venues: @venues} %>
 </div>
 
+<div class="text-center"><h2>Experience Shindig Space</h2></div>
+<br/>
+
+<div class="row">
+  <div class="col-sm-12">
+		<img src="">
+
+		</div>
+	</div>
 
 <!-- CITIES -->
-<div><h3>Event Spaces in other Cities</h3></div>
+<div class="text-center"><h2>Event Spaces in other Cities</h2></div>
 <br/>
 
 <div class="row">
   <div class="col-md-4 col-sm-12">
-		<div class="discovery-card" style="border: 1px solid #333; color: red;">
+		<div class="discovery-card" style="border: 1px solid #333">
 			<div class="va-container">
 				<div class="va-middle text-center" style="color: red;">
 					<h4>COMING SOON!</h4>
