@@ -45,7 +45,7 @@ class ReservationsController < ApplicationController
     redirect_to venue
   end
 
-  def past_shindig_spaces
+  def past_spaces
     @spaces = current_user.reservations.order(start_date: :asc)
   end
 

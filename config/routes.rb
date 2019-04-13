@@ -33,7 +33,7 @@ Rails.application.routes.draw do
    resources :guest_reviews, only: [:create, :destroy]		
    resources :host_reviews, only: [:create, :destroy]		
   		
-   get '/past_spaces' => 'reservations#pastS_spaces'		
+   get '/past_spaces' => 'reservations#past_spaces'
    get '/your_reservations' => 'reservations#your_reservations'		
    		
    get 'search' => 'pages#search'		
