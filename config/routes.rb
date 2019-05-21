@@ -27,7 +27,7 @@ Rails.application.routes.draw do
      end		
      resources :photos, only: [:create, :destroy]		
      resources :reservations, only: [:create]		
-     resources :calendars		
+     resources :calendars
    end		
      		
    resources :guest_reviews, only: [:create, :destroy]		

@@ -3,6 +3,20 @@
 @import "toastr";
 @import "fullcalendar";
 
+// For separting venue's key features into two colums on venues/shows
+// @media only screen and (max-width: 768px) {
+//   .row.text-babu.text-center {
+//     width: 50%;
+//     clear: both;
+//     float: left;
+//     padding: 20px;
+//   }
+// }
+
+.text-babu, .icon-babu {
+    line-height: 2;
+}
+
 body {
   color: #565a5c;
   background-color: #F8F8F8;

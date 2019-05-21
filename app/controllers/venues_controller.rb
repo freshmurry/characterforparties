@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   before_action :set_venue, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
-  before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :amenities, :address, :location, :update]
+  before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
 
   def index
     @venues = current_user.venues
@@ -109,7 +109,7 @@ class VenuesController < ApplicationController
     end
 
     def venue_params
-      params.require(:venue).permit(:venue_type, :event_type, :rest_room, :accommodate, :address, :listing_name, :summary, :is_kitchen, 
+      params.require(:venue).permit(:venue_type, :event_type, :rest_room, :accommodate, :listing_name, :summary, :address, :is_kitchen, 
       :is_tables, :is_chairs, :is_microphone, :is_projector, :is_bar, :is_self_parking, :is_valet_parking, :is_garage_parking, 
       :is_air, :is_heating, :is_wifi, :is_custodial, :is_accessible, :is_tablecloths, :is_wheelchair, :is_garbage_removal, :is_stage, :price, :active, :instant)
     end
