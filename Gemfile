@@ -31,15 +31,15 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'devise', '~> 4.4.0'
+gem "bootstrap-sass", ">= 3.4.1"
+gem "devise", ">= 4.6.0"
 
 gem 'toastr-rails', '~> 1.0'
 
-gem 'omniauth', '~> 1.6'
+gem 'omniauth', '~> 1.9'
 gem 'omniauth-facebook', '~> 4.0'
 
-gem 'paperclip', '~> 5.1.0'
+gem "paperclip", ">= 5.2.0"
 gem 'aws-sdk', '~> 2.8'
 
 gem 'geocoder', '~> 1.5'
@@ -50,7 +50,7 @@ gem 'thin'
 gem 'figaro'
 
 group :production do
-  gem 'pg'  
+  gem 'pg', '~> 1.1.4' 
   gem 'rails_12factor'
 end
 
@@ -64,4 +64,4 @@ gem 'rails-assets-card', source: 'https://rails-assets.org'
 
 gem 'omniauth-stripe-connect', '~> 2.10.0'
 
-gem 'chartkick', '~> 2.2.4'
+gem "chartkick", ">= 3.2.0"
