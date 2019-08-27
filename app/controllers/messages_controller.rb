@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! 
   before_action :set_conversation
 
   def index
@@ -20,6 +20,18 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    @conversation = @message.conversation
+
+    @message.destroy
+    @messages = Message.where(conversation_id: @conversation.id)
+
+    # respond_to :js
+
+    redirect_back(fallback_location: request.referer, notice: "Message Deleted!")
+  end
+  
   private
 
     def render_message(message)

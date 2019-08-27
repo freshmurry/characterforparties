@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
   before_action :set_venue, except: [:index, :new, :create]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :preload, :preview]
   before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
 
   def index

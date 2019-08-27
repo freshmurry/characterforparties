@@ -8,14 +8,14 @@
       <div class="panel-body">
         <ul class="sidebar-list">
           <div class="container">
+            <% if current_user.phone_verified %>
+              <li>Phone Number<span class="pull-right"><i class="fas fa-check-circle"></i></span></li>
+            <% end %>
             <% if current_user.confirmation_token %>
-              <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+              <li>Email Address<span class="pull-right"><i class="fas fa-check-circle"></i></span></li>
             <% end %>
             <% if current_user.provider %>
-              <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-            <% end %>
-            <% if current_user.phone_verified %>
-              <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+              <li>Facebook<span class="pull-right"><i class="fas fa-check-circle"></i></span></li>
             <% end %>
           </div>  
         </ul>

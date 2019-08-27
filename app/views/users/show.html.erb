@@ -13,18 +13,31 @@
         <div class="container">
           <ul class="sidebar-list">
             <% if @user.confirmation_token %>
-              <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-            <% end %>
-            <% if @user.provider %>
-              <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+              <li>Email Address<span class="pull-right"><i class="fas fa-check-circle"></i></span></li>
             <% end %>
             <% if current_user.phone_verified %>
-              <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+              <li>Phone Number<span class="pull-right"><i class="fas fa-check-circle"></i></span></li>
+            <% end %>
+            <% if @user.provider %>
+              <li>Facebook<span class="pull-right"><i class="fas fa-check-circle"></i></span></li>
             <% end %>
           </ul>
         </div>  
       </div>
     </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="container">
+          <ul class="sidebar-list">
+            <li>Member since: <b><%= @user.created_at.strftime("%B %Y") %></b></li>&nbsp;
+            <li>Last login: <b><%= @user.last_sign_in_at.strftime("%A, %B %d, %Y") %></b></li>
+          
+          </ul>
+        </div>  
+      </div>
+    </div>
+
   </div>
 
   <div class="col-md-9">

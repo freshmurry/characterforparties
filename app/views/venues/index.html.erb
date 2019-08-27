@@ -17,13 +17,8 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="container-fluid">
+                  <%= render partial: "venues/venues_list", locals: {venues: @venues} %>
                   <div class="col-md-2">
-                    <%= image_tag venue.cover_photo(:thumb) %>
-                  </div>
-                  <div class="col-md-7">
-                    <h4><%= link_to venue.listing_name, venue_path(venue) %></h4>
-                  </div>
-                  <div class="col-md-3 right">
                     <%= link_to "Update", listing_venue_path(venue), class: "btn btn-form" %>
                   </div>
                 </div>  
@@ -33,6 +28,6 @@
           <% end %>
         </div>
       </div>
-    </div>  
+    </div>
   </div>
 </div>

@@ -13,6 +13,10 @@ class SettingsController < ApplicationController
     render 'edit'
   end
 
+  def destroy
+    redirect_back(fallback_location: request.referer, notice: "Notification Deleted!")
+  end
+
   private
     def setting_params
       params.require(:setting).permit(:enable_sms, :enable_email)

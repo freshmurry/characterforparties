@@ -1,4 +1,6 @@
 Geocoder.configure(
   units: :mi,
-  :timeout=>50
+  :timeout=>15
 )
+
+Geocoder::Configuration.timeout = 15

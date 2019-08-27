@@ -16,15 +16,16 @@
                         <%= image_tag (other.image), class: "img-circle avatar-medium" %>
                       <% end %>  
                     </div>
+                    <div class="col-md-8">
+                      <%= conversation.messages.last.context %>
+                    </div>
                     <div class="col-md-2">
                       <% if other %>
                         <b><%= other.fullname %></b>
                       <% end %>  
                       <%= conversation.messages.last.message_time %>
                     </div>
-                    <div class="col-md-8">
-                      <%= conversation.messages.last.context %>
-                    </div>
+                    
                   <% end %>
                 </div>
               </div>

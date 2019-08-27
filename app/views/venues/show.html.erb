@@ -22,6 +22,7 @@
             </div>
             <% end %>
           </div>
+
           <div class="col-md-9">
             <h2><%= @venue.listing_name %></h2>
             <%= @venue.address %>
@@ -183,7 +184,7 @@
               var location = {lat: <%= @venue.latitude %>, lng: <%= @venue.longitude %>};
               var map = new google.maps.Map(document.getElementById('map'), {
                 center: location,
-                zoom: 14
+                zoom: 12
               });
     
               var marker = new google.maps.Marker({
@@ -203,31 +204,30 @@
     
         </div>
       </div>  
-      <br/>
-  
-      <!-- NEARBY SHINDIG EVENT HOSTS -->
+      <hr/>
 
-      <div class="panel panel-default">
-        <div class="panel-heading">Nearby Venue Spaces</div>
+
+    <!-- NEAR BY VENUES -->
+    <div class="panel panel-default">
+      <div class="panel-heading">Nearby Venue Spaces</div>
         <% for venue in @venue.nearbys(10) %>
           <div class="col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading preview">
                 <%= image_tag venue.cover_photo(:medium) %>
               </div>
+              
               <div class="panel-body">
                 <div class="container">
                   <%= link_to venue.listing_name, venue %><br/>
-                  (<%= venue.distance.round(2) %> mi away)
+                  (<%= venue.distance.round(2) %> miles away)
                 </div>
               </div>
-            </div>
           </div>
         <% end %>
-      </div>
-  
+      </div>  
     </div>
-  
+
     <!-- RIGHT PANEL -->
     <div class="col-md-4">
       <!-- RESERVATION FORM -->

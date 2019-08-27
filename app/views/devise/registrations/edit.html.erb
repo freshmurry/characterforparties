@@ -1,14 +1,28 @@
 <div class="row">
   <div class="col-md-3">
     <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
+      <!-- <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li> -->
+
+      <!-- Profile Photo -->
+      <div class="avatar-full">
+        <div class="panel panel-default">
+          <div class="panel-heading preview">
+            <%= image_tag @user.image(nil), class: "avatar-full" %>
+          </div>
+                  
+          <div class="panel-body">
+            <div class="container">
+              <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default" %>&nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Profile Photo-->
+
     </ul>
-    <br/>
-    
-    <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default" %>&nbsp;
-  
   </div>
-  <div class="col-md-9 text-center">
+  
+  <div class="col-md-6 text-center">
     <div class="panel panel-default">
       <div class="panel-heading">Edit Your Profile</div>
         <div class="panel-body">
@@ -19,15 +33,15 @@
             <%= form_tag [@user], html: { multipart: true } do |form| %>
               <div class="form-group">
                 <span class="btn btn-default btn-file text-babu">
-                  <i class="fa fa-cloud-upload" aria-hidden="true"></i> Select A Profile Photo
-                    <%= f.file_field :image %>
-                </span></br>
-                
+                  <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i> Select A Profile Photo
+                    <%= f.file_field :image,  type: :file, multiple: false %>
+                </span></br>                
               </div>
+
               <div class="form-group text-center">
                 <%= f.submit "Add Profile Photo", class: "btn btn-form" %>
               </div>
-              
+
             <div class="form-group">
               <%= f.text_field :fullname, autofocus: true, placeholder: "Full Name", class: "form-control" %>
             </div>
@@ -85,9 +99,6 @@
       </div>
     </div>
 
-  </div>
-</div>
-
 <!-- MODAL FOR PHONE NUMBER -->
 <div id="update-phone" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -137,6 +148,18 @@
     </div>
   </div>
 </div>
+
 <% end %>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <a href="https://www.bluehost.com/track/freshmurry/" target="_blank">
+  <img border="0" src="https://bluehost-cdn.com/media/partner/images/freshmurry/430x288/430x288PW.png"></a>
+    <br><br/>
+    <a href="https://track.fiverr.com/visit/?bta=7074&nci=5479&campaign=19735" Target="_Top"><img border="0" src="https://fiverr.ck-cdn.com/tn/serve/?cid=1492998"></a>
+
   </div>
+</div>
+
 </div>

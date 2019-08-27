@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.5.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -32,7 +32,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.4.0'
 
 gem 'toastr-rails', '~> 1.0'
 
@@ -42,7 +42,7 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'paperclip', '~> 5.1.0'
 gem 'aws-sdk', '~> 2.8'
 
-gem 'geocoder', '~> 1.4'
+gem 'geocoder', '~> 1.5'
 gem 'jquery-ui-rails', '~> 5.0'
 
 gem 'ransack', '~> 1.7'
