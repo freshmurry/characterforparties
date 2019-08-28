@@ -8,11 +8,11 @@ class Venue < ApplicationRecord
   has_many :calendars
 
   geocoded_by :address
-  after_validation :geocode,
-  :if => lambda{ |obj| obj.address_changed? }
+  # after_validation :geocode,
+  # :if => lambda{ |obj| obj.address_changed? }
    
-  # geocoded_by :address
-  # after_validation :geocode, if: :address_changed?
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
   
   validates :venue_type, presence: true
   validates :event_type, presence: true

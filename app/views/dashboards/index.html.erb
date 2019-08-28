@@ -17,10 +17,22 @@
             <% if current_user.provider %>
               <li>Facebook<span class="pull-right"><i class="fas fa-check-circle"></i></span></li>
             <% end %>
-          </div>  
+          </div> 
         </ul>
       </div>
     </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="container">
+          <ul class="sidebar-list">
+            <li>Member since: <b><%= @current_user.created_at.strftime("%B %Y") %></b></li>&nbsp;
+            <li>Last login: <b><%= @current_user.last_sign_in_at.strftime("%A, %B %d, %Y") %></b></li>
+          </ul>
+        </div>  
+      </div>
+    </div>
+
   </div>
 
   <div class="col-md-9">
