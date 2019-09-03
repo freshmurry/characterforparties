@@ -16,18 +16,17 @@
         <div class="col-md-9">
         <h2><%= @venue.listing_name %></h2>
             <%= @venue.address %>
-        </div>
-        
+        </div>&nbsp;
+
         <div class="col-md-3 text-center">
           <%= image_tag (@venue.user.image), class: "img-circle avatar-large" %><br/>
           <%= link_to user_path(@venue.user) do %>
           <%= @venue.user.fullname %>
           <% end %>
+          <div>
+            <span id="average_rating"></span>
+          </div>
         </div>
-
-        <div class="col-md-12">
-          <span id="average_rating"></span>
-        </div> 
       </div>
     </div>  
     <hr/>
