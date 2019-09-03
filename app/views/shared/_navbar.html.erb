@@ -29,7 +29,7 @@
         <% if (!user_signed_in?) %>
           <li>
             <button class="btn btn-form btn-small">
-              <%= link_to "List for Free", new_venue_path, style: "color: white; text-decoration: none;" %>
+              <%= link_to "List for Free", new_user_registration_path, style: "color: white; text-decoration: none;" %>
             </button>
           </li>
           <li><%= link_to "Login", new_user_session_path %></li>
