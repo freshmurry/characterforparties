@@ -1,11 +1,11 @@
 <% venues.each do |venue| %>
   <div class="col-md-4">
     <div class="panel panel-default">
-      <div class="price-box-wrapper">
-        <span>$<%= venue.price %> /day</span>
-      </div>
       <div class="panel-heading preview">
-        <%= image_tag venue.cover_photo(:medium) %>
+        <div class="price-box-wrapper">
+          <span>$<%= venue.price %> /day</span>
+        </div>
+        <%= link_to image_tag(venue.cover_photo(:medium)), venue %>
         <div class="box-wrapper">
           <span><%= venue.venue_type %> &nbsp; <div class="fa fa-users"></div> <%= venue.accommodate %></span>
         </div>
@@ -13,11 +13,13 @@
       <div class="panel-body">
         <div class="container">
           <span style="font-weight: 500;"><%= link_to venue.listing_name, venue %></span></br>
-          <%= pluralize(venue.guest_reviews.count, "review") %><div id="star_<%= venue.id %>"></div>
+          <%= pluralize(venue.guest_reviews.count, "review") %>
+          <div id="star_<%= venue.id %>"></div>
         </div>
       </div>
     </div>
   </div>
+  
   <script>
     $('#star_<%= venue.id %>').raty({
       path: '/assets',
