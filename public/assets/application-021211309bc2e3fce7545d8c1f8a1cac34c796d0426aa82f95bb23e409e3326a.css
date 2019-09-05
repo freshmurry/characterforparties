@@ -10539,52 +10539,54 @@ body {
   background-color: #F8F8F8;
   font-family: "Varela Round", "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   padding-bottom: 200px;
+  overflow-x: hidden;
+  width: 100%;
 }
 
-/* line 27, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 29, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 a {
   color: #34495E;
 }
 
-/* line 31, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 33, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .container {
   width: 80%;
 }
 
-/* line 35, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 37, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .container h3 {
   margin-right: -40px;
   margin-left: -40px;
 }
 
-/* line 40, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 42, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 div.panel-body {
   margin-right: -55px;
   margin-left: -55px;
 }
 
-/* line 45, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 47, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .row {
   margin-right: -55px;
   margin-left: -55px;
 }
 
-/* line 50, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 52, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .text-babu, .icon-babu {
   color: #34495E;
 }
 
-/* line 54, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 56, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .text-blue, .icon-red {
   color: #14325C;
 }
 
-/* line 59, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 61, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .navbar-default {
   background-color: #FFFFFF;
 }
 
-/* line 63, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 65, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .navbar-default .navbar-brand {
   color: #2C3E50;
   font-size: 2.5em;
@@ -10593,36 +10595,19 @@ div.panel-body {
   margin-top: 5px;
 }
 
-/* line 70, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 72, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 ul.nav.navbar-nav.navbar-right a {
   margin-top: 5px;
 }
 
-/* line 74, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  min-height: auto;
-  text-align: center;
-  margin-top: 100px;
-  -webkit-background-size: cover;
-  -moz-background-cover-size: cover;
-  -o-background-size: cover;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-
-/* line 91, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 77, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn-block {
   display: block;
   white-space: normal;
   width: 100%;
 }
 
-/* line 97, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 83, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn {
   color: #fff;
   border-radius: 5px;
@@ -10630,12 +10615,12 @@ footer {
   font-family: Ubuntu;
 }
 
-/* line 104, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 90, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn:hover, .btn:focus {
   color: #fff;
 }
 
-/* line 108, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 94, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn.btn-default {
   width: 100%;
   border-color: #c4c4c4;
@@ -10646,56 +10631,56 @@ footer {
   margin-top: 10px;
 }
 
-/* line 118, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 104, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn.btn-normal {
   border: 1px solid #34495E;
   background-color: #34495E;
 }
 
-/* line 123, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 109, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn.btn-normal:active {
   outline: none;
   border-color: #e00007;
   background-color: #e00007;
 }
 
-/* line 129, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 115, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn.btn-form {
   border: 1px solid #34495E;
   background-color: #34495E;
 }
 
-/* line 139, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 125, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn.btn-form.btn-small {
   margin-left: 10px;
 }
 
-/* line 143, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 129, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 button.btn.btn-form.btn-small {
   margin-top: 10px;
 }
 
-/* line 147, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 133, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn.btn-form:active {
   outline: none;
   border-color: #066165;
   background-color: #066165;
 }
 
-/* line 153, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 139, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn.btn-facebook {
   border: 1px solid #3B5998;
   background-color: #3B5998;
 }
 
-/* line 158, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 144, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn.btn-facebook:active {
   outline: none;
   border-color: #2d467b;
   background-color: #2d467b;
 }
 
-/* line 165, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 151, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .panel-default .panel-heading {
   color: #ffffff;
   background-color: #2C3E50;
@@ -10703,25 +10688,25 @@ button.btn.btn-form.btn-small {
   font-weight: 400;
 }
 
-/* line 172, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 158, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .row-space-1 {
   margin-top: 6px;
   margin-bottom: 6px;
 }
 
-/* line 177, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 163, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .row-space-2 {
   margin-top: 12px;
   margin-bottom: 12px;
 }
 
-/* line 182, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 168, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .row-space-3 {
   margin-top: 24px;
   margin-bottom: 24px;
 }
 
-/* line 187, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 173, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .description {
   color: #575757;
   font-size: 15px;
@@ -10729,60 +10714,60 @@ button.btn.btn-form.btn-small {
   line-height: 25px;
 }
 
-/* line 195, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 181, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .avatar-small {
   width: 28px;
 }
 
-/* line 199, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 185, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .avatar-medium {
   width: 48px;
 }
 
-/* line 203, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 189, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .avatar-large {
   width: 68px;
 }
 
-/* line 207, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 193, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .avatar-full {
   width: 100%;
 }
 
-/* line 212, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 198, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .form-group {
   margin-bottom: 25px;
 }
 
-/* line 216, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 202, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .form-control {
   border-radius: 2px;
   height: 4rem;
 }
 
-/* line 221, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 207, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .form-group input {
   height: 45px;
   border: 1px solid #34495E;
 }
 
-/* line 226, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 212, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .form-group textarea {
   border: 1px solid #34495E;
 }
 
-/* line 230, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 216, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .form-group input[type="radio"] {
   height: 15px;
   margin-right: 10px;
 }
 
-/* line 235, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 221, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn-group label {
   margin-right: 15px;
 }
 
-/* line 239, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 225, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .form-group select {
   width: 100%;
   color: #565a5c;
@@ -10797,7 +10782,7 @@ button.btn.btn-form.btn-small {
   /* Safari & Chrome */
 }
 
-/* line 251, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 237, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .select:before {
   content: '\25bc';
   font-size: 1.2em;
@@ -10808,7 +10793,7 @@ button.btn.btn-form.btn-small {
   transform: scale(0.94, 0.62);
 }
 
-/* line 261, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 247, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .form-group input[type="checkbox"] {
   height: 1.25em;
   width: 1.25em;
@@ -10822,7 +10807,7 @@ button.btn.btn-form.btn-small {
   -webkit-appearance: none;
 }
 
-/* line 274, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 260, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .form-group input[type="checkbox"]:checked:before {
   content: '\2713';
   position: absolute;
@@ -10832,45 +10817,45 @@ button.btn.btn-form.btn-small {
   color: #34495E;
 }
 
-/* line 284, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 270, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .sidebar-list {
   padding-left: 0;
   list-style: none;
 }
 
-/* line 289, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 275, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .sidebar-item {
   padding: 10px 0;
   font-size: 16px;
   color: #82888a;
 }
 
-/* line 295, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 281, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .sidebar-link {
   color: #82888a;
   text-decoration: none;
 }
 
-/* line 300, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 286, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .sidebar-link:hover, .sidebar-link:focus {
   color: #CACCCD;
   text-decoration: none;
 }
 
-/* line 305, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 291, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .active.sidebar-link {
   color: #565A5C;
   font-weight: bold;
   text-decoration: none;
 }
 
-/* line 312, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 298, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn-file {
   position: relative;
   overflow: hidden;
 }
 
-/* line 317, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 303, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .btn-file input[type=file] {
   position: absolute;
   top: 0;
@@ -10887,32 +10872,32 @@ button.btn.btn-form.btn-small {
   display: block;
 }
 
-/* line 333, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 319, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .panel-heading.preview {
   padding: 0;
 }
 
-/* line 337, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 323, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .panel-heading.preview img {
   width: 100%;
   box-sizing: border-box;
 }
 
-/* line 343, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 329, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .amenities li {
   margin-bottom: 10px;
   font-size: 16px;
   list-style-type: none;
 }
 
-/* line 349, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 335, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .amenities .text-line-through {
   text-decoration: line-through;
   color: rgba(0, 0, 0, 0.45);
   font-size: 14px;
 }
 
-/* line 355, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 341, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 div.price-box-wrapper {
   position: absolute;
   padding: 4px 8px;
@@ -10922,7 +10907,7 @@ div.price-box-wrapper {
   box-sizing: border-box;
 }
 
-/* line 364, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 350, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 div.box-wrapper {
   padding: 4px 8px;
   color: #fff;
@@ -10930,7 +10915,7 @@ div.box-wrapper {
   font-size: 14px;
 }
 
-/* line 374, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 360, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .reservation-table td {
   width: 100%;
   border: none;
@@ -10938,41 +10923,41 @@ div.box-wrapper {
   padding: 10px;
 }
 
-/* line 381, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 367, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .reservation-table .total td {
   font-size: 16px;
   font-weight: bold;
   border: none;
 }
 
-/* line 387, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 373, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .form-control.datepicker {
   color: #34495E;
   background-color: white;
   text-align: center;
 }
 
-/* line 393, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 379, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .message-alert {
   color: #d43242;
   font-size: 14px;
   padding-top: 10px;
 }
 
-/* line 400, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 386, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 #main {
   height: 100%;
   overflow: hidden;
 }
 
-/* line 405, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 391, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 #left {
   padding: 10px 400px 10px 20px;
   overflow: scroll;
   height: 100%;
 }
 
-/* line 411, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 397, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 #right {
   position: fixed;
   top: 0;
@@ -10981,7 +10966,7 @@ div.box-wrapper {
   height: 100%;
 }
 
-/* line 419, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 405, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .map_price {
   text-align: center;
   font-size: 16px;
@@ -10989,62 +10974,62 @@ div.box-wrapper {
   color: #34495E;
 }
 
-/* line 427, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 413, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .discovery-card {
   background-size: cover;
   background-position: center;
   height: 326px;
 }
 
-/* line 433, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 419, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .va-container {
   display: table;
   width: 100%;
   height: 100%;
 }
 
-/* line 439, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 425, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .va-middle {
   color: #fff;
   vertical-align: middle;
   display: table-cell;
 }
 
-/* line 445, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 431, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .banner {
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
-/* line 451, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 437, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .fc-content.Waiting {
   background-color: #C9CC6D;
 }
 
-/* line 455, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 441, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .fc-past {
   background-color: lightgray;
 }
 
-/* line 459, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 445, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .fc-day {
   position: relative;
 }
 
-/* line 463, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 449, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .fc-content {
   background-color: #34495E;
   height: 40px;
   border-radius: 20px;
 }
 
-/* line 469, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 455, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .fc-event {
   border: 0px;
   background-color: transparent;
 }
 
-/* line 474, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 460, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .fc-title {
   font-size: 14px;
   position: relative;
@@ -11052,7 +11037,7 @@ div.box-wrapper {
   left: 20px;
 }
 
-/* line 481, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 467, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .day-price {
   position: absolute;
   color: #EAA90B;
@@ -11060,7 +11045,7 @@ div.box-wrapper {
   right: 2px;
 }
 
-/* line 489, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 475, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .badge {
   background-color: #FF5A5F;
   position: relative;
@@ -11068,13 +11053,13 @@ div.box-wrapper {
   left: -5px;
 }
 
-/* line 498, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 484, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 #add-card form {
   width: 480px;
   margin: 20px auto;
 }
 
-/* line 503, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 489, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 #add-card label {
   position: relative;
   color: #6A7C94;
@@ -11085,12 +11070,12 @@ div.box-wrapper {
   display: block;
 }
 
-/* line 513, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 499, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 #add-card label > span {
   float: left;
 }
 
-/* line 517, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 503, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .field {
   background: white;
   box-sizing: border-box;
@@ -11107,28 +11092,28 @@ div.box-wrapper {
   float: right;
 }
 
-/* line 533, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 519, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .field::-webkit-input-placeholder {
   color: #CFD7DF;
 }
 
-/* line 534, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 520, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .field::-moz-placeholder {
   color: #CFD7DF;
 }
 
-/* line 535, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 521, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .field:-ms-input-placeholder {
   color: #CFD7DF;
 }
 
-/* line 537, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 523, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .field:focus,
 .field.StripeElement--focus {
   border-color: #34495E;
 }
 
-/* line 542, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 528, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 #add-card button {
   float: left;
   display: block;
@@ -11146,17 +11131,17 @@ div.box-wrapper {
   padding-bottom: 30px;
 }
 
-/* line 559, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 545, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 #add-card button:focus {
   background: #34495E;
 }
 
-/* line 563, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 549, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 #add-card button:active {
   background: #34495D;
 }
 
-/* line 567, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 553, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .outcome {
   float: left;
   width: 100%;
@@ -11165,18 +11150,18 @@ div.box-wrapper {
   text-align: center;
 }
 
-/* line 575, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 561, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .success, .error {
   display: none;
   font-size: 13px;
 }
 
-/* line 580, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 566, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .success.visible, .error.visible {
   display: inline;
 }
 
-/* line 584, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
+/* line 570, /Volumes/LATOYA/shindigspace-master/shindigspace/app/assets/stylesheets/application.scss */
 .error {
   color: #E4584C;
 }
