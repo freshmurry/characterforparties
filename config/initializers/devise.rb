@@ -278,8 +278,8 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], scope: 'email', secure_image_url: 'true', info_fields: 'email, name',
   # config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], :display => 'popup', scope: 'email', info_fields: 'email, name',
     client_options: {
-                    site: 'https://graph.facebook.com/v2.11',
-                    authorize_url: "https://www.facebook.com/v2.11/dialog/oauth"
+                    site: 'https://graph.facebook.com/v3.0',
+                    authorize_url: "https://www.facebook.com/v3.0/dialog/oauth"
                 }
 
   #----- STRIPE TEST -----
