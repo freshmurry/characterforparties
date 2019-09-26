@@ -37,7 +37,7 @@ gem "devise", ">= 4.6.0"
 gem 'toastr-rails', '~> 1.0'
 
 gem 'omniauth', '~> 1.9'
-gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-facebook', '~> 5.0'
 
 gem "paperclip", ">= 5.2.0"
 gem 'aws-sdk', '~> 3'
