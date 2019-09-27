@@ -276,7 +276,6 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], scope: 'email', info_fields: 'email, name'
-  # config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], :display => 'popup', scope: 'email', info_fields: 'email, name',
   # config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], callback_url: 'https://shindigspace.com/auth/facebook'
                 # client_options: {
                 #     site: 'https://graph.facebook.com/v2.11',
