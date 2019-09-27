@@ -1,6 +1,6 @@
 module ApplicationHelper
   # def image_url(user)
-  def (@user.image)
+  def image_tag(user)
     if user.image
       "http://graph.facebook.com/#{user.uid}/picture?type=large"
     else  
