@@ -275,12 +275,15 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], scope: 'email', secure_image_url: 'true', info_fields: 'email, name'
+  # config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], scope: 'email', secure_image_url: 'true', info_fields: 'email, name'
   # config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], :display => 'popup', scope: 'email', info_fields: 'email, name',
-    # client_options: {
-    #                 site: 'https://graph.facebook.com/v3.0',
-    #                 authorize_url: "https://www.facebook.com/v3.0/dialog/oauth"
-    #             }
+  config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'],
+                scope: 'public_profile,email',
+                info_fields: 'email,first_name,last_name,gender,birthday,location,picture',
+                client_options: {
+                    site: 'https://graph.facebook.com/v2.11',
+                    authorize_url: "https://www.facebook.com/v2.11/dialog/oauth"
+                }
 
   #----- STRIPE TEST -----
   # config.omniauth :stripe_connect, 'ca_Bz12s2Z5ijkGknATCnWx9EmDZIvGMf0e', 'sk_test_uQnVqs5Vnt9upqbJJNCSmiYy', scope: 'read_write', stripe_landing: 'login'
