@@ -8,8 +8,8 @@
 
       <div>
       	<span class="pull-right">
-        	<%= link_to notification_settings_path(notification), remote: true, method: :delete, data: {confirm: "Are you sure?"} do %>
-         		<i class="fas fa-trash-alt fa-md" aria-hidden="true"></i>
+        	<%= link_to notification_settings_path(notification), remote: true, method: :delete, data: { confirm: "Are you sure?", remoten: true } do %>
+         		<i class="fas fa-trash-alt fa-md"></i>
         	<% end %>   
       	</span>
       </div>

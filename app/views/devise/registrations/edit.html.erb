@@ -30,11 +30,11 @@
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= render 'shared/devisemes' %>
             
-            <%= form_tag [@user], html: { multipart: true } do |f| %>
+            <%= form_tag [@user], html: { multipart: true } do |form| %>
               <div class="form-group">
                 <span class="btn btn-default btn-file text-babu">
                   <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i> Select A Profile Photo
-                    <%= f.file_field :image,  type: :file, multiple: false, enctype: multipart/form-data %>
+                    <%= f.file_field :image,  type: :file, multiple: true %>
                 </span></br>                
               </div>
 
@@ -165,4 +165,4 @@
     </div>
 
   </div>
-</div>  
+</div> 

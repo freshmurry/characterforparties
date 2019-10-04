@@ -19,11 +19,19 @@
                     <div class="col-md-8">
                       <%= conversation.messages.last.context %>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                       <% if other %>
                         <b><%= other.fullname %></b>
                       <% end %>  
                       <%= conversation.messages.last.message_time %>
+                    </div>
+
+                    <div>
+                      <span class="col-md-1 pull-right">
+                        <%= link_to conversation_path(conversation), remote: true, method: :delete, data: {confirm: "Are you sure?"} do %>
+                          <i class="fas fa-trash-alt fa-md" aria-hidden="true"></i>
+                        <% end %>   
+                      </span>
                     </div>
                     
                   <% end %>

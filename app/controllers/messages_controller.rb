@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user! 
-  before_action :set_conversation
+  before_action :set_conversation only: [:show, :destroy]
 
   def index
     if current_user == @conversation.sender || current_user == @conversation.recipient
@@ -26,11 +26,13 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = Message.find(params[:id])
-    @conversation = @message.conversation
-
     @message.destroy
-    @messages = Message.where(conversation_id: @conversation.id)
+    redirect_to messages_url
+    # @message = Message.find(params[:id])
+    # @conversation = @message.conversation
+
+    # @message.destroy
+    # @messages = Message.where(conversation_id: @conversation.id)
 
     # respond_to :js
 
