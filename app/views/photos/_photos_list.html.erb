@@ -11,10 +11,10 @@
             </div>
             <div class="panel-body">
               <div class="container">
-                <span class="pull-right">
+                <span class="col-md-12">
                   <%= link_to venue_photo_path(photo.venue_id, photo), remote: true, method: :delete, 
                     data: {confirm: "Are you sure?"} do %>
-                    <i class="fas fa-trash-alt fa-md" aria-hidden="true"> Delete</i>
+                    <i class="fas fa-trash-alt fa-md" aria-hidden="true"></i>
                   <% end %>
                 </span>
               </div>
