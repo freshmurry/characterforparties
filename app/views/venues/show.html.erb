@@ -19,7 +19,7 @@
         </div>&nbsp;
 
         <div class="col-md-3 text-center">
-          <%= image_tag (@venue.user.image), class: "img-circle avatar-large" %><br/>
+          <%= image_tag avatar_url(@venue.user), class: "img-circle avatar-large" %><br/>
           <%= link_to user_path(@venue.user) do %>
           <%= @venue.user.fullname %>
           <% end %>
