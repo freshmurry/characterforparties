@@ -4,12 +4,9 @@ class Venue < ApplicationRecord
   belongs_to :user
   has_many :photos
   has_many :reservations
+  
   has_many :guest_reviews
   has_many :calendars
-
-  geocoded_by :address
-  # after_validation :geocode,
-  # :if => lambda{ |obj| obj.address_changed? }
    
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

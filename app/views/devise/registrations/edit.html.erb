@@ -7,7 +7,7 @@
       <div class="avatar-full">
         <div class="panel panel-default">
           <div class="panel-heading preview">
-            <%= image_tag @user.image(nil), class: "avatar-full" %>
+            <%= image_tag image_url(current_user) %>
           </div>
                   
           <div class="panel-body">
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <!-- End of Profile Photo-->
+      <!-- End of Profile Photo -->
 
     </ul>
   </div>
@@ -154,11 +154,18 @@
 
     <div class="row">
       <div class="col-md-3 text-center">
-        <div class="panel-body">
+        <div class="panel-default">
           <div class="container">
-            <a href="https://www.bluehost.com/track/freshmurry/" target="_blank"><img border="0" src="https://bluehost-cdn.com/media/partner/images/freshmurry/430x288/430x288PW.png"></a>
-            <br><br/>
             <a href="https://track.fiverr.com/visit/?bta=7074&nci=5479&campaign=19735" Target="_Top"><img border="0" src="https://fiverr.ck-cdn.com/tn/serve/?cid=1492998"></a>
+            <br><br/>
+
+            <!-- Google AdSense -->
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-8786200479780334",
+                enable_page_level_ads: true
+              });
+            </script>
           </div>
         </div> 
       </div>
