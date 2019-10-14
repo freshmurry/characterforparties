@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
          :confirmable, :omniauthable
+
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "blank.jpg"
+  validates_attachment :photo, :size => { :in => 0..1000.kilobytes }
+  validates_attachment_content_type :photo, :content_type => /image/        
   
   validates :fullname, presence: true, length: {maximum: 50}
   
