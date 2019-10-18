@@ -50,7 +50,7 @@ gem 'thin'
 gem 'figaro'
 
 group :production do
-  gem 'pg', '~> 1.1.4' 
+  gem 'pg', '~> 1.1.4'
   gem 'rails_12factor'
 end
 
