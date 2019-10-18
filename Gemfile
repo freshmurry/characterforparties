@@ -54,6 +54,14 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :test, :development do
+  gem 'rspec-rails'
+  #adding database cleaner for tests
+  gem 'database_cleaner'
+end
+
+gem 'capistrano'
+
 #----  AirKONG  -------
 gem 'twilio-ruby', '~> 4.11.1'
 gem 'fullcalendar-rails', '~> 3.4.0'
