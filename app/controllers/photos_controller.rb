@@ -21,6 +21,5 @@ class PhotosController < ApplicationController
     @photos = Photo.where(venue_id: @venue.id)
 
     respond_to :js
-    redirect_back(fallback_location: request.referer, notice: "Photo Deleted!")
   end
 end
