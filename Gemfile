@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.1'
+ruby '2.7.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -46,7 +46,8 @@ gem 'geocoder', '~> 1.5'
 gem 'jquery-ui-rails', '~> 5.0'
 
 gem 'ransack', '~> 1.7'
-gem 'thin'
+# gem 'thin'
+gem 'puma'
 gem 'figaro'
 
 group :production do
@@ -56,6 +57,7 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'capybara'
   #adding database cleaner for tests
   gem 'database_cleaner'
 end

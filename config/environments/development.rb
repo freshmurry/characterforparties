@@ -66,7 +66,7 @@ Rails.application.configure do
   config.web_console.whitelisted_ips << "10.240.0.0/16"
   
   #Required for Heroku
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 8080 }
   
   #Mailgun Integration
   
