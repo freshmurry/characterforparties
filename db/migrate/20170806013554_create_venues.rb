@@ -13,7 +13,7 @@ class CreateVenues < ActiveRecord::Migration[5.0]
       t.boolean :is_chairs
       t.boolean :is_microphone
       t.boolean :is_projector
-      t.boolean :is_bar
+      t.boolean :is_speakers
       t.boolean :is_self_parking
       t.boolean :is_valet_parking
       t.boolean :is_garage_parking
