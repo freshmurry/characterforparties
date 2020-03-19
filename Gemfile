@@ -49,6 +49,7 @@ gem 'ransack', '~> 1.7'
 # gem 'thin'
 gem 'puma'
 gem 'figaro'
+gem 'redis'
 
 group :production do
   gem 'pg', '~> 1.1.4'
