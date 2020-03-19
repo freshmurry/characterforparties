@@ -1,8 +1,8 @@
 class VenuesController < ApplicationController
   before_action :set_venue, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show, :preload, :preview]
-  before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
-
+  before_action :is_authorized, only: [:listing, :service, :pricing, :description, :photo_upload, :amenities, :location, :update]
+  
   def index
     @venues = current_user.venues
   end
@@ -19,10 +19,18 @@ class VenuesController < ApplicationController
       
     @venue = current_user.venues.build(venue_params)
     if @venue.save
-      redirect_to listing_venue_path(@venue), notice: "Saved..."
+      redirect_to venue_path(@venue), notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
       render :new
+    end
+  end
+  
+  def edit
+    if current_user.id == @venue.user.id
+      @photos = @venue.photos
+    else
+      redirect_to root_path, notice: "You don't have permission."
     end
   end
   
@@ -47,8 +55,8 @@ class VenuesController < ApplicationController
   def amenities
   end
 
-  def location
-  end
+  # def location
+  # end
 
   def update
     new_params = venue_params
@@ -109,7 +117,7 @@ class VenuesController < ApplicationController
     end
 
     def venue_params
-      params.require(:venue).permit(:venue_type, :event_type, :rest_room, :accommodate, :listing_name, :summary, :address, :is_kitchen, 
+      params.require(:venue).permit(:venue_type, :event_type, :rest_room, :accommodate, :listing_name, :service, :description, :address, :is_kitchen, 
       :is_tables, :is_chairs, :is_microphone, :is_projector, :is_speakers, :is_self_parking, :is_valet_parking, :is_garage_parking, 
       :is_air, :is_heating, :is_wifi, :is_custodial, :is_accessible, :is_tablecloths, :is_wheelchair, :is_stage, :price, :active, :instant)
     end

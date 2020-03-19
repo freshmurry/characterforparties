@@ -70,6 +70,12 @@ div.panel-body {
   background-color: #FFFFFF;
 }
 
+.navbar-default.static-top {
+  -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
 .navbar-default .navbar-brand {
   color: #2C3E50;
   font-size: 2.5em;
@@ -79,6 +85,10 @@ div.panel-body {
 
 ul.nav.navbar-nav.navbar-right a {
   margin-top: 5px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #2C3E50;
 }
 
 // BUTTONS
@@ -176,6 +186,10 @@ button.btn.btn-form.btn-small {
 .row-space-3 {
   margin-top: 24px;
   margin-bottom: 24px;
+}
+
+.col-md-3.col-sm-3 {
+  margin-bottom: 1rem;
 }
 
 .description {
@@ -578,3 +592,5 @@ div.box-wrapper {
 .error {
   color: #E4584C;
 }
+
+// Footer//

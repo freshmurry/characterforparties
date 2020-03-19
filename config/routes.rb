@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # get 'service/index'
+  # get 'service/new'
+  # get 'service/create'
+  # get 'service/destroy'
+  # get 'service/update'
+
    root "pages#home"		 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
    devise_for :users,
@@ -13,28 +19,29 @@ Rails.application.routes.draw do
      end
    end
 
-   resources :venues, except: [:edit, :destroy] do		
+   resources :venues do		
      member do		
-       get 'listing'
-       get 'pricing'
-       get 'description'
-       get 'photo_upload'
-       get 'amenities'
-       get 'location'
-       get 'preload'
-       get 'preview'
-       # get "about" => "pages#about" #creates about_path
+      # get 'listing'
+      # get 'pricing'
+      # get 'description'
+      get 'photo_upload'
+      # get 'amenities'
+      # get 'location'
+      get 'preload'
+      get 'preview'
+      # get "about" => "pages#about" #creates about_path
      end
-     resources :photos, only: [:create, :destroy]
+     resources :photos
      resources :reservations, only: [:create]
      resources :calendars
+     resources :service
    end
   
    resources :guest_reviews, only: [:create, :destroy]
    resources :host_reviews, only: [:create, :destroy]
   		
-   get '/past_spaces' => 'reservations#past_spaces'
-   get '/your_reservations' => 'reservations#your_reservations'
+   get '/previous_reservations' => 'reservations#previous_reservations'
+   get '/current_reservations' => 'reservations#current_reservations'
 
    get 'search' => 'pages#search'
 

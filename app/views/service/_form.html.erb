@@ -1,0 +1,53 @@
+<%= form_for(@service) do |f| %>
+  <% if @service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+
+      <ul>
+      <% @service.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <!--<div class="input-field">-->
+  <!--  <div class="form-group">-->
+  <!--    <= f.text_field :title, placeholder: "Service Title", class: "form-control", required: true %>-->
+  <!--  </div>-->
+  <!--</div>-->
+        
+  <!--<div class="input-field">-->
+  <!--  <div class="col-md-4">-->
+  <!--    <div class="form-group">-->
+  <!--      <div class="input-group">-->
+  <!--        <span class="input-group-addon">$</span>-->
+  <!--        <%= f.text_field :price, placeholder: "eg. 100", class: "form-control" %>-->
+  <!--      </div>  -->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
+        
+  <!--<div class="col-md-2">-->
+  <!--  <div class="form-group">-->
+  <!--    <label></label>-->
+  <!--    <div class="input-group">-->
+  <!--      <= button_tag type: 'submit', class: "form-control btn btn-normal" do %>-->
+  <!--        <i class="fa fa-plus" aria-hidden="true"></i>-->
+  <!--      < end %>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
+        
+  <div class="input-field">
+    <%= f.text_field :title, :placeholder => 'Title', :Length => '20' %>
+  </div>
+   <div class="input-field">
+    <%= f.text_field :price, :placeholder => 'Price (i.e. 100)', :Length => '4' %>
+  </div>
+  <div class="input-field">
+    <%= f.text_area :description, :placeholder => 'Description', :Length => '800', :class => 'textarea' %>
+  </div>
+  <button class="btn btn-normal" type="submit" name="action">Submit</button>
+  <a href="<%= services_path %>" class="btn btn-normal" name="action">Back</a>
+<% end %>

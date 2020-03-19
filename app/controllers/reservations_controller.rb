@@ -45,22 +45,22 @@ class ReservationsController < ApplicationController
     redirect_to venue
   end
 
-  def past_spaces
+  def previous_reservations
     @spaces = current_user.reservations.order(start_date: :asc)
   end
 
-  def your_reservations
+  def current_reservations
     @venues = current_user.venues
   end
   
   def approve
     charge(@reservation.venue, @reservation)
-    redirect_to your_reservations_path
+    redirect_to current_reservations_path
   end
 
   def decline
     @reservation.Declined!
-    redirect_to your_reservations_path
+    redirect_to current_reservations_path
   end
 
   private
@@ -108,6 +108,6 @@ class ReservationsController < ApplicationController
     end
   
     def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date)
+      params.require(:reservation).permit(:start_date, :end_date, :service)
     end
 end

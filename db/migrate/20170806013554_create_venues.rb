@@ -6,7 +6,8 @@ class CreateVenues < ActiveRecord::Migration[5.0]
       t.integer :accommodate #10-50, 50-100, 100-150, 150-200, 200-250, 250-300, 300+
       t.integer :rest_room
       t.string :listing_name
-      t.text :summary
+      t.string :service
+      t.text :description
       t.string :address
       t.boolean :is_kitchen
       t.boolean :is_tables

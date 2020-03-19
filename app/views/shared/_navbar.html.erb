@@ -57,8 +57,8 @@
               <li><%= link_to "Dashboard", dashboard_path %></li>
               <li><%= link_to "Manage Listing", venues_path %></li>
               <li><%= link_to "List A Space", new_venue_path %></li>
-              <li><%= link_to "Past Spaces", past_spaces_path %></li>
-              <li><%= link_to "Reservations", your_reservations_path %></li>
+              <li><%= link_to "Previous Reservations", previous_reservations_path %></li>
+              <li><%= link_to "Current Reservations", current_reservations_path %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
               <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
@@ -71,13 +71,14 @@
 </nav>
 
 <% if (user_signed_in?) && !current_page?(root_path) %>
-    <nav class="navbar navbar-default static-top" style="color: white; background-color: #565A5C;">
+    <nav class="navbar navbar-default static-top" style="background-color: #C0C0C0");">
       <div class="container">
         <ul class="nav navbar-nav">
           <li <% if current_page?(dashboard_path) %> class="active" <% end %> ><%= link_to "Dashboard", dashboard_path %></li>
           <li <% if current_page?(venues_path) %> class="active" <% end %> ><%= link_to "Manage Listings", venues_path %></li>
           <li <% if current_page?(conversations_path) %> class="active" <% end %> ><%= link_to "Messages", conversations_path %></li>
           <li <% if current_page?(revenues_path) %> class="active" <% end %> ><%= link_to "Revenues", revenues_path %></li>
+          <li <% if current_page?(current_reservations_path) %> class="active" <% end %> ><%= link_to "Current Reservations", current_reservations_path %></li>
           <li <% if current_page?(host_calendar_path) %> class="active" <% end %> ><%= link_to "Host Calendar", host_calendar_path %></li>
           <li <% if current_page?(payment_path) %> class="active" <% end %> ><%= link_to "Account Settings", payment_path %></li>
         </ul>

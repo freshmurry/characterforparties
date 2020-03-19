@@ -1,0 +1,21 @@
+<%= link_to new_venue_service_path, class: 'btn btn-normal' do %>
+  <i class="fa fa-plus"></i>
+<% end %>
+
+<ul class="collapsible" data-collapsible="accordion">
+  <% @services.each do |service| %>
+    <li>
+      <div class="collapsible-header">
+        <%= link_to service.title, service %>
+        <span class="right">
+          <%= link_to edit_service_path(service) do %>
+            <i class="fa fa-edit"></i><% end %>
+          <%= link_to service, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
+        </span>
+      </div>
+      <div class="collapsible-body"><p><%= service.description %></p></div>
+    </li>
+  <% end %>
+</ul>
