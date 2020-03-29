@@ -83,7 +83,7 @@ class ReservationsController < ApplicationController
           :description => venue.listing_name,
           :currency => "usd", 
           :destination => {
-            :amount => reservation.total * 88, # 88% of the total amount goes to the Host Venue, 12% is revenue for ShindigSpace
+            :amount => reservation.total * 80, # 80% of the total amount goes to the Host Venue, 20% is revenue for ShindigSpace
             :account => venue.user.merchant_id # Venue's Stripe customer ID
           }
         )

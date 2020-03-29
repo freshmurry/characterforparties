@@ -90,11 +90,11 @@ ActiveRecord::Schema.define(version: 20200317042537) do
   create_table "services", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.decimal  "price",       precision: 8, scale: 2, default: "0.0"
-    t.integer  "instant",                             default: 1
+    t.integer  "price"
+    t.integer  "instant",     default: 1
     t.integer  "venue_id"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["venue_id"], name: "index_services_on_venue_id"
   end
 
@@ -171,14 +171,14 @@ ActiveRecord::Schema.define(version: 20200317042537) do
     t.boolean  "is_wheelchair"
     t.boolean  "is_garbage_removal"
     t.boolean  "is_stage"
-    t.decimal  "price",              precision: 8, scale: 2, default: "0.0"
+    t.integer  "price"
     t.boolean  "active"
     t.integer  "user_id"
-    t.datetime "created_at",                                                 null: false
-    t.datetime "updated_at",                                                 null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "instant",                                    default: 1
+    t.integer  "instant",            default: 1
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
 

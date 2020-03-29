@@ -26,7 +26,7 @@ class CreateVenues < ActiveRecord::Migration[5.0]
       t.boolean :is_wheelchair
       t.boolean :is_garbage_removal
       t.boolean :is_stage
-      t.decimal :price, precision: 8, scale: 2, default: 0
+      t.integer :price
       t.boolean :active
       t.references :user, index: true, foreign_key: true
 

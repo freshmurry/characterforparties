@@ -61,12 +61,12 @@ Rails.application.configure do
   
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_cable.url = "ws://localhost:8080/cable"
+  config.action_cable.url = "ws://fa50b18f1ae44ac3a6e9772688a30384.vfs.cloud9.us-east-1.amazonaws.com//cable"
   
   config.web_console.whitelisted_ips << "10.240.0.0/16"
   
   #Required for Heroku
-  config.action_mailer.default_url_options = { host: 'localhost', port: 8080 }
+  config.action_mailer.default_url_options = { host: 'https://fa50b18f1ae44ac3a6e9772688a30384.vfs.cloud9.us-east-1.amazonaws.com/'}
   
   #Mailgun Integration
   

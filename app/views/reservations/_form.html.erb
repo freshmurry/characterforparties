@@ -10,34 +10,15 @@
           <div class="container">
             
             <div class="col-md-12">
-              <label>Event Date</label>
+              <label>Start Date</label>
               <%= f.text_field :start_date, readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
             </div>
             
             <div class="col-md-12">
               <label>End Date</label>
-              <= f.text_field :end_date, readonly: true, placeholder: "End Date", class: "form-control datepicker" %>
+              <%= f.text_field :end_date, readonly: true, placeholder: "End Date", class: "form-control datepicker" %>
             </div>
-            &nbsp;
-            <div class="col-md-12">
-              <label>Services</label>
-            </div>
-            
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="col-md-6"><%= @venue.service %></div>
-                  <div class="col-md-2">$<%= @venue.price %></div>
-                   <div class="col-md-4">
-                    <% if @venue.Instant? %>
-                      <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-sm", disabled: true %>        
-                    <% else %>
-                      <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-sm", disabled: true %>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
+
             <hr></hr>
           </div>  
         </div>
@@ -51,7 +32,7 @@
                 <td class="text-right">$<%= @venue.price %></td>
               </tr>
               <!--<tr>-->
-              <!--  <td>Fee(s)</td>-->
+              <!--  <td>Booking Fee</td>-->
               <!--  <td class="text-right">x <span id="reservation_fees"></span></td>-->
               <!--</tr>-->
               <tr>
@@ -70,16 +51,16 @@
               </tr>
             </tbody>
           </table>
-          <h6>*All bookings are subject to a 10% booking fee</h6>
+          <h6>*All bookings are subject to a 20% booking fee</h6>
         </div>
   
         <br/>
         
-      <!--  < if @venue.Instant? %>-->
-      <!--    <= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>        -->
-      <!--  < else %>-->
-      <!--    <= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>-->
-      <!--  < end %>-->
+        <% if @venue.Instant? %>
+          <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>        
+        <% else %>
+          <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+        <% end %>
       <% end %>
       <!-- Add code here to show under "Resquest Now" -->
     </div>

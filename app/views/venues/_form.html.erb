@@ -75,67 +75,58 @@
             <label>Price</label>
             <div class="input-group">
               <span class="input-group-addon">$</span>
-              <%= f.text_field :price, placeholder: "eg. 100.00", class: "form-control" %>
+              <%= f.text_field :price, placeholder: "eg. 100", class: "form-control" %>
             </div>  
           </div>
         </div>
         
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Services</label>
+        <!--<div class="col-md-4">-->
+        <!--  <div class="form-group">-->
+        <!--    <label>Services</label>-->
   
-            <div data-controller="nested-form">
-              <template data-target='nested-form.template'>
-                <%= f.fields_for :services, Service.new, child_index: 'TEMPLATE_RECORD' do |service| %>
-                  <%= render 'services', form: service %>
-                <% end %>
-              </template>
+        <!--    <div data-controller="nested-form">-->
+        <!--      <template data-target='nested-form.template'>-->
+        <!--        <= f.fields_for :services, Service.new, child_index: 'TEMPLATE_RECORD' do |service| %>-->
+        <!--          <= render 'services', form: service %>-->
+        <!--        < end %>-->
+        <!--      </template>-->
           
-              <%= f.fields_for :services do |service| %>
-                <%= render 'services', form: service %>
-              <% end %>
+        <!--      <= f.fields_for :services do |service| %>-->
+        <!--        <= render 'services', form: service %>-->
+        <!--      < end %>-->
           
-              <div data-target="nested-form.add_service">
-                <%= link_to "Add Service", "#", data: { action: "nested-form#add_association" }, class: "btn btn-normal" %>
-              </div>
-            </div>
+        <!--      <div data-target="nested-form.add_service">-->
+        <!--        <= link_to "Add Service", "#", data: { action: "nested-form#add_association" }, class: "btn btn-normal" %>-->
+        <!--      </div>-->
+        <!--    </div>-->
             
-          </div>
-        </div>
+        <!--  </div>-->
+        <!--</div>-->
         
         <!------------------------------ PHOTO UPLOAD PANEL ------------------------------>
 
-        <!--<div class="panel-default" style="margin-right: -45px; margin-left: -45px;">-->
-        
-          <!--<div class="container">-->
-            <div class="row">
-                  
-              <!-- PHOTOS UPLOAD GOES HERE -->
-                <div class="container-fluid">
-                  <div class="col-md-12"> 
-                    <div class="form-group">
-                      <span class="btn btn-default btn-file">
-                        <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i> UPLOAD PHOTOS
-                        <%= file_field_tag "images[]", type: :file, multiple: true %>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-        
-                <div id="photos"><%= render 'photos/photos_list' %></div>
-                
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="actions text-center"> 
-                      <%= f.hidden_field :active, value: true %>
-                      <%= f.submit "Create My Listing", class: "btn btn-normal" %>
-                    </div>  
-                  </div>
-                </div>
+        <!-- PHOTOS UPLOAD GOES HERE -->
+        <div class="container-fluid">
+          <div class="col-md-12"> 
+            <div class="form-group">
+              <span class="btn btn-default btn-file">
+                <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i> UPLOAD PHOTOS
+                <%= file_field_tag "images[]", type: :file, multiple: true %>
+              </span>
             </div>
-          <!--</div>-->
-        <!--</div>-->
-
+          </div>
+        </div>
+        
+        <div id="photos"><%= render 'photos/photos_list' %></div>
+        
+        <div class="row">
+          <div class="col-md-12">
+            <div class="actions text-center"> 
+              <%= f.hidden_field :active, value: true %>
+              <%= f.submit "Create Listing", class: "btn btn-normal" %>
+            </div>  
+          </div>
+        </div>
 
       <% end %>
     </div>

@@ -27,7 +27,7 @@ class VenuesController < ApplicationController
     
     respond_to do |format|
       @project.services.any? && current_user.can_receive_payments?
-      CreatePerkPlansJob.perform_now(@project)
+      CreateServicePlansJob.perform_now(@project)
     end
   end
   
