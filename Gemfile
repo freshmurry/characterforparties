@@ -49,7 +49,7 @@ gem 'ransack', '~> 1.7'
 # gem 'thin'
 gem 'puma'
 gem 'figaro'
-gem 'redis'
+gem "redis", "~> 3.0" 
 gem 'webpacker', '~> 4.0'
 gem "nested_form"
 
