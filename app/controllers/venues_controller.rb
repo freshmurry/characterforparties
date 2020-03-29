@@ -25,10 +25,10 @@ class VenuesController < ApplicationController
       render :new
     end
     
-    respond_to do |format|
-      @project.services.any? && current_user.can_receive_payments?
-      CreateServicePlansJob.perform_now(@project)
-    end
+    # respond_to do |format|
+    #   @project.services.any? && current_user.can_receive_payments?
+    #   CreateServicePlansJob.perform_now(@project)
+    # end
   end
   
   def edit
