@@ -50,6 +50,8 @@ gem 'ransack', '~> 1.7'
 gem 'puma'
 gem 'figaro'
 gem 'redis'
+gem 'webpacker', '~> 4.0'
+gem "nested_form"
 
 group :production do
   gem 'pg', '~> 1.1.4'

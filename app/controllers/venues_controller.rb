@@ -16,13 +16,18 @@ class VenuesController < ApplicationController
     # if !current_user.is_active_host
     #   return redirect_to payout_path, alert: "Please Connect to Stripe Express first."
     # end
-      
+    
     @venue = current_user.venues.build(venue_params)
     if @venue.save
       redirect_to venue_path(@venue), notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
       render :new
+    end
+    
+    respond_to do |format|
+      @project.services.any? && current_user.can_receive_payments?
+      CreatePerkPlansJob.perform_now(@project)
     end
   end
   
@@ -119,6 +124,6 @@ class VenuesController < ApplicationController
     def venue_params
       params.require(:venue).permit(:venue_type, :event_type, :rest_room, :accommodate, :listing_name, :service, :description, :address, :is_kitchen, 
       :is_tables, :is_chairs, :is_microphone, :is_projector, :is_speakers, :is_self_parking, :is_valet_parking, :is_garage_parking, 
-      :is_air, :is_heating, :is_wifi, :is_custodial, :is_accessible, :is_tablecloths, :is_wheelchair, :is_stage, :price, :active, :instant)
+      :is_air, :is_heating, :is_wifi, :is_custodial, :is_accessible, :is_tablecloths, :is_wheelchair, :is_stage, :price, :active, :instant, services_attributes: [:id, :_destroy, :title, :description, :price])
     end
 end

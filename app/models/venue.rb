@@ -4,13 +4,12 @@ class Venue < ApplicationRecord
   belongs_to :user
   has_many :photos
   has_many :reservations
-  has_many :services
-  has_many :prices
-
-  
   has_many :guest_reviews
   has_many :calendars
-   
+  
+  has_many :services, dependent: :destroy
+  accepts_nested_attributes_for :services, allow_destroy: true, reject_if: proc { |attr| attr['title'].blank? }
+  
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   
