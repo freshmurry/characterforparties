@@ -14,7 +14,7 @@
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-
+		
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
 
@@ -43,7 +43,7 @@
 
   </head>
   
-  <!--<script async>(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='09bdabf2578c8401dc4323a8ecdc4e842a7037b046fdb49e40d66e43e9237c17';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script>-->
+  <!-- <script async>(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='09bdabf2578c8401dc4323a8ecdc4e842a7037b046fdb49e40d66e43e9237c17';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script> -->
 
   <body>
     
@@ -78,5 +78,8 @@
 
     <!--<= render 'shared/footer' %>-->
     <% debug(params) if Rails.env.development? %>
+
+    <%= render 'shared/footer' %>
+
   </body>
 </html>
