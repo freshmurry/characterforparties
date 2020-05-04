@@ -6,17 +6,14 @@ class Venue < ApplicationRecord
   has_many :reservations
   has_many :guest_reviews
   has_many :calendars
-  
-  has_many :services, dependent: :destroy
-  accepts_nested_attributes_for :services, allow_destroy: true, reject_if: proc { |attr| attr['title'].blank? }
-  
+    
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   
   validates :venue_type, presence: true
   validates :event_type, presence: true
   validates :accommodate, presence: true
-  validates :rest_room, presence: true
+  validates :rest_venue, presence: true
 
   def cover_photo(size)
     if self.photos.length > 0

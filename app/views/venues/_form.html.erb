@@ -1,15 +1,17 @@
-<div class="panel panel-default" style="margin-right: -45px; margin-left: -45px;">
-  <div class="panel-heading">
-    Create Your Church Space
-  </div>
-  <div class="panel-body">
-    <div class="container">
-      
-      <!--<= form_for @venue, html: {multipart: true} do |f| %>-->
-      <%= form_for @venue, url: venue_photos_path(@venue), method: 'post', html: {multipart: true} do |f| %>
+<div class="row">
+	<div class="col-md-9">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				List Church Venue Space
+      </div>
 
-        <div class="col-md-4 select">
-          <div class="form-group">
+      <div class="panel-body">
+        <div class="container">
+      
+          <%= form_for @venue, html: {multipart: true} do |f| %>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
             <label>Event Type</label>
             <%= f.select :event_type, [["Public Space", "Public Space"], ["Private Space", "Private Space"]], 
             id: "event_type", prompt: "Select...", class: "form-control" %>
@@ -36,7 +38,7 @@
         <div class="col-md-4 select">
           <div class="form-group">
             <label>Rest Rooms</label>
-            <%= f.select :rest_room, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], id: "rest_room", prompt: "Select...", class: "form-control" %>
+            <%= f.select :restrooms, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], id: "restrooms", prompt: "Select...", class: "form-control" %>
           </div>
         </div>
           
@@ -78,61 +80,64 @@
               <%= f.text_field :price, placeholder: "eg. 100", class: "form-control" %>
             </div>  
           </div>
-        </div>
-        
-        <!--<div class="col-md-4">-->
-        <!--  <div class="form-group">-->
-        <!--    <label>Services</label>-->
-  
-        <!--    <div data-controller="nested-form">-->
-        <!--      <template data-target='nested-form.template'>-->
-        <!--        <= f.fields_for :services, Service.new, child_index: 'TEMPLATE_RECORD' do |service| %>-->
-        <!--          <= render 'services', form: service %>-->
-        <!--        < end %>-->
-        <!--      </template>-->
-          
-        <!--      <= f.fields_for :services do |service| %>-->
-        <!--        <= render 'services', form: service %>-->
-        <!--      < end %>-->
-          
-        <!--      <div data-target="nested-form.add_service">-->
-        <!--        <= link_to "Add Service", "#", data: { action: "nested-form#add_association" }, class: "btn btn-normal" %>-->
-        <!--      </div>-->
-        <!--    </div>-->
-            
-        <!--  </div>-->
-        <!--</div>-->
-        
-        <!------------------------------ PHOTO UPLOAD PANEL ------------------------------>
-
-        <!-- PHOTOS UPLOAD GOES HERE -->
-        <div class="container-fluid">
-          <div class="col-md-12"> 
-            <div class="form-group">
-              <span class="btn btn-default btn-file">
-                <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i> UPLOAD PHOTOS
-                <%= file_field_tag "images[]", type: :file, multiple: true %>
-              </span>
-            </div>
-          </div>
-        </div>
-        
-        <div id="photos"><%= render 'photos/photos_list' %></div>
-        
-        <div class="row">
-          <div class="col-md-12">
-            <div class="actions text-center"> 
-              <%= f.hidden_field :active, value: true %>
-              <%= f.submit "Create Listing", class: "btn btn-normal" %>
-            </div>  
-          </div>
-        </div>
-
-      <% end %>
+        </div>        
+      </div>  
     </div>
+  </div>
+<!------------------------------ PHOTO UPLOAD PANEL ------------------------------>
+  <div class="panel panel-default">
+      <div class="panel-heading">Add Photos</div>
+      
+      <div class="container">  
+        <div class="panel-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-offset-3 col-md-6">
+                  
+                <!-- PHOTOS UPLOAD GOES HERE -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Upload Photos</label>
+                    <span class="btn btn-default btn-file">
+                      <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i> Select Photos
+                      <%= file_field_tag "images[]", type: :file, multiple: true %>
+                    </span>
+                  </div>
+                </div>
+                
+                  <div class="text-center">
+                    <%= f.submit "Publish", class: "btn btn-form" %>
+                  </div>
+    
+                <% end %>
+              </div>
+            </div>
+            
+            <div id="photos"><%= render 'photos/photos_list' %></div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="panel-default">
+      <div class="container">
+        <a href="https://track.fiverr.com/visit/?bta=7074&nci=5479&campaign=19735" Target="_Top"><img border="0" src="https://fiverr.ck-cdn.com/tn/serve/?cid=1492998"></a>
+        <br><br/>
+      </div>
+    </div> 
   </div>
 </div>
 
+<!-- Google AdSense -->
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8786200479780334",
+    enable_page_level_ads: true
+   });
+</script>
 
 <script>
   $(function() {
