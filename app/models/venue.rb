@@ -13,7 +13,7 @@ class Venue < ApplicationRecord
   validates :venue_type, presence: true
   validates :event_type, presence: true
   validates :accommodate, presence: true
-  validates :rest_venue, presence: true
+  validates :restrooms, presence: true
 
   def cover_photo(size)
     if self.photos.length > 0

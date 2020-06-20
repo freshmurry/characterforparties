@@ -64,9 +64,8 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.datetime "end_date"
     t.integer  "price"
     t.integer  "total"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "status",     default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reservations_on_user_id"
     t.index ["venue_id"], name: "index_reservations_on_venue_id"
   end
@@ -163,8 +162,11 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.integer  "price"
     t.boolean  "active"
     t.integer  "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "instant",            default: 1
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
 

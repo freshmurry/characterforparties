@@ -104,10 +104,11 @@
                     </span>
                   </div>
                 </div>
-                
-                  <div class="text-center">
-                    <%= f.submit "Publish", class: "btn btn-form" %>
-                  </div>
+
+                  <%= form_for @venue do |f| %>
+                    <%= f.hidden_field :active, value: true %>
+                    <%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-block" %>
+                  <% end %>
     
                 <% end %>
               </div>

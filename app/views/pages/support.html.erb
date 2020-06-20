@@ -1,0 +1,41 @@
+<h1 ><span class="text-blue" style="font-weight: 700;">Support</span></h1>
+<p class="support">Once the site starts to pick up momentum the site will start to accrue server charges and other fees. Therefore, if you see this site as a vaulable tool for your church, 
+choose one of the options below to donate in order to help us keep the site up and running strong.</p>
+
+<!--<h1 ><span class="text-blue" style="font-weight: 700;">History Lesson</span></h1>-->
+
+<div id="paypal-button-container"></div>
+
+<p>Let's network and foster key social and business relationships with the broader community.</p>
+
+<script>
+  paypal.Buttons().render('#paypal-button-container');
+    // This function displays Smart Payment Buttons on your web page.
+</script>
+
+<script
+  src="https://www.paypal.com/sdk/js?client-id=AaBDPtscy8Se9kcwmH-BhP4iStY7_D2ukavJVaa0oEUV21tCWUUlJyRSLQqgKY3msjTwjZzMmIROf_Tp">
+</script>
+
+<script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      // This function sets up the details of the transaction, including the amount and line item details.
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '0.01'
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      // This function captures the funds from the transaction.
+      return actions.order.capture().then(function(details) {
+        // This function shows a transaction success message to your buyer.
+        alert('Transaction completed by ' + details.payer.name.given_name);
+      });
+    }
+  }).render('#paypal-button-container');
+  //This function displays Smart Payment Buttons on your web page.
+</script>

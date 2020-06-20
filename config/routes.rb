@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
-  # get 'service/index'
-  # get 'service/new'
-  # get 'service/create'
-  # get 'service/destroy'
-  # get 'service/update'
 
   root "pages#home"		 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "about" => "pages#about" #creates about_path
 
   devise_for :users,
               path: '',
@@ -21,20 +15,19 @@ Rails.application.routes.draw do
    end
 
    resources :venues do		
-     member do		
-      # get 'listing'
-      # get 'pricing'
-      # get 'description'
+    member do		
+      get 'listing'
+      get 'pricing'
+      get 'description'
       get 'photo_upload'
-      # get 'amenities'
-      # get 'location'
+      get 'amenities'
+      get 'location'
       get 'preload'
       get 'preview'
-      # get "about" => "pages#about" #creates about_path
-     end
-     resources :photos
-     resources :reservations, only: [:create]
-     resources :calendars
+    end
+      resources :photos
+      resources :reservations, only: [:create]
+      resources :calendars
    end
   
    resources :guest_reviews, only: [:create, :destroy]
@@ -43,7 +36,14 @@ Rails.application.routes.draw do
    get '/previous_reservations' => 'reservations#previous_reservations'
    get '/current_reservations' => 'reservations#current_reservations'
 
+   get 'about' => 'pages#about'
    get 'search' => 'pages#search'
+   get 'terms' => 'pages#terms'
+   get 'faq' => 'pages#faq'
+   get 'blog' => 'pages#blog'
+   get 'careers' => 'pages#careers'
+   get 'support' => 'pages#support'
+
 
  # ---- AirKong ------
    get 'dashboard' => 'dashboards#index'
