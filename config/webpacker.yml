@@ -58,9 +58,9 @@ development:
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:
     https: false
-    host: https://fa50b18f1ae44ac3a6e9772688a30384.vfs.cloud9.us-east-1.amazonaws.com
+    host: https://8080-dot-11489528-dot-devshell.appspot.com/?authuser=0
     port: 8080
-    public: https://fa50b18f1ae44ac3a6e9772688a30384.vfs.cloud9.us-east-1.amazonaws.com/:8080
+    public: https://8080-dot-11489528-dot-devshell.appspot.com/?authuser=0/:8080
     hmr: false
     # Inline should be set to true if using HMR
     inline: true
