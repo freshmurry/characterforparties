@@ -3,8 +3,8 @@ class PhotosController < ApplicationController
   def create
     @venue = Venue.find(params[:venue_id])
 
-    if params[:image]
-      params[:image].each do |img|
+    if params[:images]
+      params[:images].each do |img|
         @venue.photos.create(image: img)
       end
 
