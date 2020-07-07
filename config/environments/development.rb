@@ -63,12 +63,12 @@ Rails.application.configure do
   
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_cable.url = "ws://https://8080-dot-11489528-dot-devshell.appspot.com/cable"
+  config.action_cable.url = "ws://https://churchvenuespace.herokuapp.com/cable"
   
   config.web_console.whitelisted_ips << "10.240.0.0/16"
   
   #Required for Heroku
-  config.action_mailer.default_url_options = { host: 'https://8080-dot-11489528-dot-devshell.appspot.com/', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'https://churchvenuespace.herokuapp.com/' }
   
   #Mailgun Integration
   
