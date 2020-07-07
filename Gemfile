@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.6.6'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -14,6 +13,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'rack-cors'
 
 gem 'delayed_job'
 
@@ -39,7 +39,8 @@ gem 'toastr-rails', '~> 1.0'
 gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
 
-gem 'paperclip', '~> 5.1.0'
+#gem "paperclip", "~> 5.0.0.beta1"
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk', '~> 2.8'
 
 gem 'geocoder', '~> 1.5'

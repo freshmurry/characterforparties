@@ -8,7 +8,7 @@
       <div class="panel-body">
         <div class="container">
       
-          <%= form_for @venue, html: {multipart: true} do |f| %>
+          <%= form_for @venue, html: { multipart: true } do |f| %>
 
           <div class="col-md-4 select">
             <div class="form-group">
@@ -107,10 +107,8 @@
 
                 <div id="photos"><%= render 'photos/photos_list' %></div>
 
-                  <%= form_for @venue do |f| %>
-                    <%= f.hidden_field :active, value: true %>
-                    <%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-block" %>
-                  <% end %>
+                  <%= f.hidden_field :active, value: true %>
+                  <%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-block" %>
     
                 <% end %>
               </div>

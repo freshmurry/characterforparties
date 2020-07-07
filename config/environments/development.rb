@@ -56,6 +56,8 @@ Rails.application.configure do
 
   config.assets.quiet = true
   
+  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
+  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   
@@ -66,7 +68,7 @@ Rails.application.configure do
   config.web_console.whitelisted_ips << "10.240.0.0/16"
   
   #Required for Heroku
-  config.action_mailer.default_url_options = { host: 'https://8080-dot-11489528-dot-devshell.appspot.com/'}
+  config.action_mailer.default_url_options = { host: 'https://8080-dot-11489528-dot-devshell.appspot.com/', port: 3000 }
   
   #Mailgun Integration
   

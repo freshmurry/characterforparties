@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   before_action :set_venue, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show, :preload, :preview]
-  before_action :is_authorized, only: [:pricing, :description, :photo_upload, :amenities, :location, :update]
+  before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
   
   def index
     @venues = current_user.venues
@@ -31,8 +31,8 @@ class VenuesController < ApplicationController
     @guest_reviews = @venue.guest_reviews
   end
   
-  # def listing
-  # end
+  def listing
+  end
 
   def pricing
   end
@@ -52,15 +52,15 @@ class VenuesController < ApplicationController
 
   def update
     new_params = venue_params
-    # new_params = venue_params.merge(active: true) if is_ready_venue
+    new_params = venue_params.merge(active: true) if is_ready_venue
 
     if @venue.update(new_params)
       flash[:notice] = "Saved..."
     else
       flash[:alert] = "Something went wrong..."
     end
-    # redirect_back(fallback_location: request.referer)
-    redirect_to venue_path(@venue), notice: "Saved..."
+    redirect_back(fallback_location: request.referer)
+    # redirect_to venue_path(@venue), notice: "Saved..."
   end
   
   #---- RESERVATIONS ----
@@ -72,9 +72,9 @@ class VenuesController < ApplicationController
     special_dates = @venue.calendars.where("status = ? AND day > ? AND price <> ?", 0, today, @venue.price)
     
     render json: {
-        reservations: reservations,
-        unavailable_dates: unavailable_dates,
-        special_dates: special_dates
+      reservations: reservations,
+      unavailable_dates: unavailable_dates,
+      special_dates: special_dates
     }
   end
 
@@ -105,9 +105,9 @@ class VenuesController < ApplicationController
       redirect_to root_path, alert: "You don't have permission" unless current_user.id == @venue.user_id
     end
 
-    # def is_ready_venue
-    #   !@venue.active && !@venue.price.blank? && !@venue.listing_name.blank? && !@venue.photos.blank? && !@venue.address.blank?
-    # end
+    def is_ready_venue
+      !@venue.active && !@venue.price.blank? && !@venue.listing_name.blank? && !@venue.photos.blank? && !@venue.address.blank?
+    end
 
     def venue_params
       params.require(:venue).permit(:venue_type, :event_type, :restrooms, :accommodate, :listing_name, :service, :description, :address, :is_kitchen, 
