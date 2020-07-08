@@ -26,3 +26,10 @@
 .c9
 .c9/metadata
 vendor/bundle.c9
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

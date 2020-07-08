@@ -63,7 +63,7 @@ Rails.application.configure do
   
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_cable.url = "wss://churchvenuespace.herokuapp.com/cable"
+  # config.action_cable.url = "wss://churchvenuespace.herokuapp.com/cable"
   # config.action_cable.url = 'wss://example.com/cable'
   
   config.web_console.whitelisted_ips << "10.240.0.0/16"
