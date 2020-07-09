@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails'
+gem 'rails', '~> 5.0.0'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -39,13 +39,13 @@ gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
 
 gem 'paperclip', '~> 4.2'
-gem 'aws-sdk', '~> 2.8'
+gem 'aws-sdk-s3'
 
 gem 'geocoder', '~> 1.4'
 gem 'jquery-ui-rails', '~> 5.0'
 
 gem 'ransack', '~> 1.7'
-gem 'thin'
+gem 'puma'
 
 group :production do
   gem 'pg'  
