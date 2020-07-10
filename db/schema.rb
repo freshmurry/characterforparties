@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "instant", default: 1
-    t.string "service"
     t.float "latitude"
     t.float "longitude"
+    t.integer "instant", default: 1
+    t.string "service"
     t.index ["user_id"], name: "index_barbershops_on_user_id"
   end
 
@@ -73,12 +73,11 @@ ActiveRecord::Schema.define(version: 20171024222621) do
 
   create_table "photos", force: :cascade do |t|
     t.integer "barbershop_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["barbershop_id"], name: "index_photos_on_barbershop_id"
   end
 
@@ -134,18 +133,18 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.string "fullname"
-    t.string "provider"
-    t.string "uid"
-    t.string "image"
     t.string "phone_number"
     t.string "address"
     t.text "description"
+    t.string "provider"
+    t.string "uid"
+    t.string "image"
     t.string "pin"
     t.boolean "phone_verified"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.string "stripe_id"
     t.string "merchant_id"
     t.integer "unread", default: 0
