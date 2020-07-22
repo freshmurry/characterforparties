@@ -47,19 +47,13 @@ GEM
     autoprefixer-rails (9.8.5)
       execjs
     aws-eventstream (1.1.0)
-    aws-partitions (1.343.0)
-    aws-sdk-core (3.104.1)
-      aws-eventstream (~> 1, >= 1.0.2)
-      aws-partitions (~> 1, >= 1.239.0)
-      aws-sigv4 (~> 1.1)
+    aws-sdk (2.11.549)
+      aws-sdk-resources (= 2.11.549)
+    aws-sdk-core (2.11.549)
+      aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-kms (1.36.0)
-      aws-sdk-core (~> 3, >= 3.99.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.75.0)
-      aws-sdk-core (~> 3, >= 3.104.1)
-      aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.1)
+    aws-sdk-resources (2.11.549)
+      aws-sdk-core (= 2.11.549)
     aws-sigv4 (1.2.1)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.15)
@@ -322,7 +316,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk-s3
+  aws-sdk (~> 2.8)
   bootstrap-sass (~> 3.3.6)
   byebug
   capistrano
