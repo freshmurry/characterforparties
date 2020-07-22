@@ -40,8 +40,10 @@ gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
 
 #gem "paperclip", "~> 5.0.0.beta1"
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-gem 'aws-sdk-s3', '~> 1'
+# gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'paperclip', '~> 5.1.0'
+gem 'aws-sdk', '~> 2.8'
+# gem 'aws-sdk-s3', '~> 1'
 
 gem 'geocoder', '~> 1.5'
 gem 'jquery-ui-rails', '~> 5.0'
