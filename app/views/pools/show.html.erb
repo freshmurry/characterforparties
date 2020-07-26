@@ -1,7 +1,7 @@
 <!-- Image -->
 <div class="row">
   <div class="col-md-12">
-    <%= image_tag @venue.cover_photo(nil), width: "100%" %>
+    <%= image_tag @pool.cover_photo(nil), width: "100%" %>
   </div>
 </div>
 <br/>
@@ -14,21 +14,21 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-        <h2><%= @venue.listing_name %></h2>
-            <%= @venue.address %>
+        <h2><%= @pool.listing_name %></h2>
+            <%= @pool.address %>
         </div>&nbsp;
 
         <div class="col-md-3 text-center">
-          <%= image_tag avatar_url(@venue.user), class: "img-circle avatar-large" %><br/>
-          <%= link_to user_path(@venue.user) do %>
-          <%= @venue.user.fullname %>
+          <%= image_tag avatar_url(@pool.user), class: "img-circle avatar-large" %><br/>
+          <%= link_to user_path(@pool.user) do %>
+          <%= @pool.user.fullname %>
           <% end %>
           <div>
             <span id="average_rating"></span>
           </div>
           <div class="center">
             <% if current_user && current_user != @user %>
-              <%= link_to "Message Host", conversations_path(sender_id: current_user.id, recipient_id: @venue.user.id), method: :post, class: "btn btn-default" %>
+              <%= link_to "Message Host", conversations_path(sender_id: current_user.id, recipient_id: @pool.user.id), method: :post, class: "btn btn-default" %>
             <% end %>
           </div>
         </div>
@@ -36,14 +36,11 @@
     </div>  
     <hr/>
       
-    <!-- Venue Info -->
+    <!-- Pool Info -->
     <div class="container">
       <div class="row text-center">
         <div class="col-xs-3 col-sm-3 col-md-3">
-          <i class="fas fa-building fa-2x"></i>
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-           <i class="fa fa-map-marker fa-2x"></i>
+          <i class="fas fa-swimming-pool fa-2x"></i>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
           <i class="fa fa-users fa-2x"></i>
@@ -54,10 +51,9 @@
       </div>
     
       <div class="row text-center">
-        <div class="col-xs-3 col-sm-3 col-md-3"><%= @venue.event_type %></div>
-        <div class="col-xs-3 col-sm-3 col-md-3"><%= @venue.venue_type %></div>
-        <div class="col-xs-3 col-sm-3 col-md-3"><%= @venue.accommodate %></div>
-        <div class="col-xs-3 col-sm-3 col-md-3"><%= @venue.restrooms %></div>
+        <div class="col-xs-3 col-sm-3 col-md-3"><%= @pool.pool_type %></div>
+        <div class="col-xs-3 col-sm-3 col-md-3"><%= @pool.accommodate %></div>
+        <div class="col-xs-3 col-sm-3 col-md-3"><%= @pool.restrooms %></div>
       </div>
     </div>  
     <hr/>
@@ -66,10 +62,10 @@
     <div class="container">
       <div class="row">
         <div class="panel panel-default">
-          <div class="panel-heading">About This Venue</div>
+          <div class="panel-heading">About This Pool</div>
           <div class="panel-body">
             <div class="container">
-              <p><%= @venue.description %></p>
+              <p><%= @pool.description %></p>
             </div>  
           </div>
         </div>
@@ -88,31 +84,20 @@
                 <div class="row">
                   <div class="col-xs-4 col-sm-4 col-md-4">
                     <ul class="amenities">
-                      <li class="<%= 'text-line-through' if !@venue.is_kitchen %>">Kitchen</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_tables %>">Tables</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_chairs %>">Chairs</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_microphone %>">Microphone</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_custodial %>">Custodial Services</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_accessible %>">Accessible</li>
+                      <li class="<%= 'text-line-through' if !@pool.is_chairs %>">Chairs</li>
+                      <li class="<%= 'text-line-through' if !@pool.is_accessible %>">Accessible</li>
                     </ul>
                   </div>
                   <div class="col-xs-4 col-sm-4 col-md-4">
                     <ul class="amenities">
-                      <li class="<%= 'text-line-through' if !@venue.is_projector %>">Projector</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_speakers %>">Speakers</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_self_parking %>">Self-Parking</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_valet_parking %>">Valet Parking</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_tablecloths %>">Tablecloths</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_wheelchair %>">Wheelchair</li>
+                      <li class="<%= 'text-line-through' if !@pool.is_speakers %>">Portable Speakers</li>
+                      <li class="<%= 'text-line-through' if !@pool.is_self_parking %>">Free/Street Parking</li>
                     </ul>
                   </div>
                   <div class="col-xs-4 col-sm-4 col-md-4">
                     <ul class="amenities">
-                      <li class="<%= 'text-line-through' if !@venue.is_garage_parking %>">Garage Parking</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_air %>">A/C</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_heating %>">Heating</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_wifi %>">Wifi</li>
-                      <li class="<%= 'text-line-through' if !@venue.is_stage %>">Stage</li>
+                      <li class="<%= 'text-line-through' if !@pool.is_garage_parking %>">Garage Parking</li>
+                      <li class="<%= 'text-line-through' if !@pool.is_heated_pool %>">Heated Pool</li>
                     </ul>
                   </div>
                 </div>
@@ -182,7 +167,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwN_tpAAKnHhy14HzNqK-XeuarVJhNHg8"></script>
         <script>
          function initialize() {
-            var location = {lat: <%= @venue.latitude %>, lng: <%= @venue.longitude %>};
+            var location = {lat: <%= @pool.latitude %>, lng: <%= @pool.longitude %>};
             var map = new google.maps.Map(document.getElementById('map'), {
               center: location,
               zoom: 12
@@ -194,7 +179,7 @@
             });
     
             var infoWindow = new google.maps.InfoWindow({
-              content: '<div id="content"><%= image_tag @venue.cover_photo(:medium) %></div>'
+              content: '<div id="content"><%= image_tag @pool.cover_photo(:medium) %></div>'
             });
     
             infoWindow.open(map, marker);
@@ -207,20 +192,20 @@
     </div>  
     <hr/>
 
-    <!-- NEAR BY CHURCHES -->
+    <!-- NEAR BY POOLS -->
     <div class="panel panel-default">
-      <div class="panel-heading">Nearby Church Spaces</div>
-        <% for venue in @venue.nearbys(10) %>
+      <div class="panel-heading">Nearby Pools</div>
+        <% for pool in @pool.nearbys(10) %>
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading preview">
-            <%= image_tag venue.cover_photo(:medium) %>
+            <%= image_tag pool.cover_photo(:medium) %>
           </div>
               
           <div class="panel-body">
             <div class="container">
-              <%= link_to venue.listing_name, venue %><br/>
-              (<%= venue.distance.round(2) %> miles away)
+              <%= link_to pool.listing_name, pool %><br/>
+              (<%= pool.distance.round(2) %> miles away)
             </div>
           </div>
         </div>  
@@ -240,6 +225,6 @@
   $('#average_rating').raty({
     path: '/assets',
     readOnly: true,
-    score: <%= @venue.average_rating %>
+    score: <%= @pool.average_rating %>
   });
 </script>

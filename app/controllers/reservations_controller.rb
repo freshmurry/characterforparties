@@ -3,10 +3,10 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:approve, :decline]
 
   def create
-    venue = Venue.find(params[:venue_id])
+    pool = Pool.find(params[:pool_id])
 
-    if current_user == venue.user
-      flash[:alert] = "You cannot book your own venue!"
+    if current_user == pool.user
+      flash[:alert] = "You cannot book your own pool!"
     elsif current_user.stripe_id.blank?
        flash[:alert] = "Please update your payment method!"
        return redirect_to payment_path
@@ -15,34 +15,34 @@ class ReservationsController < ApplicationController
       end_date = Date.parse(reservation_params[:end_date])
       days = (end_date - start_date).to_i + 1
 
-      special_dates = venue.calendars.where(
+      special_dates = pool.calendars.where(
         "status = ? AND day BETWEEN ? AND ? AND price <> ?",
-        0, start_date, end_date, venue.price
+        0, start_date, end_date, pool.price
       )
       
       @reservation = current_user.reservations.build(reservation_params)
-      @reservation.venue = venue
-      @reservation.price = venue.price
-      # @reservation.total = venue.price * days
+      @reservation.pool = pool
+      @reservation.price = pool.price
+      # @reservation.total = pool.price * days
       # @reservation.save
       
-      @reservation.total = venue.price * (days - special_dates.count)
+      @reservation.total = pool.price * (days - special_dates.count)
       special_dates.each do |date|
           @reservation.total += date.price
       end
       
       if @reservation.Waiting!
-        if venue.Request?
+        if pool.Request?
           flash[:notice] = "Request sent successfully"
         else
-          charge(venue, @reservation)
+          charge(pool, @reservation)
         end
       else
         flash[:alert] = "Cannot make a reservation"
       end
       
     end
-    redirect_to venue
+    redirect_to pool
   end
 
   def previous_reservations
@@ -50,11 +50,11 @@ class ReservationsController < ApplicationController
   end
 
   def current_reservations
-    @venues = current_user.venues
+    @pools = current_user.pools
   end
   
   def approve
-    charge(@reservation.venue, @reservation)
+    charge(@reservation.pool, @reservation)
     redirect_to current_reservations_path
   end
 
@@ -65,33 +65,33 @@ class ReservationsController < ApplicationController
 
   private
   
-  def send_sms(venue, reservation)
+  def send_sms(pool, reservation)
     @client = Twilio::REST::Client.new
     @client.messages.create(
       from: '+3125488878',
-      to: venue.user.phone_number,
-      body: "#{reservation.user.fullname} booked your '#{venue.listing_name}'"
+      to: pool.user.phone_number,
+      body: "#{reservation.user.fullname} booked your '#{pool.listing_name}'"
     )
   end
   
-    def charge(venue, reservation)
+    def charge(pool, reservation)
       if !reservation.user.stripe_id.blank?
         customer = Stripe::Customer.retrieve(reservation.user.stripe_id)
         charge = Stripe::Charge.create(
           :customer => customer.id,
           :amount => reservation.total * 100,
-          :description => venue.listing_name,
+          :description => pool.listing_name,
           :currency => "usd", 
           :destination => {
-            :amount => reservation.total * 80, # 80% of the total amount goes to the Host Venue, 20% is revenue for ShindigSpace
-            :account => venue.user.merchant_id # Venue's Stripe customer ID
+            :amount => reservation.total * 80, # 80% of the total amount goes to the Host pool, 20% is repool for ShindigSpace
+            :account => pool.user.merchant_id # pool's Stripe customer ID
           }
         )
   
         if charge
           reservation.Approved!
-          ReservationMailer.send_email_to_guest(reservation.user, venue).deliver_later if reservation.user.setting.enable_email
-          send_sms(venue, reservation) if venue.user.setting.enable_sms
+          ReservationMailer.send_email_to_guest(reservation.user, pool).deliver_later if reservation.user.setting.enable_email
+          send_sms(pool, reservation) if pool.user.setting.enable_sms
           flash[:notice] = "Reservation created successfully!"
         else
           reservation.Declined!

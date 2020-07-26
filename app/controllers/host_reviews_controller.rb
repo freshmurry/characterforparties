@@ -1,13 +1,13 @@
 class HostReviewsController < ApplicationController
 
   def create
-    # Step 1: Check if the reservation exist (venue_id, guest_id, host_id)
+    # Step 1: Check if the reservation exist (pool_id, guest_id, host_id)
 
     # Step 2: Check if the current client already reviewed the guest in this reservation.
 
     @reservation = Reservation.where(
                     id: host_review_params[:reservation_id],
-                    venue_id: host_review_params[:venue_id],
+                    pool_id: host_review_params[:pool_id],
                     user_id: host_review_params[:guest_id]
                    ).first
 
@@ -42,6 +42,6 @@ class HostReviewsController < ApplicationController
 
   private
     def host_review_params
-      params.require(:host_review).permit(:comment, :star, :venue_id, :reservation_id, :guest_id)
+      params.require(:host_review).permit(:comment, :star, :pool_id, :reservation_id, :guest_id)
     end
 end

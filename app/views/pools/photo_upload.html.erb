@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-3">
-    <%= render 'venue_menu' %>
+    <%= render 'pool_menu' %>
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
@@ -16,7 +16,7 @@
               <div class="col-md-offset-3 col-md-6">
                 
                 <!-- PHOTOS UPLOAD GOES HERE -->
-                <%= form_for @venue, url: venue_photos_path(@venue), method: 'post', html: {multipart: true} do |f| %>
+                <%= form_for @pool, url: pool_photos_path(@pool), method: 'post', html: {multipart: true} do |f| %>
                   <div class="container">
                     <div class="row">
                       <div class="form-group">

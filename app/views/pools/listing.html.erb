@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-3">
-    <%= render 'venue_menu' %>
+    <%= render 'pool_menu' %>
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
@@ -11,37 +11,28 @@
 
       <div class="panel-body">
         <div class="container">
-          <%= form_for @venue do |f| %>
+          <%= form_for @pool do |f| %>
 
             <div class="row">
               <div class="col-md-4 select">
                 <div class="form-group">
-                  <label>Venue Type</label>
-                  <%= f.select :venue_type, [["Public", "Public"], ["Private", "Private"]],
-                                id: "venue_type", prompt: "Select...", class: "form-control" %>
+                  <label>Pool Type</label>
+                  <%= f.select :pool_type, [["Above Ground", "Above Ground"], ["In-Ground", "In-Ground"]],
+                                id: "pool_type", prompt: "Select...", class: "form-control" %>
                	</div>
             	</div>
-
-            	<div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Event Type</label>
-		              <%= f.select :event_type, [["Public", "Public"], ["Private", "Private"]], 
-		              id: "event_type", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>  
 
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>Booking Type</label>
-                  <%= f.select :instant, Venue.instants.map {|key,value| [key.humanize, key]}, selected: 'Instant', prompt: "Select...", class: "form-control" %>
+                  <%= f.select :instant, Pool.instants.map {|key,value| [key.humanize, key]}, selected: 'Instant', prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
 
               <div class="col-md-4 select">
 		            <div class="form-group">
 		              <label>Accommodate</label>
-		              <%= f.select :accommodate, [["30", 30], ["40", 40], ["50", 50], ["60", 60], ["70", 70], ["80", 80], ["90", 90], ["100", 100], 
-		                 ["120", 120], ["130", 130], ["150", 150], ["200", 200], ["250", 250], ["300+", 300]], 
+		              <%= f.select :accommodate, [["1", 1], ["2", 2], ["3", 3], ["4", 4]], 
 		                 id: "accommodate", prompt: "Select...", class: "form-control" %>
 		            </div>
 		          </div>
@@ -49,7 +40,7 @@
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>Restrooms</label>
-                  <%= f.select :restrooms, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
+                  <%= f.select :restrooms, [["1", 1], ["2", 2], ["None", None]],
                                 id: "restrooms", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>

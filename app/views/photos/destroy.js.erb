@@ -1,9 +1,9 @@
 $('#photos').html("<%= j render 'photos_list' %>")
-<% if @venue.photos.blank? %>
+<% if @pool.photos.blank? %>
   $('#photo_check').hide();
 <% end %>
 
-<% if !@venue.active && !@venue.price.blank? && !@venue.listing_name.blank? && !@venue.photos.blank? && !@venue.location_type.blank? %>
+<% if !@pool.active && !@pool.price.blank? && !@pool.listing_name.blank? && !@pool.photos.blank? && !@pool.location_type.blank? %>
     $('#publish_button').attr('disabled', false);
 <% else %>
     $('#publish_button').attr('disabled', true);

@@ -47,10 +47,10 @@
     
     <!-- YOUR LISTNGS -->
     <div class="panel panel-default">
-      <div class="panel-heading">Listings (<%= @venues.length %>)</div>
+      <div class="panel-heading">Listings (<%= @pools.length %>)</div>
         <div class="panel-body">
           <div class="container">
-            <%= render partial: "venues/venues_list", locals: {venues: @venues} %>
+            <%= render partial: "pools/pools_list", locals: {pools: @pools} %>
           </div>
         </div>
     </div>

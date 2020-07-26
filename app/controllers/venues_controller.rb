@@ -1,14 +1,14 @@
-class VenuesController < ApplicationController
-  before_action :set_venue, except: [:index, :new, :create]
+class PoolsController < ApplicationController
+  before_action :set_pool, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show, :preload, :preview]
   before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
   
   def index
-    @venues = current_user.venues
+    @pools = current_user.pools
   end
 
   def new
-    @venue = current_user.venues.build
+    @pool = current_user.pools.build
   end
 
   def create
@@ -17,9 +17,9 @@ class VenuesController < ApplicationController
     #   return redirect_to payout_path, alert: "Please Connect to Stripe Express first."
     # end
     
-    @venue = current_user.venues.build(venue_params)
-    if @venue.save
-      redirect_to listing_venue_path(@venue), notice: "Saved..."
+    @pool = current_user.pools.build(pool_params)
+    if @pool.save
+      redirect_to listing_pool_path(@pool), notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
       render :new
@@ -27,8 +27,8 @@ class VenuesController < ApplicationController
   end
   
   def show
-    @photos = @venue.photos
-    @guest_reviews = @venue.guest_reviews
+    @photos = @pool.photos
+    @guest_reviews = @pool.guest_reviews
   end
   
   def listing
@@ -41,7 +41,7 @@ class VenuesController < ApplicationController
   end
 
   def photo_upload
-    @photos = @venue.photos
+    @photos = @pool.photos
   end
 
   def amenities
@@ -51,25 +51,25 @@ class VenuesController < ApplicationController
   end
 
   def update
-    new_params = venue_params
-    new_params = venue_params.merge(active: true) if is_ready_venue
+    new_params = pool_params
+    new_params = pool_params.merge(active: true) if is_ready_pool
 
-    if @venue.update(new_params)
+    if @pool.update(new_params)
       flash[:notice] = "Saved..."
     else
       flash[:alert] = "Something went wrong..."
     end
     redirect_back(fallback_location: request.referer)
-    # redirect_to venue_path(@venue), notice: "Saved..."
+    # redirect_to pool_path(@pool), notice: "Saved..."
   end
   
   #---- RESERVATIONS ----
   def preload
     today = Date.today
-    reservations = @venue.reservations.where("(start_date >= ? OR end_date >= ?) AND status = ?", today, today, 1)
-    unavailable_dates = @venue.calendars.where("status = ? AND day > ?", 1, today)
+    reservations = @pool.reservations.where("(start_date >= ? OR end_date >= ?) AND status = ?", today, today, 1)
+    unavailable_dates = @pool.calendars.where("status = ? AND day > ?", 1, today)
 
-    special_dates = @venue.calendars.where("status = ? AND day > ? AND price <> ?", 0, today, @venue.price)
+    special_dates = @pool.calendars.where("status = ? AND day > ? AND price <> ?", 0, today, @pool.price)
     
     render json: {
       reservations: reservations,
@@ -83,35 +83,34 @@ class VenuesController < ApplicationController
     end_date = Date.parse(params[:end_date])
 
     output = {
-      conflict: is_conflict(start_date, end_date, @venue)
+      conflict: is_conflict(start_date, end_date, @pool)
     }
 
     render json: output
   end
   
   private
-    def is_conflict(start_date, end_date, venue)
-      check = venue.reservations.where("(? < start_date AND end_date < ?) AND status = ?", start_date, end_date, 1)
-      check_2 = venue.calendars.where("day BETWEEN ? AND ? AND status = ?", start_date, end_date, 1).limit(1)
+    def is_conflict(start_date, end_date, pool)
+      check = pool.reservations.where("(? < start_date AND end_date < ?) AND status = ?", start_date, end_date, 1)
+      check_2 = pool.calendars.where("day BETWEEN ? AND ? AND status = ?", start_date, end_date, 1).limit(1)
       
       check.size > 0 || check_2.size > 0 ? true : false 
     end
 
-    def set_venue
-      @venue = Venue.find(params[:id])
+    def set_pool
+      @pool = Pool.find(params[:id])
     end
 
     def is_authorized
-      redirect_to root_path, alert: "You don't have permission" unless current_user.id == @venue.user_id
+      redirect_to root_path, alert: "You don't have permission" unless current_user.id == @pool.user_id
     end
 
-    def is_ready_venue
-      !@venue.active && !@venue.price.blank? && !@venue.listing_name.blank? && !@venue.photos.blank? && !@venue.address.blank?
+    def is_ready_pool
+      !@pool.active && !@pool.price.blank? && !@pool.listing_name.blank? && !@pool.photos.blank? && !@pool.address.blank?
     end
 
-    def venue_params
-      params.require(:venue).permit(:venue_type, :event_type, :restrooms, :accommodate, :listing_name, :service, :description, :address, :is_kitchen, 
-      :is_tables, :is_chairs, :is_microphone, :is_projector, :is_speakers, :is_self_parking, :is_valet_parking, :is_garage_parking, 
-      :is_air, :is_heating, :is_wifi, :is_custodial, :is_accessible, :is_tablecloths, :is_wheelchair, :is_stage, :price, :active, :instant)
+    def pool_params
+      params.require(:pool).permit(:pool_type, :restrooms, :accommodate, :listing_name, :service, :description, :address, :is_tables, 
+      :is_chairs, :is__portable_speakers, :is_street_parking, :is_garage_parking, :is_ice_cooler, :is_heated_pool, :is_accessible, :price, :active, :instant)
     end
 end

@@ -63,13 +63,13 @@ Rails.application.configure do
   
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  # config.action_cable.url = "wss://churchvenuespace.herokuapp.com/cable"
+  # config.action_cable.url = "wss://poolcrasher.herokuapp.com/cable"
   # config.action_cable.url = 'wss://example.com/cable'
   
   config.web_console.whitelisted_ips << "10.240.0.0/16"
   
   #Required for Heroku
-  config.action_mailer.default_url_options = { host: 'https://churchvenuespace.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'https://poolcrasher.herokuapp.com/' }
   
   #Mailgun Integration
   
@@ -96,18 +96,5 @@ Rails.application.configure do
   #   user_name: ENV['gmail_address'],
   #   password: ENV['gmail_password']
   # }
-  
-  # config.active_record.raise_in_transactional_callbacks = true
-  
-  # config.paperclip_defaults = {
-  #   storage: :s3,
-  #   path: ':class/:attachment/:id/:style/:filename',
-  #   s3_host_name: 's3-ap-us-east-2.amazonaws.com',
-  #   s3_credentials: {
-  #     bucket: 'YOUR_S3_BUCKET_NAME',
-  #     access_key_id: 'YOUR_S3_ACCESS_KEY',
-  #     secret_access_key: 'YOUR_S3_SECRET_ACCESS_KEY',
-  #     s3_region: 'ap-us-east-2'
-  #   }
-  # }
+
 end

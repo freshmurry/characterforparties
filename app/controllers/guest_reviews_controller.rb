@@ -7,10 +7,10 @@ class GuestReviewsController < ApplicationController
 
     @reservation = Reservation.where(
                     id: guest_review_params[:reservation_id],
-                    venue_id: guest_review_params[:venue_id]
+                    pool_id: guest_review_params[:pool_id]
                    ).first
 
-    if !@reservation.nil? && @reservation.venue.user.id == guest_review_params[:host_id].to_i
+    if !@reservation.nil? && @reservation.pool.user.id == guest_review_params[:host_id].to_i
 
       @has_reviewed = GuestReview.where(
                         reservation_id: @reservation.id,
@@ -41,6 +41,6 @@ class GuestReviewsController < ApplicationController
 
   private
     def guest_review_params
-      params.require(:guest_review).permit(:comment, :star, :venue_id, :reservation_id, :host_id)
+      params.require(:guest_review).permit(:comment, :star, :pool_id, :reservation_id, :host_id)
     end
 end

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-3">
     <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Current Listings", venues_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Current Listings", pools_path, class: "sidebar-link" %></li>
       <li class="sidebar-item"><%= link_to "Current Reservations", current_reservations_path, class: "sidebar-link" %></li>
       <li class="sidebar-item"><%= link_to "Previous Reservations", previous_reservations_path, class: "sidebar-link active" %></li>
     </ul>
@@ -9,7 +9,7 @@
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Here's a list of the venues you've previously booked
+        Here's a list of the pools you've previously booked
       </div>
       <div class="panel-body">
       <div class="container">
@@ -22,17 +22,17 @@
               </div>
               <div class="col-md-2">
                 <div class="panel-heading-preview">
-                  <%= link_to venue_path(space.venue) do %>
-                    <%= image_tag space.venue.cover_photo(:thumb) %>
+                  <%= link_to pool_path(space.pool) do %>
+                    <%= image_tag space.pool.cover_photo(:thumb) %>
                   <% end %>
                 </div>  
               </div>
               <div class="col-md-5">
-                <%= link_to space.venue.listing_name, venue_path(space.venue) %><br/>
+                <%= link_to space.pool.listing_name, pool_path(space.pool) %><br/>
                 <span>
-                  <%= image_tag (space.venue.user.image), class: "img-circle avatar-small" %>
-                  <%= link_to user_path(space.venue.user) do %>
-                  <%= space.venue.user.fullname %>
+                  <%= image_tag (space.pool.user.image), class: "img-circle avatar-small" %>
+                  <%= link_to user_path(space.pool.user) do %>
+                  <%= space.pool.user.fullname %>
                   <% end %>
                 </span>
               </div>

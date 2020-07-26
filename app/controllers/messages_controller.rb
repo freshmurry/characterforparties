@@ -15,10 +15,10 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.new(message_params)
     @messages = @conversation.messages.order("created_at DESC")
 
-    # if current_user == venue.user
-    #   flash[:alert] = "You cannot send a message to yourself!"
-    #   redirect_to venue
-    # end
+    if current_user == pool.user
+      flash[:alert] = "You cannot send a message to yourself!"
+      redirect_to pool
+    end
       
     if @message.save
       ActionCable.server.broadcast "conversation_#{@conversation.id}", message: render_message(@message)

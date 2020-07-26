@@ -1,4 +1,4 @@
-class Venue < ApplicationRecord
+class Pool < ApplicationRecord
   enum instant: {Request: 0, Instant: 1}
   
   belongs_to :user
@@ -10,8 +10,7 @@ class Venue < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   
-  validates :venue_type, presence: true
-  validates :event_type, presence: true
+  validates :pool_type, presence: true
   validates :accommodate, presence: true
   validates :restrooms, presence: true
 
