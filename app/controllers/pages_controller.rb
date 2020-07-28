@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @pools = Pool.where(active: true).limit(3)
+    @pools = Pool.where(active: true).limit(6)
   end
 
   def search
@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     @search = @pools_address.ransack(params[:q])
     @pools = @search.result
 
-    @arrpools = @pools.to_a
+    @arrPools = @pools.to_a
 
     # STEP 4
     if (params[:start_date] && params[:end_date] && !params[:start_date].empty? &&  !params[:end_date].empty?)
@@ -47,7 +47,7 @@ class PagesController < ApplicationController
         ).limit(1)
         
         if not_available.length > 0 || not_available_in_calendar.length > 0
-          @arrpools.delete(pool)
+          @arrPools.delete(pool)
         end
       end
     end

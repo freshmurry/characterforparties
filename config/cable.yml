@@ -1,13 +1,10 @@
-production:
-  adapter: redis
-  url: redis://redistogo:47ab4496f2090735b5a2f018c69edc96@hammerjaw.redistogo.com:11461/
-  # url: redis://localhost:6379/1
-
 development:
   adapter: async
 
 test:
   adapter: async
 
-
-  # url: redis://redistogo:dd9d85864618707c2a555e878c410921@grouper.redistogo.com:10888
+production:
+  adapter: redis
+  url: redis://localhost:6379/1
+  channel_prefix: PoolCrasher_production

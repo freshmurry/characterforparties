@@ -8,8 +8,8 @@ class CreatePools < ActiveRecord::Migration[5.1]
       t.text :description
       t.string :address
       t.boolean :is_chairs
-      t.boolean :is_portable_speaker
-      t.boolean :is_self_parking
+      t.boolean :is_speaker
+      t.boolean :is_parking
       t.boolean :is_garage_parking
       t.boolean :is_heated_pool
       t.boolean :is_accessible

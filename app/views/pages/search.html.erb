@@ -41,44 +41,6 @@
               </div>
             </div>
             <hr/>
-  
-            <div class="row">
-              <div class="panel panel-default">
-                <div class="panel-heading">Event Type</div>
-                  <div class="panel-body">
-                    <div class="container">
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[event_type_eq_any][]", "Business Meeting" %> Business Meeting
-                      </div>
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[event_type_eq_any][]", "Baby Shower" %> Baby Shower
-                      </div>
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[event_type_eq_any][]", "Bridal Shower" %> Bridal Shower
-                      </div>
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[event_type_eq_any][]", "Bridal Party Dinner" %> Bridal Party Dinner
-                      </div>
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[event_type_eq_any][]", "Repast" %> Repast
-                      </div>
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[event_type_eq_any][]", "Birthday Party" %> Birthday Party
-                      </div>
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[event_type_eq_any][]", "Rehearsal" %> Rehersal
-                      </div>
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[event_type_eq_any][]", "Filming/Photography" %> Filming/Photography
-                      </div>
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[event_type_eq_any][]", "Other" %> Other
-                      </div>
-                    </div>  
-                  </div>
-                </div>
-              </div>
-            <hr/>
                 
           <div class="row">
             <div class="col-md-4">
@@ -148,7 +110,7 @@
         <br/>
   
         <div class="row" id="pool_listing">
-          <%= render partial: "pools/pools_list", locals: {pools: @arrPoolss} %>
+          <%= render partial: "pools/pools_list", locals: {pools: @arrPools} %>
         </div>
       </div>
     </div>

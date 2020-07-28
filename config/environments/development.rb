@@ -56,8 +56,6 @@ Rails.application.configure do
 
   config.assets.quiet = true
   
-  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
-  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   
@@ -66,10 +64,10 @@ Rails.application.configure do
   # config.action_cable.url = "wss://poolcrasher.herokuapp.com/cable"
   # config.action_cable.url = 'wss://example.com/cable'
   
-  config.web_console.whitelisted_ips << "10.240.0.0/16"
+  # config.web_console.whitelisted_ips << "10.240.0.0/16"
   
   #Required for Heroku
-  config.action_mailer.default_url_options = { host: 'https://poolcrasher.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'https://37e5371448fa4b70b49ca2697e0a1b75.vfs.cloud9.us-east-1.amazonaws.com' }
   
   #Mailgun Integration
   

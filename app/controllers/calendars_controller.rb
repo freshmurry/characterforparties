@@ -38,7 +38,7 @@ class CalendarsController < ApplicationController
     @search = Reservation.ransack(params[:q])
   
     if params[:pool_id]
-      @pool = pool.find(params[:pool_id])
+      @pool = Pool.find(params[:pool_id])
       start_date = Date.parse(params[:start_date])
 
       first_of_month = (start_date - 1.months).beginning_of_month # => Jun 1
