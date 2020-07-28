@@ -83,7 +83,7 @@ class ReservationsController < ApplicationController
           :description => pool.listing_name,
           :currency => "usd", 
           :destination => {
-            :amount => reservation.total * 80, # 80% of the total amount goes to the Host pool, 20% is repool for ShindigSpace
+            :amount => reservation.total * 80, # 80% of the total amount goes to the Host, 20% is company fee
             :account => pool.user.merchant_id # pool's Stripe customer ID
           }
         )
