@@ -51,8 +51,8 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
-  # config.web_socket_server_url = "wss://action-cable-poolcrasher.herokuapp.com/cable"
-  # config.action_cable.allowed_request_origins = ['https://action-cable-poolcrasher.herokuapp.com/cable', 'https://action-cable-poolcrasher.herokuapp.com/cable' ]
+  config.web_socket_server_url = "wss://action-cable-poolcrasher.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://action-cable-poolcrasher.herokuapp.com/cable', 'https://action-cable-poolcrasher.herokuapp.com/cable' ]
 
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
@@ -87,30 +87,30 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.raise_delivery_errors = true
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
   
   #Required for Heroku
-  config.action_mailer.default_url_options = { host: 'https://poolcrasher.herokuapp.com' }
+  # config.action_mailer.default_url_options = { host: 'https://poolcrasher.herokuapp.com' }
+
+  config.action_mailer.raise_delivery_errors = true
   
-  config.action_mailer.delivery_method = :smtp
-  host = 'poolcrasher.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'poolcrasher.com',
-    :enable_starttls_auto => true
-  }
+    config.action_mailer.delivery_method = :smtp
+    host = 'poolcrasher.herokuapp.com'
+    config.action_mailer.default_url_options = { host: host }
+    ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => ENV['SENDGRID_USERNAME'],
+      :password       => ENV['SENDGRID_PASSWORD'],
+      :domain         => 'poolcrasher.com',
+      :enable_starttls_auto => true
+    }
   
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
-  
-  # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
 end
