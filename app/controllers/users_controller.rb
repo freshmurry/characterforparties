@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 
     flash[:notice] = "Your card is saved."
     redirect_to payment_path
-    rescue Stripe::CardError => e
+  rescue Stripe::CardError => e
     flash[:alert] = e.message
     redirect_to payment_path
   end

@@ -69,8 +69,6 @@ Rails.application.configure do
   #Required for Heroku
   config.action_mailer.default_url_options = { host: 'https://poolcrasher.herokuapp.com' }
   
-  #Mailgun Integration
-  
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.mailgun.org',
@@ -80,19 +78,5 @@ Rails.application.configure do
     user_name: 'postmaster@sandbox849ca54dc98b42888da6976e40db3c35.mailgun.org',
     password: '20e436f9190a67c9fbb9b852ab52cae8'
   }
-  
-  # Gmail Integration
-  
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 8080 }
-
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.gmail.com',
-  #   port: '587',
-  #   enable_starttls_auto: true,
-  #   authentication: 'plain',
-  #   user_name: ENV['gmail_address'],
-  #   password: ENV['gmail_password']
-  # }
 
 end
