@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
          
   validates :fullname, presence: true, length: {maximum: 50}
   
-  has_many :barbershops
+  has_many :pools
   has_many :reservations
   
-  has_many :client_reviews, class_name: "ClientReview", foreign_key: "client_id"
-  has_many :barber_reviews, class_name: "BarberReview", foreign_key: "barber_id"
+  has_many :guest_reviews, class_name: "GuestReview", foreign_key: "guest_id"
+  has_many :host_reviews, class_name: "HostReview", foreign_key: "host_id"
   has_many :notifications
   
   has_one :setting
@@ -49,8 +49,8 @@ class User < ActiveRecord::Base
   end
   
   def send_pin
-    @client = Twilio::REST::Client.new
-    @client.messages.create(
+    @guest = Twilio::REST::guest.new
+    @guest.messages.create(
       from: '+3125488878',
       to: self.phone_number,
       body: "Your pin is #{self.pin}"
@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
     update(phone_verified: true) if self.pin == entered_pin
   end
 
-  def is_active_barber
+  def is_active_host
     !self.merchant_id.blank?
   end
 

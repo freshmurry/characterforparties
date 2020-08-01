@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Current Listings", pools_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Current Reservations", current_reservations_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "Previous Reservations", previous_reservations_path, class: "sidebar-link" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Reservations
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <% @pools.each do |pool| %>
+              <% pool.reservations.each do |reservation| %>
+                  <div class="row">
+                    <div class="container">
+                      <div class="col-md-3">
+                        <span>
+                          Reserved by:
+                          <%= link_to user_path(reservation.user) do %>
+                            <%= image_tag (reservation.user.image), class: "img-circle avatar-small" %>
+                            <div><%= reservation.user.fullname %></div>
+                          <% end %>
+                        </span></br>
+                          <%= render partial: "reviews/host_form", locals: {reservation: reservation} if reservation.Approved? %>
+                      </div>&nbsp;
+                      
+                      <div class="col-md-2">
+                        <%= reservation.start_date.strftime('%D') %>
+                        <p><%= reservation.status %></p>
+                        <div>
+                           <% if reservation.Waiting? %>
+                              <%= link_to approve_reservation_path(reservation), method: :post do %> <i class="fa fa-thumbs-up fa-lg"></i> <% end %> |
+                              <%= link_to decline_reservation_path(reservation), method: :post do %> <i class="fa fa-thumbs-down fa-lg"></i> <% end %>
+                          <% end %>
+                        </div>&nbsp;
+                      </div>
+                      <div class="col-md-4">
+                        <%= link_to pool_path(reservation.pool) do %>
+                            <%= image_tag reservation.pool.cover_photo(:medium) %>
+                            <%= link_to reservation.pool.listing_name, pool_path(reservation.pool) %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                <hr/>
+              <% end %>
+          <% end %>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>

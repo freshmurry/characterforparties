@@ -12,61 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20171024222621) do
 
-  create_table "barbershops", force: :cascade do |t|
-<<<<<<< HEAD
-    t.string "location_type"
-    t.string "address"
-    t.string "stylist_type"
-    t.string "style_type"
-    t.string "listing_name"
-    t.text "summary"
-    t.boolean "is_accept_card"
-    t.boolean "is_accept_cash"
-    t.string "payment_type"
-    t.string "additional_service"
-    t.integer "price"
-    t.integer "tip"
-    t.boolean "active"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
-    t.integer "instant", default: 1
-    t.string "service"
-=======
-    t.string   "location_type"
-    t.string   "address"
-    t.string   "stylist_type"
-    t.string   "style_type"
-    t.string   "listing_name"
-    t.text     "summary"
-    t.boolean  "is_accept_card"
-    t.boolean  "is_accept_cash"
-    t.string   "payment_type"
-    t.string   "additional_service"
-    t.integer  "price"
-    t.integer  "tip"
-    t.boolean  "active"
-    t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "instant",            default: 1
-    t.string   "service"
-    t.float    "latitude"
-    t.float    "longitude"
->>>>>>> fa99559576358a773b3244ea3403bb0cb38c54ac
-    t.index ["user_id"], name: "index_barbershops_on_user_id"
-  end
-
   create_table "calendars", force: :cascade do |t|
     t.date     "day"
     t.integer  "price"
     t.integer  "status"
-    t.integer  "barbershop_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["barbershop_id"], name: "index_calendars_on_barbershop_id"
+    t.integer  "pool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pool_id"], name: "index_calendars_on_pool_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -95,52 +48,66 @@ ActiveRecord::Schema.define(version: 20171024222621) do
   end
 
   create_table "photos", force: :cascade do |t|
-<<<<<<< HEAD
-    t.integer "barbershop_id"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
-    t.integer  "barbershop_id"
+    t.integer  "pool_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
->>>>>>> fa99559576358a773b3244ea3403bb0cb38c54ac
-    t.index ["barbershop_id"], name: "index_photos_on_barbershop_id"
+    t.index ["pool_id"], name: "index_photos_on_pool_id"
+  end
+
+  create_table "pools", force: :cascade do |t|
+    t.string   "location_type"
+    t.string   "address"
+    t.string   "pool_type"
+    t.string   "listing_name"
+    t.text     "summary"
+    t.boolean  "is_accept_card"
+    t.boolean  "is_accept_cash"
+    t.string   "payment_type"
+    t.string   "additional_service"
+    t.integer  "price"
+    t.integer  "tip"
+    t.boolean  "active"
+    t.integer  "user_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "instant",            default: 1
+    t.string   "service"
+    t.index ["user_id"], name: "index_pools_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "barbershop_id"
+    t.integer  "pool_id"
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer  "price"
     t.integer  "total"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "status",        default: 0
-    t.index ["barbershop_id"], name: "index_reservations_on_barbershop_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "status",     default: 0
+    t.index ["pool_id"], name: "index_reservations_on_pool_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.text     "comment"
     t.integer  "star",           default: 1
-    t.integer  "barbershop_id"
+    t.integer  "pool_id"
     t.integer  "reservation_id"
-    t.integer  "barber_id"
-    t.integer  "client_id"
+    t.integer  "host_id"
+    t.integer  "guest_id"
     t.string   "type"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.index ["barber_id"], name: "index_reviews_on_barber_id"
-    t.index ["barbershop_id"], name: "index_reviews_on_barbershop_id"
-    t.index ["client_id"], name: "index_reviews_on_client_id"
+    t.index ["guest_id"], name: "index_reviews_on_guest_id"
+    t.index ["host_id"], name: "index_reviews_on_host_id"
+    t.index ["pool_id"], name: "index_reviews_on_pool_id"
     t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
   end
 
@@ -162,47 +129,25 @@ ActiveRecord::Schema.define(version: 20171024222621) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-<<<<<<< HEAD
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "fullname"
-    t.string "phone_number"
-    t.string "address"
-    t.text "description"
-    t.string "provider"
-    t.string "uid"
-    t.string "image"
-    t.string "pin"
-    t.boolean "phone_verified"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "stripe_id"
-    t.string "merchant_id"
-    t.integer "unread", default: 0
-=======
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.string   "fullname"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "image"
     t.string   "phone_number"
     t.string   "address"
     t.text     "description"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "image"
     t.string   "pin"
     t.boolean  "phone_verified"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.string   "stripe_id"
     t.string   "merchant_id"
     t.integer  "unread",                 default: 0
->>>>>>> fa99559576358a773b3244ea3403bb0cb38c54ac
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

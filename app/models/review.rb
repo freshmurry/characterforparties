@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
-  belongs_to :barbershop
+  belongs_to :pool
   belongs_to :reservation
-  belongs_to :barber
-  belongs_to :client
+  belongs_to :host
+  belongs_to :guest
 end

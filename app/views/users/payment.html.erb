@@ -1,26 +1,26 @@
 <div class="row">
   <div class="col-md-3">
     <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Payment Method", payment_method_path, class: "sidebar-link active" %></li>
-      <li class="sidebar-item"><%= link_to "Payout Method", payment_method_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Payment", payment_method_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "Payout", payout_path, class: "sidebar-link" %></li>
       <li class="sidebar-item"><%= link_to "Notification Settings", notification_settings_path, class: "sidebar-link" %></li>
     </ul>
   </div>
 
   <div class="col-md-9">
     <div class="panel panel-default">
-      <div class="panel-heading">Payment Method</div>
+      <div class="panel-heading">Payment</div>
       <div class="panel-body">
         <div class="container">
             <%= form_tag("/add_card", method: "post", id: "add-card") do %>
 
                 <label>
                   <span>Name</span>
-                  <input name="cardholder-name" class="field" placeholder="Billy Jean" />
+                  <input name="cardholder-name" class="field" placeholder="As it appears on card" />
                 </label>
 
                 <label>
-                  <span>Card</span>
+                  <span>Card #</span>
                   <div id="card-element" class="field"></div>
                 </label>
 
@@ -31,9 +31,9 @@
                 <% if current_user.stripe_id %>
                   <button type="submit" class="btn btn-normal btn-block">Update Card</button>
                 <% else %>
-                  <button type="submit" class="btn btn-normal btn-block">Add Card</button>
+                  <button type="submit" class="btn btn-normal btn-block">Add Card</button>&nbsp;
+                  <p>*Card info is never saved, super secure, and fully protected up to 256-bit SSL encryption</p>
                 <% end %>
-
 
             <% end %>
         </div>
@@ -45,8 +45,11 @@
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   $(function() {
-
-    var stripe = Stripe('<%= Rails.configuration.stripe[:publishable_key] %>');
+    
+    // ----- TEST -----
+    // var stripe = Stripe('pk_test_WYMTzyGZ9KXIM7ckP4mIDQEa');
+    // ----- LIVE -----
+    var stripe = Stripe('pk_live_tPxK7gw5a2XVBKxCgAdATbwf');
     var elements = stripe.elements();
 
     var card = elements.create('card', {

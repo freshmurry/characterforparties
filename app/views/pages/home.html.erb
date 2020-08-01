@@ -1,112 +1,119 @@
 <div class="row">
-  <div class="col-md-9 banner">
-    <h1><span class="text-blue">Book barbershop appointments</span> simple, easy, and eliminate unecessary waiting.</h1>
+  <div class="col-md-12 banner text-center">
+    <h1><span class="text-blue">Book and rent pool time in your neighborhood</span> simple and easy.</h1>
   </div>
+
+  <div class="col-md-12"><h4>Search for a pool in your neighborhood</h4></div>
 </div>
 
-<%= form_tag search_path, method: :get do %>
+
   <div class="row">
     <div class="col-md-6">
-      <%= text_field_tag :search, params[:search], placeholder: "Search for a Barber", class: "form-control", id: "autolocation" %>
-    </div>
-    
-    <div class="col-md-3">
-      <%= text_field_tag :start_date, params[:start_date], placeholder: "Appointment Date", class: "form-control datepicker" %>
-    </div>
+      <%= form_tag search_path, method: :get do %>
 
-    <!--<div class="col-md-2">-->
-    <!--  <%= text_field_tag :end_date, params[:end_date], placeholder: "Time", class: "form-control datepicker" %>-->
-    <!--</div>-->
+      <%= text_field_tag :search, params[:search], placeholder: "Search Pools", class: "form-control", id: "autolocation" %>
+    </div>&nbsp;
 
-    <div class="col-md-3">
-      <%= submit_tag "Search", class: "btn btn-normal btn-block" %>
+    <div class="col-md-2">
+      <%= submit_tag "Search", class: "btn btn-form btn-block" %>
     </div>
   </div>
 
 <% end %>
 
-<br><hr><br>
+<br>
 
-<!-- BARBERS -->
-<div><h3>Super Talented Barbers</h3></div>
+<!-- POOLS -->
+<div class="text-center"><h2>Pools Near You</h2>
+  <p>Book and rent pool time within your own neighborhood</p>
+</div>
 <br/>
 
 <div class="row">
-  <%= render partial: "barbershops/barbershops_list", locals: {barbershops: @barbershops} %>
+  <%= render partial: "pools/pools_list", locals: {pools: @pools} %>
 </div>
 
 
+<!--<h2 class="col-md-12 banner"><span class="text-blue">Why use</span> PoolCrasher</h2>-->
+
+  
+  
+  
 <!-- CITIES -->
-<div><h3>Talented Barbers in other Cities</h3></div>
-<!--<br/>-->
+<div class="text-center"><h2>PoolCrasher in other Cities Coming Soon!</h2></div>
+<br/>
 
 <div class="row">
-  <div class="col-md-4 col-sm-12">
-    <h4>COMING SOON!</h4>
-      <p>While we are super anxious to enter your city, Uppercutzz is focusing on growing the Chicago market before expanding our horizions.</p>
-      <p>We hope to see you soon!</p>
-<!--		<a href="http://uppercutzz.com/search?utf8=✓&search=chicago">-->
-<!--			<div class="discovery-card" style="background-image: url('/assets/chicago.jpg')">-->
-<!--				<div class="va-container">-->
-<!--					<div class="va-middle text-center">-->
-<!--						<h2><strong>Chicago</strong></h2>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</a>-->
+  <div class="col-md-3 col-sm-3">
+		<a href="https://poolcrasher.herokuapp.com/search?utf8=✓&search=chicago">
+			<div class="discovery-card" style="background-image: url('/assets/chicago.jpg')">
+				<div class="va-container">
+					<div class="va-middle text-center">
+						<h2><strong>Chicago</strong></h2>
+					</div>
+				</div>
+			</div>
+		</a>
 	</div>
-
-<!--	<div class="col-md-4 col-sm-6">-->
-<!--		<a href="http://uppercutzz.com/search?utf8=✓&search=los+angeles">-->
-<!--			<div class="discovery-card" style="background-image: url('/assets/la.jpg')">-->
-<!--				<div class="va-container">-->
-<!--					<div class="va-middle text-center">-->
-<!--						<h2><strong>Los Angeles</strong></h2>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</a>-->
-<!--	</div>-->
-
-<!--	<div class="col-md-4 col-sm-6">-->
-<!--		<a href="http://uppercutzz.com/search?utf8=✓&search=atlanta">-->
-<!--			<div class="discovery-card" style="background-image: url('/assets/atlanta.jpg')">-->
-<!--				<div class="va-container">-->
-<!--					<div class="va-middle text-center">-->
-<!--						<h2><strong>Atlanta</strong></h2>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</a>-->
-<!--	</div>-->
+  
+	<div class="col-md-3 col-sm-3">
+		<a href="https://poolcrasher.herokuapp.com/search?utf8=✓&search=atlanta">
+			<div class="discovery-card" style="background-image: url('/assets/atlanta.jpg')">
+				<div class="va-container">
+					<div class="va-middle text-center">
+						<h2><strong>Atlanta</strong></h2>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+  
+	<div class="col-md-3 col-sm-3">
+		<a href="https://poolcrasher.herokuapp.com/search?utf8=✓&search=losangeles">
+			<div class="discovery-card" style="background-image: url('/assets/la.jpg')">
+				<div class="va-container">
+					<div class="va-middle text-center">
+						<h2><strong>Los Angeles</strong></h2>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	
+	<div class="col-md-3 col-sm-3">
+		<a href="https://poolcrasher.herokuapp.com/search?utf8=✓&search=houston">
+			<div class="discovery-card" style="background-image: url('/assets/houston.jpg')">
+				<div class="va-container">
+					<div class="va-middle text-center">
+						<h2><strong>Houston</strong></h2>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
 </div>
 
 <script>
   $('#start_date').datepicker({
     dateFormat: 'mm/dd/yy',
     minDate: 0, 
-    maxDate: '2m',
+    maxDate: '3m',
     onSelect: function(selected) {
       $('#end_date').datepicker("option", "minDate", selected);
       $('#end_date').attr("disabled", false);
     }
   });
   
-  $('#end_date').datepicker({
-    dateFormat: 'mm/dd/yy',
-    minDate: 0, 
-    maxDate: '2m',
-    onSelect: function(selected) {
-      $('#start_date').datepicker("option", "maxDate", selected);
-    }
-  });
+  // $('#end_date').datepicker({
+  //   dateFormat: 'mm/dd/yy',
+  //   minDate: 0, 
+  //   maxDate: '3m',
+  //   onSelect: function(selected) {
+  //     $('#start_date').datepicker("option", "maxDate", selected);
+  //   }
+  // });
 
   $(function() {
     $("#autolocation").geocomplete();
   })
 </script>
-</br>
-<footer>
-	 <p class="copyright ng-binding">© 2017 Uppercutzz, Inc. All rights reserved.</p>
-</footer>
-

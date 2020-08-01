@@ -13,7 +13,7 @@ Rails.application.routes.draw do		  Rails.application.routes.draw do
      end		
    end		
    		
-   resources :barbershops, except: [:edit] do		
+   resources :pools, except: [:edit] do		
      member do		
        get 'listing'		
        get 'pricing'		
@@ -31,11 +31,11 @@ Rails.application.routes.draw do		  Rails.application.routes.draw do
      resources :calendars		
    end		
      		
-   resources :barber_reviews, only: [:create, :destroy]		
-   resources :client_reviews, only: [:create, :destroy]		
+   resources :host_reviews, only: [:create, :destroy]		
+   resources :guest_reviews, only: [:create, :destroy]		
   		
-   get '/your_appointments' => 'reservations#your_appointments'		
-   get '/your_reservations' => 'reservations#your_reservations'		
+   get '/previous_reservations' => 'reservations#previous_reservations'
+   get '/current_reservations' => 'reservations#current_reservations'		
    		
    get 'search' => 'pages#search'		
  		
@@ -44,8 +44,8 @@ Rails.application.routes.draw do		  Rails.application.routes.draw do
  		
    resources :reservations, only: [:approve, :decline] do		
      member do		
-       post '/approve' => "reservations#approve"		
-       post '/decline' => "reservations#decline"		
+       post '/approve' => "reservations#approve"
+       post '/decline' => "reservations#decline"
      end		
    end		
  		
@@ -55,10 +55,10 @@ Rails.application.routes.draw do		  Rails.application.routes.draw do
      resources :messages, only: [:index, :create]		
    end		
  		
-   get '/barber_calendar' => "calendars#barber"		
+   get '/host_calendar' => "calendars#host"		
    get '/payment_method' => "users#payment"		
    get '/payout_method' => "users#payout"		
-   post '/add_card' => "users#add_card"		
+   post '/add_card' => "users#add_card"
  		
    get '/notification_settings' => 'settings#edit'		
    post '/notification_settings' => 'settings#update'		

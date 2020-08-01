@@ -3,14 +3,16 @@
     <div class="panel panel-default">
       <div class="panel-heading">This Week's Revenue</div>
       <div class="panel-body">
-        <div class="container text-center">
-          <% if @reservations.blank? %>
-              <h3>You don't have any reservations</h3><br/>
-              <%= link_to "Become a Barber to earn income", new_barbershop_path, class: "btn btn-normal" %>
-          <% else %>
-              <%= column_chart @this_week_revenue, colors: ["#466682"] %>
-          <% end %>
-        </div>
+        <div class="container">
+          <div class="container text-center">
+            <% if @reservations.blank? %>
+                <h3>You don't have any booked reservations</h3><br/>
+                <%= link_to "List a  Pool  to Earn", new_pool_path, class: "btn btn-normal" %>
+            <% else %>
+                <%= column_chart @this_week_revenue, colors: ["#16A085"] %>
+            <% end %>
+          </div>
+        </div>  
       </div>
     </div>
   </div>

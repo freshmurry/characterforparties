@@ -3,10 +3,38 @@
 @import "toastr";
 @import "fullcalendar";
 
+// For separting pool's key features into two colums on pools/shows
+// @media only screen and (max-width: 768px) {
+//   .row.text-babu.text-center {
+//     width: 50%;
+//     clear: both;
+//     float: left;
+//     padding: 20px;
+//   }
+// }
+
+html {
+  overflow-x: hidden;
+}
+
+.text-babu, .icon-babu {
+    line-height: 2;
+}
+
 body {
   color: #565a5c;
-  background-color: #F8F8F8;
+  background-color: #FFF;
   font-family: "Varela Round", "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  padding-bottom: 200px;
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+  -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 a {
@@ -15,6 +43,21 @@ a {
 
 .container {
   width: 80%;
+}
+
+.container h3 {
+  margin-right: -40px;
+  margin-left: -40px;
+}
+
+div.panel-body {
+  margin-right: -55px;
+  margin-left: -55px;
+}
+
+.row {
+  margin-right: -55px;
+  margin-left: -55px;
 }
 
 .text-babu, .icon-babu {
@@ -30,10 +73,25 @@ a {
   background-color: #FFFFFF;
 }
 
+.navbar-default.static-top {
+  -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
 .navbar-default .navbar-brand {
-  color: #34495E;
+  color: #2C3E50;
   font-size: 2.5em;
   font-weight: bold; font-family: Ubuntu;
+  margin-top: 5px;
+}
+
+ul.nav.navbar-nav.navbar-right a {
+  margin-top: 5px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #2C3E50;
 }
 
 // BUTTONS
@@ -48,11 +106,6 @@ a {
   border-radius: 5px;
   padding: 9px 27px;
   font-family: Ubuntu;
-}
-
-.btn-small {
-  padding: 5px 15px;
-  margin-top: 15px;
 }
 
 .btn:hover, .btn:focus {
@@ -70,8 +123,8 @@ a {
 }
 
 .btn.btn-normal {
-  border: 1px solid #14325C;
-  background-color: #14325C;
+  border: 1px solid #34495E;
+  background-color: #34495E;
 }
 
 .btn.btn-normal:active {
@@ -83,6 +136,19 @@ a {
 .btn.btn-form {
   border: 1px solid #34495E;
   background-color: #34495E;
+}
+
+// .btn-small {
+//   padding: 5px 15px;
+//   margin-top: 15px;
+// }
+
+.btn.btn-form.btn-small {
+  margin-left: 10px;
+}
+
+button.btn.btn-form.btn-small {
+  margin-top: 10px;
 }
 
 .btn.btn-form:active {
@@ -123,6 +189,10 @@ a {
 .row-space-3 {
   margin-top: 24px;
   margin-bottom: 24px;
+}
+
+.col-md-3.col-sm-3 {
+  margin-bottom: 1rem;
 }
 
 .description {
@@ -277,19 +347,38 @@ a {
 
 .panel-heading.preview img {
   width: 100%;
+  box-sizing: border-box;
 }
 
-// BARBERSHOP SHOW
-.service li {
+// POOL SHOW
+.amenities li {
   margin-bottom: 10px;
   font-size: 16px;
   list-style-type: none;
 }
 
-.service .text-line-through {
+.amenities .text-line-through {
   text-decoration: line-through;
   color: rgba(0,0,0,0.45);
   font-size: 14px;
+}
+
+div.price-box-wrapper {
+  position: absolute;
+  padding: 4px 8px;
+  color: #fff;
+  background-color: rgba(0,0,0,.5);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+div.box-wrapper {
+  padding: 4px 8px;
+  color: #fff;
+  // background-color: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  font-size: 14px;
+  // font-weight: 200;
 }
 
 // RESERVATIONS
@@ -309,7 +398,6 @@ a {
 .form-control.datepicker {
   color: #34495E;
   background-color: white;
-  border: 1px solid #34495E;
   text-align: center;
 }
 
@@ -506,4 +594,19 @@ a {
 
 .error {
   color: #E4584C;
+}
+
+// Footer//
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100;
+    background-color: #f5f5f5;
+    left: auto;
+    right: 0px;
+}
+
+.container .text-muted {
+    margin: 20px 0;
 }
