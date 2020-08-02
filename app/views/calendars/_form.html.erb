@@ -31,13 +31,6 @@
             </div>
 
             <div class="row new-pricing">
-<<<<<<< HEAD
-              <div class="col-md-10">
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <%= f.text_field :price, class: "form-control", value: @pool.price, required: true %>
-=======
               <div class="container">
                 <div class="col-md-10">
                   <div class="form-group">
@@ -45,11 +38,10 @@
                       <span class="input-group-addon">$</span>
                       <%= f.text_field :price, class: "form-control", value: @pool.price, required: true %>
                     </div>
->>>>>>> 3906278811c5dda65e4ada8b7ad8477deef7fa61
                   </div>
                 </div>
                 <div class="col-md-2">
-                  <p style="margin-top: 10px">/ Day</p>
+                  <p style="margin-top: 10px">Per Day</p>
                 </div>
               </div>  
             </div>
@@ -80,6 +72,5 @@
       $('.no-pricing').hide();
       $('.new-pricing').show();
     });
-
   })
 </script>

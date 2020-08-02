@@ -2,7 +2,7 @@
   <div class="col-md-3">
     <ul class="sidebar-list">
       <li class="sidebar-item"><%= link_to "Payment", payment_method_path, class: "sidebar-link active" %></li>
-      <li class="sidebar-item"><%= link_to "Payout", payout_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Payout", payout_method_path, class: "sidebar-link" %></li>
       <li class="sidebar-item"><%= link_to "Notification Settings", notification_settings_path, class: "sidebar-link" %></li>
     </ul>
   </div>
@@ -31,7 +31,7 @@
                 <% if current_user.stripe_id %>
                   <button type="submit" class="btn btn-normal btn-block">Update Card</button>
                 <% else %>
-                  <button type="submit" class="btn btn-normal btn-block">Add Card</button>&nbsp;
+                  <button type="submit" class="btn btn-normal btn-block text-center">Add Card</button><br></br>
                   <p>*Card info is never saved, super secure, and fully protected up to 256-bit SSL encryption</p>
                 <% end %>
 

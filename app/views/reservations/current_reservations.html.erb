@@ -38,6 +38,7 @@
                           <% end %>
                         </div>&nbsp;
                       </div>
+                      
                       <div class="col-md-4">
                         <%= link_to pool_path(reservation.pool) do %>
                             <%= image_tag reservation.pool.cover_photo(:medium) %>
@@ -49,6 +50,14 @@
                 <hr/>
               <% end %>
           <% end %>
+          <div class="col-md-12 text-center">
+            <% if @reservations.blank? %>
+              <h3>You don't have any current reservations</h3><br/>
+              <%= link_to "Search Pools", search_path, class: "btn btn-normal" %>
+            <% else %>
+              <%= column_chart @reservation.Waiting, colors: ["#16A085"] %>
+            <% end %>
+          </div>
         </div>  
       </div>
     </div>
