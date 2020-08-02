@@ -71,7 +71,7 @@
     "country administrative_area_level_1 administrative_area_level_2 " +
     "administrative_area_level_3 colloquial_area locality sublocality " +
     "neighborhood premise subpremise postal_code natural_feature airport " +
-    "park point_of_interest post_box street_number floor room " +
+    "park point_of_interest post_box street_number floor venue " +
     "lat lng viewport location " +
     "formatted_address location_type bounds").split(" ");
 

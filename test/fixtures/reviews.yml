@@ -3,17 +3,17 @@
 one:
   comment: MyText
   star: 1
-  stylist: one
+  pool: one
   reservation: one
-  stylists: one
-  client: one
+  guest: one
+  host: one
   type: 
 
 two:
   comment: MyText
   star: 1
-  stylist: two
+  pool: two
   reservation: two
-  stylists: two
-  client: two
+  guest: two
+  host: two
   type: 

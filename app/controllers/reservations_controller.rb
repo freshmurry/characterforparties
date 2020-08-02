@@ -6,10 +6,10 @@ class ReservationsController < ApplicationController
     pool = Pool.find(params[:pool_id])
 
     if current_user == pool.user
-      flash[:alert] = "You cannot book your own service!"
+      flash[:alert] = "You cannot book your own pool!"
     elsif current_user.stripe_id.blank?
        flash[:alert] = "Please update your payment method!"
-       returen redirect_to payment_method_path
+       return redirect_to payment_path
     else
       start_date = Date.parse(reservation_params[:start_date])
       end_date = Date.parse(reservation_params[:end_date])
@@ -38,29 +38,29 @@ class ReservationsController < ApplicationController
           charge(pool, @reservation)
         end
       else
-        flash[:alert] = "Cannot book an appointment"
+        flash[:alert] = "Cannot make a reservation"
       end
       
     end
     redirect_to pool
   end
 
-  def your_appointments
-    @appointments = current_user.reservations.order(start_date: :asc)
+  def previous_reservations
+    @spaces = current_user.reservations.order(start_date: :asc)
   end
 
-  def your_reservations
+  def current_reservations
     @pools = current_user.pools
   end
   
   def approve
     charge(@reservation.pool, @reservation)
-    redirect_to your_reservations_path
+    redirect_to current_reservations_path
   end
 
   def decline
     @reservation.Declined!
-    redirect_to your_reservations_path
+    redirect_to current_reservations_path
   end
 
   private
@@ -70,9 +70,9 @@ class ReservationsController < ApplicationController
     @client.messages.create(
       from: '+3125488878',
       to: pool.user.phone_number,
-      body: "#{reservation.user.fullname} booked a '#{pool.style_type}'"
+      body: "#{reservation.user.fullname} booked your '#{pool.listing_name}'"
     )
-  end  
+  end
   
     def charge(pool, reservation)
       if !reservation.user.stripe_id.blank?
@@ -83,19 +83,19 @@ class ReservationsController < ApplicationController
           :description => pool.listing_name,
           :currency => "usd", 
           :destination => {
-            :amount => reservation.total * 88, # 88% of the total amount goes to the Barber
-            :account => pool.user.merchant_id # Barber's Stripe customer ID
+            :amount => reservation.total * 80, # 80% of the total amount goes to the Host, 20% is company fee
+            :account => pool.user.merchant_id # pool's Stripe customer ID
           }
         )
   
         if charge
-          reservation.Approve!
-          ReservationMailer.send_email_to_client(reservation.user, pool).deliver_later if reservation.user.setting.enable_email
+          reservation.Approved!
+          ReservationMailer.send_email_to_guest(reservation.user, pool).deliver_later if reservation.user.setting.enable_email
           send_sms(pool, reservation) if pool.user.setting.enable_sms
           flash[:notice] = "Reservation created successfully!"
         else
           reservation.Declined!
-          flash[:notice] = "Cannot charege with this payment method!"
+          flash[:notice] = "Cannot charge with this payment method!"
         end
       end
     rescue Stripe::CardError => e  
@@ -108,6 +108,6 @@ class ReservationsController < ApplicationController
     end
   
     def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date)
+      params.require(:reservation).permit(:start_date, :end_date, :service)
     end
 end

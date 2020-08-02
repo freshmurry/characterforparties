@@ -1,0 +1,4 @@
+$('#messages').html("<%= j render '_messages' %>")
+<% if @conversation.messages.blank? %>
+  $('#message_check').hide();
+<% end %>

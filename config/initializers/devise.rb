@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'Lawrence @ Uppercutzz <no-reply@uppercutzz.com>'
+  config.mailer_sender = 'Info @ PoolCrasher <no-reply@poolcrasher.com>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -275,6 +275,16 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  config.omniauth :facebook, '1934116976802195', 'c79899f97ee847e89297d2e841e95779', scope: 'email', info_fields: 'email, name'
-  config.omniauth :stripe_connect, 'ca_BbF7P33JByDX2Ctz0xrzJxMRtBdw6GX8', 'sk_test_25ExbWKt6MIfjnJkgUSVHI6P', scope: 'read_write', stripe_landing: 'login'
+  config.omniauth :facebook, '1518262284959364', '309d726626a5e3d8156e7b98c693b966', scope: 'email', info_fields: 'email, name'
+  # config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], callback_url: 'https://shindigspace.com/auth/facebook'
+                # client_options: {
+                #     site: 'https://graph.facebook.com/v2.11',
+                #     authorize_url: "https://www.facebook.com/v2.11/dialog/oauth"
+                # }
+
+  #----- STRIPE TEST -----
+  # config.omniauth :stripe_connect, 'ca_Bz12s2Z5ijkGknATCnWx9EmDZIvGMf0e', 'sk_test_uQnVqs5Vnt9upqbJJNCSmiYy', scope: 'read_write', stripe_landing: 'login'
+  
+  #----- STRIPE LIVE -----
+  config.omniauth :stripe_connect, ENV['STRIPE_PUBLISHABLE_KEY'], ENV['STRIPE_SECRET_KEY'], scope: 'read_write', stripe_landing: 'login'
 end

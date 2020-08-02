@@ -6,10 +6,12 @@ class CreatePools < ActiveRecord::Migration[5.0]
       t.string :pool_type
       t.string :listing_name
       t.text :summary
-      t.boolean :is_accept_card
-      t.boolean :is_accept_cash
+      t.boolean :is_garage_parking
+      t.boolean :is_heated_pool
+      t.boolean :is_parking
+      t.boolean :is_chairs
+      t.boolean :is_portable_speaker
       t.string :payment_type
-      t.string :additional_service
       t.integer :price
       t.integer :tip
       t.boolean :active

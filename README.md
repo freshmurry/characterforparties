@@ -1,6 +1,5 @@
-# Uppercutzz
+# PoolCrasher
 
-[*Uppercutzz*](https://uppercutzz-2.herokuapp.com) is an baber appointment booking marketplace that helps connect 
-users with talented barbers.
+[*PoolCrasher*](https://poolcrasher.herokuapp.com) is a pool booking and rental app that connects pool owners and their neighbors.
 
-by [Lawrence Murry](http://lawrencemurry.com)
+by [Lawrence Murry](https://freshmurry.com/about)

@@ -46,7 +46,6 @@ class PagesController < ApplicationController
           pool.id, 1, end_date, start_date
         ).limit(1)
         
-        
         if not_available.length > 0 || not_available_in_calendar.length > 0
           @arrPools.delete(pool)
         end

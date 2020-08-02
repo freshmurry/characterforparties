@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+<<<<<<< HEAD
     <title>PoolCrasher | Book your next Barber Appointment with PoolCrasher! Sign up today for free!</title>
+=======
+    <title>PoolCrasher | Book Pool Time Near You</title>
+>>>>>>> 3906278811c5dda65e4ada8b7ad8477deef7fa61
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= action_cable_meta_tag %>
-    
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwN_tpAAKnHhy14HzNqK-XeuarVJhNHg8&libraries=places"></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnqDrT86OzRZVorExsMjFhYdp0TTOKQpE&libraries=places"></script> -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnqDrT86OzRZVorExsMjFhYdp0TTOKQpE&callback=initMap"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
    
     <link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu|Cabin" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/eggplant/jquery-ui.css">
-
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD
     <meta name="keywords" content="" />
     <meta name="description" content="The open-table of barbershops is here!">
     <meta name="google-site-verification" content="" />
@@ -24,37 +31,63 @@
     <meta property="og:url" content="http://www.uppercutzz.com" />
     <meta property="og:title" content="PoolCrasher | The open-table of barbershops is here!" />
     <meta property="og:description" content="The open-table of barbershops is here!" />
+=======
+   	<meta name="author" content="PoolCrasher" />
+    <meta name="keywords" content="Pool Rental, Pool Booking, Pool Time Near Me" />
+    <meta name="description" content="PoolCrasher allows you to book and rent pool time in a pool near you.">
+    <meta name="google-site-verification" content="" />
+    <meta property="og:site_name" content="PoolCrasher" />
+    <meta property="og:url" content="https://poolcrasher.herokuapp.com" />
+    <meta property="og:title" content="PoolCrasher | Book and Rent Pool Time" />
+    <meta property="og:description" content="" />
+>>>>>>> 3906278811c5dda65e4ada8b7ad8477deef7fa61
     <meta property="og:type" content="website"/>
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="http://watchdog.org/wp-content/blogs.dir/1/files/2016/06/barbershop.jpg" />
+    <meta property="og:image" content="https://s3-us-east-2.poolcrahser.com/poolcrahser/photos/images/000/000/004/original/B51AE513-3887-4F41-87C9-C863915871BC.jpeg?1520046390" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="http://www.uppercutzz.com">
-    <meta name="twitter:title" content="The open-table of barbershops is here!" />
-    <meta name="twitter:image" content="http://watchdog.org/wp-content/blogs.dir/1/files/2016/06/barbershop.jpg" />
+    <meta name="twitter:url" content="https://churchvenuespace.herokuapp.com">
+    <meta name="twitter:title" content="Church Venue Space" />
+    <meta name="twitter:image" content="https://s3-us-east-2.poolcrasher.com/poolcrasher/photos/images/000/000/004/original/B51AE513-3887-4F41-87C9-C863915871BC.jpeg?1520046390" />
+    
+    <script type="text/javascript" async="" src="https://secure.quantserve.com/quant.js"></script>
+    <script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
   </head>
   
-    <body>
+  <body>
+    
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/message' %>
       
-      <%= render 'shared/navbar' %>
-      <%= render 'shared/message' %>
-      
-      <% if current_user %>
-        <input type="hidden" id="user_id" value="<%= current_user.id %>">
-      <% end %>
-      
-      <div class="container">
-      	<%= yield %>
-      </div>
-        
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        
-        ga('create', 'UA-79135114-1', 'auto');
-        ga('send', 'pageview');
-      </script>
-        
-    </body>  
+    <% if current_user %>
+      <input type="hidden" id="user_id" value="<%= current_user.id %>">
+    <% end %>
+    
+    <div class="container">
+    	<%= yield %>
+    </div>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111559616-1"></script>-->
+    <!--<script>-->
+    <!--  window.dataLayer = window.dataLayer || [];-->
+    <!--  function gtag(){dataLayer.push(arguments);}-->
+    <!--  gtag('js', new Date());-->
+  
+    <!--  gtag('config', 'UA-111559616-1');-->
+    <!--</script>-->
+
+    <!-- Google AdSense -->
+    <!--<script>-->
+    <!--     (adsbygoogle = window.adsbygoogle || []).push({-->
+    <!--          google_ad_client: "ca-pub-8786200479780334",-->
+    <!--          enable_page_level_ads: true-->
+    <!--     });-->
+    <!--</script>-->
+
+    <%= render 'shared/footer' %>
+    <% debug(params) if Rails.env.development? %>
+
+  </body>
 </html>

@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= image_tag (message.user.image), class: "img-circle avatar-small" %>
+          <%= message.user.fullname %>
+          <span class="pull-right"><%= message.message_time %></span>
+        </div>
+
+        <div class="panel-body">
+          <div class="container">
+            
+            <div class="col-md-12">   
+              <%= message.context %>
+            </div>
+
+            <!-- <div class="col-md-3"> -->
+              <span class="pull-right">
+                <%= link_to conversation_message_path(message.conversation_id, message), remote: true, method: :delete, data: {confirm: "Are you sure?"} do %>
+                  <i class="fas fa-trash-alt fa-md" aria-hidden="true"></i>
+                <% end %>
+              </span>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>

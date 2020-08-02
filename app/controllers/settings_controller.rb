@@ -12,7 +12,7 @@ class SettingsController < ApplicationController
     end
     render 'edit'
   end
-
+    
   private
     def setting_params
       params.require(:setting).permit(:enable_sms, :enable_email)

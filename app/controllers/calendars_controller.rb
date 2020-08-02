@@ -21,10 +21,10 @@ class CalendarsController < ApplicationController
       end
     end
 
-    redirect_to barber_calendar_path
+    redirect_to host_calendar_path
   end
   
-  def barber
+  def host
     @pools = current_user.pools
 
     params[:start_date] ||= Date.current.to_s
@@ -36,7 +36,7 @@ class CalendarsController < ApplicationController
     end
 
     @search = Reservation.ransack(params[:q])
-
+  
     if params[:pool_id]
       @pool = Pool.find(params[:pool_id])
       start_date = Date.parse(params[:start_date])
@@ -46,8 +46,8 @@ class CalendarsController < ApplicationController
 
       @events = @pool.reservations.joins(:user)
                       .select('reservations.*, users.fullname, users.image, users.email, users.uid')
-                      .where('(start_date BETWEEN ? AND ?) AND status <> ?', first_of_month, end_of_month, 2)
-      @events.each{ |e| e.image = avatar_url(e) }
+                      .where('(start_date BETWEEN ? AND ?) AND status <> ?', first_of_month, end_of_month, 3)
+      @events.each{ |e| e.image = image_url(e) }
       @days = Calendar.where("pool_id = ? AND day BETWEEN ? AND ?", params[:pool_id], first_of_month, end_of_month)
     else
       @pool = nil
