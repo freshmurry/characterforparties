@@ -7,186 +7,211 @@
 <br/>
 
 <div class="row">
-
+  
   <!-- LEFT PANEL -->
   <div class="col-md-8">
-
     <!-- Listing Name -->
-    <div class="row">
-      <div class="col-md-8">
-        <h1><%= @pool.listing_name %></h1>
-        <%= @pool.address %>
-      </div>
-      <div class="col-md-4 text-center">
-        <%= image_tag avatar_url(@pool.user), class: "img-circle avatar-large" %><br/><br/>
-        <%= @pool.user.fullname %>
-      </div>
-    </div>
-    <hr/>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+        <h2><%= @pool.listing_name %></h2>
+            <%= @pool.address %>
+        </div>&nbsp;
 
-    <!-- POOL INFO -->
-    <div class="row text-babu">
-      <div class="row text-center row-space-1">
-        <div class="col-md-3">
-          <i class="fa fa-home fa-2x"></i>
-        </div>
-        <div class="col-md-3">
-          <i class="fa fa-user-circle-o fa-2x"></i>
-        </div>
-        <div class="col-md-3">
-          <i class="fa fa-scissors fa-2x"></i>
-        </div>
-        <div class="col-md-3">
-          <i class="fa fa-credit-card fa-2x"></i>
-        </div>
-      </div>
-
-      <div class="row text-center">
-        <div class="col-md-3"><%= @pool.location_type %></div>
-        <div class="col-md-3"><%= @pool.stylist_type %></div>
-        <div class="col-md-3"><%= @pool.style_type %></div>
-        <div class="col-md-3"><%= @pool.payment_type %></div>
-      </div>
-    </div>
-    <hr/>
-
-    <!-- About -->
-    
-    
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">About This Listing</div>
-          <div class="panel-body">
-            <p><%= @pool.summary %></p>
-        </div>
-      </div>
-    </div>
-    <br/>
-
-    <!-- AMINITIES -- CHOOSE A SERVICE -->
-    <div class="row">
-      <div class="col-md-3">
-        <h4>Choose a Service</h4>
-      </div>
-
-      <div class="col-md-9">
-        <div class="row">
-          <div class="col-md-6">
-            <ul class="amenities">
-              <li class="<% 'text-line-through' if !@pool.is_chairs %>">Chairs</li>
-              <li class="<% 'text-line-through' if !@pool.is_portable_speaker %>">Portable Speaker</li>
-              <li class="<% 'text-line-through' if !@pool.is_parking %>">Parking</li>
-            </ul>
+        <div class="col-md-3 text-center">
+          <%= image_tag avatar_url(@pool.user), class: "img-circle avatar-large" %><br/>
+          <%= link_to user_path(@pool.user) do %>
+          <%= @pool.user.fullname %>
+          <% end %>
+          <div>
+            <span id="average_rating"></span>
           </div>
-          <div class="col-md-6">
-            <ul class="amenities">
-              <li class="<% 'text-line-through' if !@pool.is_garage_parking %>">Garage Parking</li>
-              <li class="<% 'text-line-through' if !@pool.heated_pool %>">Heated Pool</li>
-              <li class="<% 'text-line-through' if !@pool.is_accessible %>">Backyard Accessible</li>
-            </ul>
+          <div class="center">
+            <% if current_user && current_user != @user %>
+              <%= link_to "Message Host", conversations_path(sender_id: current_user.id, recipient_id: @pool.user.id), method: :post, class: "btn btn-default" %>
+            <% end %>
           </div>
         </div>
       </div>
-    </div>
+    </div>  
     <hr/>
-
-    <!-- CAROUSEL -->
-    <div class="row">
       
-      <% if @photos.length > 0 %>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <% @photos.each do |photo| %>
-            <li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
-          <% end %>
-        </ol>
-
-        <!--Wrapper for slides -->
-        <div class="carousel-inner">
-          <% @photos.each do |photo| %>
-            <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-              <%= image_tag photo.image.url() %>
-            </div>
-          <% end %>
+    <!-- Pool Info -->
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <i class="fas fa-swimming-pool fa-2x"></i>
         </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <i class="fa fa-users fa-2x"></i>
         </div>
-      <% end %>
-    </div>
-    <br/>
-
-    <!-- REVIEWS -->
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">Reviews (<%= @guest_reviews.length %>) <span id="average_rating"></span></div>
-          <div class="container">
-            <div class="panel-body">
-              <%= render "reviews/guest_list" %>
-            </div>
-          </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <i class="fas fa-toilet fa-2x"></i>
+        </div>
       </div>
-    </div>
     
-    <!-- GOOGLE MAP -->
-    <div class="row">
-
-      <div id="map" style="width: 100%; height: 400px"></div>
-          <script src="https://maps.googleapis.com/maps/api/js"></script>
-      <script>
-       function initialize() {
-          var location = {lat: <%= @pool.latitude %>, lng: <%= @pool.longitude %>};
-          var map = new google.maps.Map(document.getElementById('map'), {
-            center: location,
-            zoom: 14
-          });
-
-          var marker = new google.maps.Marker({
-            position: location,
-            map: map
-          });
-
-          var infoWindow = new google.maps.InfoWindow({
-            content: '<div id="content"><%= image_tag @pool.cover_photo(:medium) %></div>'
-          });
-
-          infoWindow.open(map, marker);
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-      </script>
-
-    </div>
+      <div class="row text-center">
+        <div class="col-xs-3 col-sm-3 col-md-3"><%= @pool.pool_type %></div>
+        <div class="col-xs-3 col-sm-3 col-md-3"><%= @pool.accommodate %></div>
+        <div class="col-xs-3 col-sm-3 col-md-3"><%= @pool.restrooms %></div>
+      </div>
+    </div>  
+    <hr/>
+  
+    <!-- About -->
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">About This Pool</div>
+          <div class="panel-body">
+            <div class="container">
+              <p><%= @pool.description %></p>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>  
     <br/>
-
-    <!-- NEARBY POOLS -->
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">Nearby</div>
-        <% for pool in @pool.nearbys(10) %>
-          <div class="col-md-4">
-              <div class="panel panel-default">
-                <div class="panel-heading preview">
-                  <%= image_tag pool.cover_photo(:medium) %>
-                </div>
-                <div class="panel-body">
-                  <%= link_to pool.listing_name, pool %><br/>
-                  (<%= pool.distance.round(2) %> mi away)
+  
+    <!-- AMENITIES --> 
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">Amenities</div>
+          <div class="panel-body">
+            <div class="container">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-xs-4 col-sm-4 col-md-4">
+                    <ul class="amenities">
+                      <li class="<%= 'text-line-through' if !@pool.is_chairs %>">Chairs</li>
+                      <li class="<%= 'text-line-through' if !@pool.is_accessible %>">Accessible</li>
+                    </ul>
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4">
+                    <ul class="amenities">
+                      <li class="<%= 'text-line-through' if !@pool.is_speaker %>">Portable Speakers</li>
+                      <li class="<%= 'text-line-through' if !@pool.is_parking %>">Street Parking</li>
+                    </ul>
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4">
+                    <ul class="amenities">
+                      <li class="<%= 'text-line-through' if !@pool.is_garage_parking %>">Garage Parking</li>
+                      <li class="<%= 'text-line-through' if !@pool.is_heated_pool %>">Heated Pool</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-        <% end %>
+          </div>
+        </div>
       </div>
     </div>
+    <hr/>
+  
+    <!-- CAROUSEL -->
+    <div class="container">
+      <div class="row">  
+        <% if @photos.length > 0 %>
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <% @photos.each do |photo| %>
+                <li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
+              <% end %>
+            </ol>
+    
+            <!--Wrapper for slides -->
+            <div class="carousel-inner">
+              <% @photos.each do |photo| %>
+                <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                  <%= image_tag photo.image.url() %>
+                </div>
+              <% end %>
+            </div>
+    
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </div>  
+    <br/>
+  
+    <!-- REVIEWS -->
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">Guest Reviews (<%= @guest_reviews.count %>) <span id="average_rating"></span></div>
+          <div class="container">
+            <div class="panel-body">
+              <div><%= render "reviews/guest_list" %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <!-- GOOGLE MAP -->
+    <div class="container">
+      <div class="row">
+        <div id="map" style="width: 100%; height: 400px"></div>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwN_tpAAKnHhy14HzNqK-XeuarVJhNHg8"></script>
+        <script>
+         function initialize() {
+            var location = {lat: <%= @pool.latitude %>, lng: <%= @pool.longitude %>};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              center: location,
+              zoom: 12
+            });
+    
+            var marker = new google.maps.Marker({
+              position: location,
+              map: map
+            });
+    
+            var infoWindow = new google.maps.InfoWindow({
+              content: '<div id="content"><%= image_tag @pool.cover_photo(:medium) %></div>'
+            });
+    
+            infoWindow.open(map, marker);
+          }
+    
+          google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+    
+      </div>
+    </div>  
+    <hr/>
+
+    <!-- NEAR BY POOLS -->
+    <div class="panel panel-default">
+      <div class="panel-heading">Nearby Pools</div>
+        <% for pool in @pool.nearbys(10) %>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading preview">
+            <%= image_tag pool.cover_photo(:medium) %>
+          </div>
+              
+          <div class="panel-body">
+            <div class="container">
+              <%= link_to pool.listing_name, pool %><br/>
+              (<%= pool.distance.round(2) %> miles away)
+            </div>
+          </div>
+        </div>  
+      </div>
+      <% end %>  
+    </div>  
   </div>
 
   <!-- RIGHT PANEL -->
