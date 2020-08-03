@@ -71,16 +71,17 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.boolean  "is_heated_pool"
     t.boolean  "is_parking"
     t.boolean  "is_chairs"
-    t.boolean  "is_portable_speaker"
+    t.boolean  "is_speaker"
+    t.boolean  "is_accessible"
     t.integer  "price"
     t.integer  "tip"
     t.boolean  "active"
-    t.integer  "user_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "instant",             default: 1
+    t.integer  "instant"
+    t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.index ["user_id"], name: "index_pools_on_user_id"
   end
 

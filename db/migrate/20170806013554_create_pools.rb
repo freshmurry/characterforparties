@@ -13,10 +13,14 @@ class CreatePools < ActiveRecord::Migration[5.0]
       t.boolean :is_heated_pool
       t.boolean :is_parking
       t.boolean :is_chairs
-      t.boolean :is_portable_speaker
+      t.boolean :is_speaker
+      t.boolean :is_accessible
       t.integer :price
       t.integer :tip
       t.boolean :active
+      t.float :latitude
+      t.float :longitude
+      t.integer :instant, deafault: 1
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
