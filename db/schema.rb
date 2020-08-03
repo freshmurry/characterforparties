@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.integer  "star",           default: 1
     t.integer  "pool_id"
     t.integer  "reservation_id"
-    t.integer  "host_id"
     t.integer  "guest_id"
+    t.integer  "host_id"
     t.string   "type"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
