@@ -76,8 +76,9 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.integer  "tip"
     t.boolean  "active"
     t.integer  "user_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "instant",             default: 1
     t.index ["user_id"], name: "index_pools_on_user_id"
   end
 
