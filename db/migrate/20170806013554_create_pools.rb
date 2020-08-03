@@ -6,6 +6,7 @@ class CreatePools < ActiveRecord::Migration[5.0]
       t.string :pool_type
       t.string :listing_name
       t.text :summary
+      t.boolean :towels
       t.boolean :is_garage_parking
       t.boolean :is_heated_pool
       t.boolean :is_parking

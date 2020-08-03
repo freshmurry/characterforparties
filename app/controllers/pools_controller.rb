@@ -111,6 +111,6 @@ class PoolsController < ApplicationController
 
     def pool_params
       params.require(:pool).permit(:pool_type, :restrooms, :accommodate, :listing_name, :description, :address, :is_chairs, 
-      :is_speaker, :is_parking, :is_garage_parking, :is_heated_pool, :is_accessible, :price, :active, :instant)
+      :is_towels, :is_speaker, :is_parking, :is_garage_parking, :is_heated_pool, :is_accessible, :price, :active, :instant)
     end
 end

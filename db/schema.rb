@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 20180109174910) do
 
   create_table "calendars", force: :cascade do |t|
-    t.date "day"
-    t.integer "price"
-    t.integer "status"
-    t.integer "pool_id"
+    t.date     "day"
+    t.integer  "price"
+    t.integer  "status"
+    t.integer  "pool_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pool_id"], name: "index_calendars_on_pool_id"
@@ -48,64 +48,62 @@ ActiveRecord::Schema.define(version: 20180109174910) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer "pool_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
+    t.integer  "pool_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.index ["pool_id"], name: "index_photos_on_pool_id"
   end
 
   create_table "pools", force: :cascade do |t|
-    t.string "pool_type"
-    t.integer "accommodate"
-    t.integer "restrooms"
-    t.string "listing_name"
-    t.text "description"
-    t.string "address"
-    t.boolean "is_chairs"
-    t.boolean "is_speaker"
-    t.boolean "is_parking"
-    t.boolean "is_garage_parking"
-    t.boolean "is_heated_pool"
-    t.boolean "is_accessible"
-    t.integer "price"
-    t.boolean "active"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
-    t.integer "instant", default: 1
+    t.string   "location_type"
+    t.string   "address"
+    t.string   "pool_type"
+    t.string   "listing_name"
+    t.text     "summary"
+    t.boolean  "towels"
+    t.boolean  "is_garage_parking"
+    t.boolean  "is_heated_pool"
+    t.boolean  "is_parking"
+    t.boolean  "is_chairs"
+    t.boolean  "is_portable_speaker"
+    t.string   "payment_type"
+    t.integer  "price"
+    t.integer  "tip"
+    t.boolean  "active"
+    t.integer  "user_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.index ["user_id"], name: "index_pools_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "pool_id"
+    t.integer  "user_id"
+    t.integer  "pool_id"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer "price"
-    t.integer "total"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "status", default: 0
+    t.integer  "price"
+    t.integer  "total"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "status",     default: 0
     t.index ["pool_id"], name: "index_reservations_on_pool_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.text "comment"
-    t.integer "star", default: 1
-    t.integer "pool_id"
-    t.integer "reservation_id"
-    t.integer "guest_id"
-    t.integer "host_id"
-    t.string "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "comment"
+    t.integer  "star",           default: 1
+    t.integer  "pool_id"
+    t.integer  "reservation_id"
+    t.integer  "guest_id"
+    t.integer  "host_id"
+    t.string   "type"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["guest_id"], name: "index_reviews_on_guest_id"
     t.index ["host_id"], name: "index_reviews_on_host_id"
     t.index ["pool_id"], name: "index_reviews_on_pool_id"
