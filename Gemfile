@@ -54,7 +54,7 @@ gem 'figaro'
 gem 'redis'
 
 group :production do
-  gem 'pg', '~> 1.1.4'
+  gem 'pg', '~> 0.20.0'
   gem 'rails_12factor'
 end
 
