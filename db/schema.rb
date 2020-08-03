@@ -59,18 +59,19 @@ ActiveRecord::Schema.define(version: 20180109174910) do
   end
 
   create_table "pools", force: :cascade do |t|
+    t.string   "pool_type"
     t.string   "location_type"
     t.string   "address"
-    t.string   "pool_type"
     t.string   "listing_name"
-    t.text     "summary"
-    t.boolean  "towels"
+    t.text     "description"
+    t.integer  "accommodate"
+    t.integer  "restrooms"
+    t.boolean  "is_towels"
     t.boolean  "is_garage_parking"
     t.boolean  "is_heated_pool"
     t.boolean  "is_parking"
     t.boolean  "is_chairs"
     t.boolean  "is_portable_speaker"
-    t.string   "payment_type"
     t.integer  "price"
     t.integer  "tip"
     t.boolean  "active"
@@ -99,8 +100,8 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.integer  "star",           default: 1
     t.integer  "pool_id"
     t.integer  "reservation_id"
-    t.integer  "guest_id"
     t.integer  "host_id"
+    t.integer  "guest_id"
     t.string   "type"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -139,6 +140,7 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.string   "provider"
     t.string   "uid"
     t.string   "image"
+    t.string   "access_token"
     t.string   "pin"
     t.boolean  "phone_verified"
     t.string   "confirmation_token"
@@ -147,6 +149,10 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.string   "stripe_id"
     t.string   "merchant_id"
     t.integer  "unread",                 default: 0
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
