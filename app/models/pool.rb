@@ -14,6 +14,7 @@ class Pool < ApplicationRecord
   validates :pool_type, presence: true
   validates :accommodate, presence: true
   validates :restrooms, presence: true
+  validates :lifesaver, presence: true
 
   def cover_photo(size)
     if self.photos.length > 0

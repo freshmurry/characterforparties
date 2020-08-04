@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109174910) do
+ActiveRecord::Schema.define(version: 20200804035233) do
 
   create_table "calendars", force: :cascade do |t|
     t.date     "day"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.integer  "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "lifesaver"
     t.index ["user_id"], name: "index_pools_on_user_id"
   end
 
