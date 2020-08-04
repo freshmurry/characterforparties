@@ -5,6 +5,7 @@ class CreatePools < ActiveRecord::Migration[5.0]
       t.string :location_type
       t.string :address
       t.string :listing_name
+      t.string :float
       t.text :description
       t.integer :accommodate
       t.integer :restrooms
