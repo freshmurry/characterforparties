@@ -11,11 +11,11 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Recent Bouncehouses" do
+        panel "Recent Characters" do
           ul do
-            Bouncehouse.order(created_at: :desc).limit(5).map do |bouncehouse|
-              # li link_to(bouncehouse.listing_name, Rails.application.routes.url_helpers.edit_dashboard_bouncehouse_path(bouncehouse))
-              li link_to(bouncehouse.listing_name, edit_admin_bouncehouse_path(bouncehouse))
+            Characters.order(created_at: :desc).limit(5).map do |character|
+              # li link_to(character.listing_name, Rails.application.routes.url_helpers.edit_dashboard_bouncehouse_path(bouncehouse))
+              li link_to(character.listing_name, edit_admin_character_path(character))
             end
           end
         end
@@ -23,7 +23,7 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Statistics" do
-          para "Total Bouncehouses: #{Bouncehouse.count}"
+          para "Total Characters: #{Characters.count}"
           para "Total Users: #{User.count}"
           para "Total Reservations: #{Reservation.count}"
         end

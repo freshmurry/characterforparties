@@ -1,6 +1,6 @@
-<% if @bouncehouse.photos.present? %>
+<% if @character.photos.present? %>
   <div class="row">
-    <% @bouncehouse.photos.each do |photo| %>
+    <% @character.photos.each do |photo| %>
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading preview">
@@ -10,7 +10,7 @@
           <div class="panel-body">
             <div class="container"> 
               <span class="pull-right">
-                <%= link_to "Delete", bouncehouse_photo_path(@bouncehouse, photo), remote: true, method: :delete, data: { confirm: "Are you sure?" } do %>
+                <%= link_to "Delete", character_photo_path(@character, photo), remote: true, method: :delete, data: { confirm: "Are you sure?" } do %>
                   <i class="fa fa-trash fa-lg"></i>
                 <% end %>
               </span>

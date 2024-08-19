@@ -1,4 +1,4 @@
-class Bouncehouse < ApplicationRecord
+class Character < ApplicationRecord
   enum instant: { Request: 0, Instant: 1 }
 
   belongs_to :user
@@ -12,7 +12,7 @@ class Bouncehouse < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: ->(obj) { obj.address.present? && obj.address_changed? }
 
-  validates :bouncehouse_type, :time_limit, :pickup_type, :price, :listing_name, :description, :address, presence: true
+  validates :character_type, :time_limit, :price, :listing_name, :description, :address, presence: true
   validates :listing_name, :description, length: { maximum: 50 }
   validates :price, numericality: { greater_than: 0 } # Ensure price is positive
 

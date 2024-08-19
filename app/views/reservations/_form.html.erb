@@ -1,16 +1,16 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <span>
-      <% if @bouncehouse.Instant? %>
+      <% if @character.Instant? %>
         <i class="fa fa-bolt" style="color: #ffb400"></i>
       <% end %>
-      $<%= @bouncehouse.price %>
+      $<%= @character.price %>
     </span>
     <span class="pull-right">Per Day</span>
   </div>
   <div class="panel-body">
     <div class="container">
-      <%= form_for([@bouncehouse, @bouncehouse.reservations.new]) do |f| %>
+      <%= form_for([@character, @character.reservations.new]) do |f| %>
         <div class="row">
           <div class="container">
             <div class="col-md-12">
@@ -29,7 +29,7 @@
             <tbody>
               <tr>
                 <td>Price</td>
-                <td class="text-right">$<%= @bouncehouse.price %></td>
+                <td class="text-right">$<%= @character.price %></td>
               </tr>
               <tr>
                 <td>Booking Fee</td>
@@ -62,7 +62,7 @@
           <h6>*All bookings are subject to a 5% booking fee</h6>
         </div>
         <br/>
-        <% if @bouncehouse.Instant? %>
+        <% if @character.Instant? %>
           <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
         <% else %>
           <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
@@ -95,7 +95,7 @@
       var formattedEndDate = end_date.toISOString().split('T')[0];
 
       $.ajax({
-        url: '/bouncehouses/' + <%= @bouncehouse.id %> + '/preview_reservations?start_date=' + formattedStartDate + '&end_date=' + formattedEndDate,
+        url: '/characters/' + <%= @character.id %> + '/preview_reservations?start_date=' + formattedStartDate + '&end_date=' + formattedEndDate,
         dataType: 'json',
         success: function(data) {
           console.log('Preview Reservations Data:', data);
@@ -124,7 +124,7 @@
               return selectedDates.indexOf(d) !== -1;
             });
 
-            var total = (days - selectedSpecialDates.length) * <%= @bouncehouse.price %>;
+            var total = (days - selectedSpecialDates.length) * <%= @character.price %>;
             console.log('Initial Total:', total);
 
             if (selectedSpecialDates.length > 0) {
@@ -150,7 +150,7 @@
     }
 
     $.ajax({
-      url: '/bouncehouses/' + <%= @bouncehouse.id %> + '/preload_reservations',
+      url: '/characters/' + <%= @character.id %> + '/preload_reservations',
       dataType: 'json',
       success: function(data) {
         console.log('Preload Reservations Data:', data);

@@ -24,23 +24,17 @@
 
           <div class="form-group">
             <label>Time Limit</label>
-            <%= f.select :time_limit_gteq, [["2hrs.", "2hrs."], ["4hrs.", "4hrs."], ["6hrs.", "6hrs."], ["8hrs.", "8hrs."]],
+            <%= f.select :time_limit_gteq, [["1hr.", "1hr."], ["2hrs.", "2hrs."], ["3hrs.", "3hrs."], ["8hrs.", "8hrs."]],
                          prompt: "Select...", class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <label>Bounce House Type</label>
-            <%= f.select :bouncehouse_type_gteq, [["Regular", "Regular"], ["Castle", "Castle"], ["Waterslide","Waterslide"]],
+            <label>Character Type</label>
+            <%= f.select :character_type_gteq, [["Movie Character", "Movie Character"], ["Cartoon Character", "Cartoon Character"], ["Impersonator","Impersonator"]],
                          prompt: "Select...", class: "form-control" %>
           </div>
 
-          <div class="form-group">
-            <label>Pickup Type</label>
-            <%= f.select :pickup_type_gteq, [["Same Day", "Same Day"], ["Next Day", "Next Day"]],
-                         prompt: "Select...", class: "form-control" %>
-          </div>
-
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label>Amenities</label>
             <%= check_box_tag "q[is_slide_eq_any]", "true" %> Slide<br>
             <%= check_box_tag "q[is_waterslide_eq_any]", "true" %> Waterslide<br>
@@ -50,7 +44,7 @@
             <%= check_box_tag "q[is_sprinkler_eq_any]", "true" %> Sprinkler<br>
             <%= check_box_tag "q[is_heated_eq_any]", "true" %> Heated<br>
             <%= check_box_tag "q[is_wall_climb_eq_any]", "true" %> Wall Climb
-          </div>
+          </div> -->
 
           <div class="text-center">
             <%= f.submit "Search", class: "btn btn-form" %>
@@ -61,8 +55,8 @@
 
     <div class="col-md-6">
       <!-- LISTINGS -->
-      <div id="bouncehouse_listing">
-        <%= render partial: "bouncehouses/bouncehouses_list", locals: {bouncehouses: @arrBouncehouses} %>
+      <div id="character_listing">
+        <%= render partial: "characters/characters_list", locals: {characters_list: @arrCharacters} %>
       </div>
     </div>
     <br>
@@ -124,11 +118,11 @@
     $(".ui-state-default, .ui-widget-content").css('border-color', '#2C3E50');
   });
 
-  function initialize(bouncehouses) {
+  function initialize(characters) {
     var location = {lat: 41.881832, lng: -87.623177};
 
-    if (bouncehouses.length > 0) {
-      location = {lat: bouncehouses[0].latitude, lng: bouncehouses[0].longitude};
+    if (characters.length > 0) {
+      location = {lat: characters[0].latitude, lng: characters[0].longitude};
     }
 
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -138,14 +132,14 @@
 
     var marker, infowindow;
 
-    bouncehouses.forEach(function(bouncehouse) {
+    characters.forEach(function(character) {
       marker = new google.maps.Marker({
-        position: {lat: bouncehouse.latitude, lng: bouncehouse.longitude},
+        position: {lat: character.latitude, lng: character.longitude},
         map: map
       });
 
       infowindow = new google.maps.InfoWindow({
-        content: "<div class='map_price'>$" + bouncehouse.price + "</div>"
+        content: "<div class='map_price'>$" + character.price + "</div>"
       });
 
       infowindow.open(map, marker);
@@ -153,7 +147,7 @@
   }
 
   google.maps.event.addDomListener(window, 'load', function() {
-    initialize(<%= raw @arrBouncehouses.to_json %>);
+    initialize(<%= raw @arrCharacters.to_json %>);
   });
 </script>
 

@@ -1,0 +1,26 @@
+<% @characters.each do |character| %>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading preview">
+        <!-- <= link_to image_tag(character.cover_photo(:medium)), character %> -->
+        <%= image_tag character.photos[0].image.url(:medium) if character.photos.length > 0 %>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <span class="col-md-12" style="padding-left: 0px; padding-right: 0px;"><strong><%= link_to character.listing_name, character %></strong></span></br>
+          <span class="col-md-12" style="padding-left: 0px; padding-right: 0px;"><span id="star_<%= character.id %>"></span>&nbsp;<%= pluralize(character.guest_reviews.count, "review") %>
+          <span class="pull-right" style="border: 1px solid black; padding: 5px;"><b>$<%= character.price %></b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script>
+    $('#star_<%= character.id %>').raty({
+      path: '/assets',
+      readOnly: true,
+      score: <%= character.average_rating %>
+    });
+  </script>
+<% end %>

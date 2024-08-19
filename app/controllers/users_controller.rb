@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update]
 
   def show
-    @bouncehouses = @user.bouncehouses
+    @characters = @user.characters
 
     @guest_reviews = Review.where(type: "GuestReview", host_id: @user.id)
     @host_reviews = Review.where(type: "HostReview", guest_id: @user.id)

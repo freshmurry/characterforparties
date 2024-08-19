@@ -1,38 +1,38 @@
 require 'rails_helper'
 
-RSpec.feature 'Managing Bouncehouses', type: :feature do
+RSpec.feature 'Managing Characters', type: :feature do
   let(:user) { create(:user) }
-  let(:bouncehouse) { create(:bouncehouse, user: user) }
+  let(:character) { create(:character, user: user) }
 
   before do
     sign_in user
   end
 
-  scenario 'User creates a bouncehouse' do
-    visit new_bouncehouse_path
-    fill_in 'Listing Name', with: 'New Bouncehouse'
+  scenario 'User creates a character' do
+    visit new_character_path
+    fill_in 'Listing Name', with: 'New Character'
     fill_in 'Price', with: 100
     # fill in other fields as necessary
-    click_button 'Create Bouncehouse'
+    click_button 'Create Character'
     
     expect(page).to have_content('Listing was successfully created.')
-    expect(page).to have_content('New Bouncehouse')
+    expect(page).to have_content('New Character')
   end
 
-  scenario 'User updates a bouncehouse' do
-    visit edit_bouncehouse_path(bouncehouse)
+  scenario 'User updates a character' do
+    visit edit_character_path(character)
     fill_in 'Price', with: 150
-    click_button 'Update Bouncehouse'
+    click_button 'Update Character'
     
     expect(page).to have_content('Listing was successfully updated.')
     expect(page).to have_content('150')
   end
 
-  scenario 'User deletes a bouncehouse' do
-    visit bouncehouse_path(bouncehouse)
+  scenario 'User deletes a character' do
+    visit character_path(character)
     click_link 'Delete'
     
     expect(page).to have_content('Listing successfully deleted.')
-    expect(page).not_to have_content(bouncehouse.listing_name)
+    expect(page).not_to have_content(character.listing_name)
   end
 end

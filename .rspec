@@ -1,46 +1,46 @@
 require 'rails_helper'
 
-RSpec.describe BouncehousesController, type: :controller do
+RSpec.describe CharactersController, type: :controller do
   let(:user) { create(:user) }
-  let(:bouncehouse) { create(:bouncehouse, user: user) }
+  let(:character) { create(:character, user: user) }
 
   before { sign_in user }
 
   describe 'GET #show' do
-    it 'assigns the requested bouncehouse to @bouncehouse' do
-      get :show, params: { id: bouncehouse }
-      expect(assigns(:bouncehouse)).to eq(bouncehouse)
+    it 'assigns the requested character to @character' do
+      get :show, params: { id: character }
+      expect(assigns(:character)).to eq(character)
     end
 
     it 'renders the :show template' do
-      get :show, params: { id: bouncehouse }
+      get :show, params: { id: character }
       expect(response).to render_template(:show)
     end
   end
 
   describe 'POST #create' do
     context 'with valid attributes' do
-      it 'creates a new bouncehouse' do
+      it 'creates a new character' do
         expect {
-          post :create, params: { bouncehouse: attributes_for(:bouncehouse) }
-        }.to change(Bouncehouse, :count).by(1)
+          post :create, params: { character: attributes_for(:character) }
+        }.to change(Character, :count).by(1)
       end
 
-      it 'redirects to the new bouncehouse' do
-        post :create, params: { bouncehouse: attributes_for(:bouncehouse) }
-        expect(response).to redirect_to(assigns(:bouncehouse))
+      it 'redirects to the new character' do
+        post :create, params: { character: attributes_for(:character) }
+        expect(response).to redirect_to(assigns(:character))
       end
     end
 
     context 'with invalid attributes' do
-      it 'does not save the new bouncehouse' do
+      it 'does not save the new character' do
         expect {
-          post :create, params: { bouncehouse: attributes_for(:invalid_bouncehouse) }
-        }.to_not change(Bouncehouse, :count)
+          post :create, params: { character: attributes_for(:invalid_character) }
+        }.to_not change(Character, :count)
       end
 
       it 're-renders the :new template' do
-        post :create, params: { bouncehouse: attributes_for(:invalid_bouncehouse) }
+        post :create, params: { character: attributes_for(:invalid_character) }
         expect(response).to render_template(:new)
       end
     end

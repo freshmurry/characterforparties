@@ -1,49 +1,55 @@
 <div class="row">
   <div class="col-md-3">
     <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Current Listings", bouncehouses_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Current Reservations", current_reservations_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Previous Reservations", previous_reservations_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "Current Listings", characters_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Current Bookings", current_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Previous Bookings", previous_reservations_path, class: "sidebar-link active" %></li>
     </ul>
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Previously Booked Bounce Houses
+        Previous Reservations
       </div>
       <div class="panel-body">
-      <div class="container">
-        <% @spaces.each do |space| %>
-          <div class="row">
-            <div class="container">
-              <div class="col-md-2">
-                <%= space.start_date.strftime('%D') %>
-                <p><%= space.status %></p>
+        <div class="container">
+          <% if @previous_reservations.present? %>
+            <% @previous_reservations.each do |reservation| %>
+              <div class="row">
+                <div class="container">
+                  <div class="col-md-3">
+                    <span>
+                      Reserved by:
+                      <%= link_to user_path(reservation.user) do %>
+                        <%= image_tag reservation.user.image, class: "img-circle avatar-small" %>
+                        <div><%= reservation.user.fullname %></div>
+                      <% end %>
+                    </span></br>
+                    <%= render partial: "reviews/host_form", locals: { reservation: reservation } if reservation.Approved? %>
+                  </div>&nbsp;
+
+                  <div class="col-md-2">
+                    <%= reservation.start_date.strftime('%D') %>
+                    <p><%= reservation.status %></p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <%= link_to character_path(reservation.character) do %>
+                      <%= image_tag reservation.character.cover_photo(:medium) %>
+                      <%= link_to reservation.character.listing_name, character_path(reservation.character) %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-2">
-                <div class="panel-heading-preview">
-                  <%= link_to bouncehouse_path(space.bouncehouse) do %>
-                    <%= image_tag space.bouncehouse.cover_photo(:thumb) %>
-                  <% end %>
-                </div>  
-              </div>
-              <div class="col-md-5">
-                <%= link_to space.bouncehouse.listing_name, bouncehouse_path(space.bouncehouse) %><br/>
-                <span>
-                  <%= image_tag (space.bouncehouse.user.image), class: "img-circle avatar-small" %>
-                  <%= link_to user_path(space.bouncehouse.user) do %>
-                  <%= space.bouncehouse.user.fullname %>
-                  <% end %>
-                </span>
-              </div>
-              <div class="col-md-3 text-right">
-                <%= render partial: "reviews/guest_form", locals: {reservation: space} if space.Approved? %>
-              </div>
+              <hr/>
+            <% end %>
+          <% else %>
+            <div class="col-md-12 text-center">
+              <h3>You don't have any previous bookings</h3><br/>
+              <%= link_to "Search for a Character", search_path, class: "btn btn-normal" %>
             </div>
-          </div>
-          <hr/>
-        <% end %>
-      </div>
+          <% end %>
+        </div>  
       </div>
     </div>
   </div>

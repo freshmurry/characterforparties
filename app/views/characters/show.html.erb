@@ -1,9 +1,9 @@
 <head>
-  <title><%= @bouncehouse.listing_name %></title>
-  <meta property="og:title" content="<%= @bouncehouse.listing_name %>" />
-  <meta property="og:description" content="Rent this amazing bounce house for <%= number_to_currency(@bouncehouse.price/ 100.0) %>!" />
-  <meta property="og:image" content="<%= @bouncehouse.photos %>" />
-  <meta property="og:url" content="<%= bouncehouse_url(@bouncehouse) %>" />
+  <title><%= @character.listing_name %></title>
+  <meta property="og:title" content="<%= @character.listing_name %>" />
+  <meta property="og:description" content="Book this amazing character for <%= number_to_currency(@character.price/ 100.0) %>!" />
+  <meta property="og:image" content="<%= @character.photos %>" />
+  <meta property="og:url" content="<%= character_url(@character) %>" />
 </head>
 
 <script>
@@ -20,7 +20,7 @@
   $('#average_rating').raty({
     path: '/assets',
     readOnly: true,
-    score: <%= @bouncehouse.average_rating %>
+    score: <%= @character.average_rating %>
   });
 </script>
 
@@ -68,21 +68,21 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-          <h2><%= @bouncehouse.listing_name %></h2>
-          <%= @bouncehouse.address %>
+          <h2><%= @character.listing_name %></h2>
+          <%= @character.address %>
         </div>
 
         <div class="col-md-3 text-center">
-          <%= image_tag @bouncehouse.user.image, class: "img-circle avatar-large" %><br/>
-          <%= link_to user_path(@bouncehouse.user) do %>
-            <%= @bouncehouse.user.fullname %>
+          <%= image_tag @character.user.image, class: "img-circle avatar-large" %><br/>
+          <%= link_to user_path(@character.user) do %>
+            <%= @character.user.fullname %>
           <% end %>
           <div>
             <span id="average_rating"></span>
           </div>
           <div class="center">
-            <% if current_user && current_user != @bouncehouse.user %>
-              <%= link_to "Message Host", conversations_path(sender_id: current_user.id, recipient_id: @bouncehouse.user.id), method: :post, class: "btn btn-default" %>
+            <% if current_user && current_user != @character.user %>
+              <%= link_to "Message Host", conversations_path(sender_id: current_user.id, recipient_id: @character.user.id), method: :post, class: "btn btn-default" %>
             <% end %>
           </div>
         </div>
@@ -90,7 +90,7 @@
     </div>  
     <hr/>
       
-    <!-- bouncehouse Info -->
+    <!-- Character Info -->
     <div class="container">
       <div class="row text-center">
         <div class="col-xs-3 col-sm-3 col-md-3">
@@ -102,22 +102,16 @@
         </div>
 
         <div class="col-xs-3 col-sm-3 col-md-3">
-          <i class="fa fa-truck fa-2x"></i>
-        </div>
-
-        <div class="col-xs-3 col-sm-3 col-md-3">
           <i class="fa fa-bolt fa-2x"></i>
         </div>
       </div>
     
       <div class="row text-center">
-        <div class="col-xs-3 col-sm-3 col-md-3"><%= @bouncehouse.bouncehouse_type %></div>
+        <div class="col-xs-3 col-sm-3 col-md-3"><%= @character.character_type %></div>
 
-        <div class="col-xs-3 col-sm-3 col-md-3"><%= @bouncehouse.time_limit %></div>
+        <div class="col-xs-3 col-sm-3 col-md-3"><%= @character.time_limit %></div>
 
-        <div class="col-xs-3 col-sm-3 col-md-3"><%= @bouncehouse.pickup_type %></div>
-
-        <div class="col-xs-3 col-sm-3 col-md-3"><%= @bouncehouse.instant %></div>
+        <div class="col-xs-3 col-sm-3 col-md-3"><%= @character.instant %></div>
 
       </div>
     </div>  
@@ -130,7 +124,7 @@
           <div class="panel-heading">Description</div>
           <div class="panel-body">
             <div class="container">
-              <p><%= @bouncehouse.description %></p>
+              <p><%= @character.description %></p>
              </div>  
           </div>
         </div>
@@ -139,46 +133,45 @@
     <br/>
   
     <!-- AMENITIES --> 
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
           <div class="panel panel-default">
             <div class="panel-heading">Amenities</div>
             <div class="panel-body">
               <div class="container">
                 <div class="col-md-12">
-                  <div class="row">
+                  <div class="row"> -->
                     
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <!-- <div class="col-xs-4 col-sm-4 col-md-4">
                       <ul class="amenities">
-                        <li class="<%= 'text-line-through' if !@bouncehouse.is_slide %>">Slide</li>
-                        <li class="<%= 'text-line-through' if !@bouncehouse.is_waterslide %>">Waterslide</li>
+                        <li class="<= 'text-line-through' if !@character.is_slide %>">Slide</li>
+                        <li class="<= 'text-line-through' if !@character.is_waterslide %>">Waterslide</li>
                       </ul>
-                    </div>
+                    </div> -->
 
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <!-- <div class="col-xs-4 col-sm-4 col-md-4">
                       <ul class="amenities">
-                        <li class="<%= 'text-line-through' if !@bouncehouse.is_basketball_hoop %>">Basketball Hoop</li>
-                        <li class="<%= 'text-line-through' if !@bouncehouse.is_lighting %>">Lighting</li>
-                        <li class="<%= 'text-line-through' if !@bouncehouse.is_sprinkler %>">Sprinkler</li>
+                        <li class="<= 'text-line-through' if !@character.is_basketball_hoop %>">Basketball Hoop</li>
+                        <li class="<= 'text-line-through' if !@character.is_lighting %>">Lighting</li>
+                        <li class="<= 'text-line-through' if !@character.is_sprinkler %>">Sprinkler</li>
                       </ul>
-                    </div>
+                    </div> -->
 
                     <!-- <div class="col-xs-4 col-sm-4 col-md-4"> -->
-                      <ul class="amenities">
-                        <li class="<%= 'text-line-through' if !@bouncehouse.is_speakers %>">Wifi Speakers</li>
-                        <li class="<%= 'text-line-through' if !@bouncehouse.is_wall_climb %>">Wall Climb</li>
-                        <li class="<%= 'text-line-through' if !@bouncehouse.is_heated %>">Heated</li>
-                        <!-- <li class="<= 'text-line-through' if !@bouncehouse.is_wifi %>">Wifi</li> -->
-                      </ul>
+                      <!-- <ul class="amenities">
+                        <li class="<= 'text-line-through' if !@character.is_speakers %>">Wifi Speakers</li>
+                        <li class="<= 'text-line-through' if !@character.is_wall_climb %>">Wall Climb</li>
+                        <li class="<= 'text-line-through' if !@character.is_heated %>">Heated</li>
+                      </ul> -->
                     <!-- </div> -->
-                  </div>
+                <!--  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <hr/>
+      <hr/> -->
   
     <!-- REVIEWS -->
     <div class="container">
@@ -201,7 +194,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwN_tpAAKnHhy14HzNqK-XeuarVJhNHg8"></script>
         <script>
          function initialize() {
-            var location = {lat: <%= @bouncehouse.latitude %>, lng: <%= @bouncehouse.longitude %>};
+            var location = {lat: <%= @character.latitude %>, lng: <%= @character.longitude %>};
             var map = new google.maps.Map(document.getElementById('map'), {
               center: location,
               zoom: 12
@@ -213,7 +206,7 @@
             });
     
             var infoWindow = new google.maps.InfoWindow({
-              content: '<div id="content"><%= image_tag @bouncehouse.photos(:medium) %></div>'
+              content: '<div id="content"><%= image_tag @character.photos(:medium) %></div>'
             });
     
             infoWindow.open(map, marker);
@@ -225,23 +218,23 @@
     </div>  
     <hr/>
 
-    <!-- NEARBY BOUNCE HOUSES -->
+    <!-- NEARBY CHARACTERS -->
     <div class="container">
       <div class="row">
         <div class="panel panel-default">
-          <div class="panel-heading">Nearby Bounce Houses</div>
-            <% if @bouncehouse.nearbys(10).present? %>
-              <% @bouncehouse.nearbys(10).each do |nearby_bouncehouse| %>
+          <div class="panel-heading">Nearby Characters</div>
+            <% if @character.nearbys(10).present? %>
+              <% @character.nearbys(10).each do |nearby_character| %>
                 <div class="col-md-4">
                   <div class="panel panel-default">
                     <div class="panel-heading preview">
-                      <%= image_tag @bouncehouse.photos(:medium) %>
+                      <%= image_tag @character.photos(:medium) %>
                     </div>
                         
                     <div class="panel-body">
                       <div class="container">
-                        <%= link_to nearby_bouncehouse.listing_name, nearby_bouncehouse %><br/>
-                        (<%= nearby_bouncehouse.distance.round(2) %> miles away)
+                        <%= link_to nearby_character.listing_name, nearby_character %><br/>
+                        (<%= nearby_character.distance.round(2) %> miles away)
                       </div>
                     </div>
                   </div>  
@@ -249,7 +242,7 @@
               <% end %>
             <% else %>
               <div class="text-center">
-                <h4>There are no nearby bouncehouses.</h4>
+                <h4>There are no nearby characters.</h4>
               </div>
             <% end %>
         </div>

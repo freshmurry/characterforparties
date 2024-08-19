@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @bouncehouses = Bouncehouse.where(active: true).limit(3)
+    @characters = Character.where(active: true).limit(3)
   end
 
   def search
@@ -15,19 +15,19 @@ class PagesController < ApplicationController
     # STEP 2: Perform the search based on the location stored in the session
     if session[:loc_search].present?
       begin
-        @bouncehouses_address = Bouncehouse.where(active: true).near(session[:loc_search], 5)
+        @characters = Character.where(active: true).near(session[:loc_search], 5)
       rescue ArgumentError => e
         Rails.logger.error "Geocoder error: #{e.message}"
-        @bouncehouses_address = Bouncehouse.where(active: true)
+        @characters = Character.where(active: true)
       end
     else
-      @bouncehouses_address = Bouncehouse.where(active: true)
+      @characters = Character.where(active: true)
     end
 
     # STEP 3: Use Ransack for more advanced search functionality if needed
-    @search = @bouncehouses_address.ransack(params[:q])
-    @bouncehouses = @search.result
+    @search = @characters.ransack(params[:q])
+    @characters = @search.result
 
-    @arrBouncehouses = @bouncehouses.to_a
+    @arrCharacters = @characters.to_a
   end
 end

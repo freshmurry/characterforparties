@@ -3,10 +3,10 @@ class GuestReviewsController < ApplicationController
   def create
     @reservation = Reservation.find_by(
       id: guest_review_params[:reservation_id],
-      bouncehouse_id: guest_review_params[:bouncehouse_id]
+      character_id: guest_review_params[:character_id]
     )
 
-    if @reservation && @reservation.bouncehouse.user.id == guest_review_params[:host_id].to_i
+    if @reservation && @reservation.character.user.id == guest_review_params[:host_id].to_i
       @has_reviewed = GuestReview.find_by(
         reservation_id: @reservation.id,
         host_id: guest_review_params[:host_id]
@@ -41,6 +41,6 @@ class GuestReviewsController < ApplicationController
   private
 
   def guest_review_params
-    params.require(:guest_review).permit(:comment, :star, :bouncehouse_id, :reservation_id, :host_id)
+    params.require(:guest_review).permit(:comment, :star, :character_id, :reservation_id, :host_id)
   end
 end

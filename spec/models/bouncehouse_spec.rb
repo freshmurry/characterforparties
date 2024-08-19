@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Bouncehouse, type: :model do
+RSpec.describe Character, type: :model do
   it "uploads photos successfully" do
-    bouncehouse = Bouncehouse.create(
-      bouncehouse_type: 'Castle',
+    character = Character.create(
+      character_type: 'Castle',
       time_limit: '4hrs.',
       pickup_type: 'Same Day Pickup',
       instant: 'Request',
@@ -15,10 +15,10 @@ RSpec.describe Bouncehouse, type: :model do
     
     photo = Photo.create(
       image: fixture_file_upload('files/blank.jpg'),
-      bouncehouse: bouncehouse
+      character: character
     )
     
     expect(photo).to be_persisted
-    expect(bouncehouse.photos.count).to eq(1)
+    expect(character.photos.count).to eq(1)
   end
 end

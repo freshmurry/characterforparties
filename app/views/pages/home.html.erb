@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-12 banner text-center">
-    <h1><span class="text-blue">Book and rent a bounce house</span> simple and easy.</h1>
+    <h1><span class="text-blue">Book a chracter</span> simple and easy.</h1>
   </div>
 
-  <div class="col-md-12"><h4>Search for a bounce house in your neighborhood</h4></div>
+  <div class="col-md-12"><h4>Search for a caracter for your party</h4></div>
 </div>
 
 
@@ -11,7 +11,7 @@
     <div class="col-md-6">
       <%= form_tag search_path, method: :get do %>
 
-      <%= text_field_tag :search, params[:search], placeholder: "Search Bounce Houses", class: "form-control", id: "autolocation" %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search for a Chracter", class: "form-control", id: "autolocation" %>
     </div>&nbsp;
 
     <div class="col-md-2">
@@ -23,25 +23,25 @@
 
 <br>
 
-<!-- BOUNCE HOUSES -->
-<div class="text-center"><h2>Bounce Houses Near You</h2>
-  <p>Book and rent a bounce house</p>
+<!-- CHARACTERS -->
+<div class="text-center"><h2>Characters Near You</h2>
+  <p>Book a Character</p>
 </div>
 <br/>
 
 <div class="row">
-  <%= render partial: "bouncehouses/bouncehouses_list", locals: {bouncehouses: @bouncehouses} %>
+  <%= render partial: "characters/characters_list", locals: {characters: @characters} %>
 </div>
 
-<!--<h2 class="col-md-12 banner"><span class="text-blue">Why use</span> bouncehouseCrasher</h2>-->
+<!--<h2 class="col-md-12 banner"><span class="text-blue">Why use</span> Characters for Parties</h2>-->
 
 <!-- CITIES -->
-<div class="text-center"><h2>BouncieHouse in other Cities Coming Soon!</h2></div>
+<div class="text-center"><h2>Characters in other Cities Coming Soon!</h2></div>
 <br/>
 
 <div class="row">
   <div class="col-md-3 col-sm-3">
-		<a href="https://bounciehouse.com/search?utf8=✓&search=chicago">
+		<a href="https://charactersforparties.com/search?utf8=✓&search=chicago">
 			<div class="discovery-card" style="background-image: url('/assets/chicago.jpg')">
 				<div class="va-container">
 					<div class="va-middle text-center">
@@ -53,7 +53,7 @@
 	</div>
   
 	<div class="col-md-3 col-sm-3">
-		<a href="https://bounciehouse.com/search?utf8=✓&search=atlanta">
+		<a href="https://charactersforparties.com/search?utf8=✓&search=atlanta">
 			<div class="discovery-card" style="background-image: url('/assets/atlanta.jpg')">
 				<div class="va-container">
 					<div class="va-middle text-center">
@@ -65,7 +65,7 @@
 	</div>
   
 	<div class="col-md-3 col-sm-3">
-		<a href="https://bounciehouse.com/search?utf8=✓&search=losangeles">
+		<a href="https://charactersforparties.com/search?utf8=✓&search=losangeles">
 			<div class="discovery-card" style="background-image: url('/assets/la.jpg')">
 				<div class="va-container">
 					<div class="va-middle text-center">
@@ -77,7 +77,7 @@
 	</div>
 	
 	<div class="col-md-3 col-sm-3">
-		<a href="https://bounciehouse.herokuapp.com/search?utf8=✓&search=houston">
+		<a href="https://charactersforparties.com/search?utf8=✓&search=houston">
 			<div class="discovery-card" style="background-image: url('/assets/houston.jpg')">
 				<div class="va-container">
 					<div class="va-middle text-center">

@@ -2,6 +2,6 @@
 $('#photo_<%= @photo.id %>').remove();
 
 // Hide the photo check element if there are no photos
-<% if @bouncehouse.photos.blank? %>
+<% if @character.photos.blank? %>
   $('#photo_check').hide();
 <% end %>

@@ -1,4 +1,4 @@
-SitemapGenerator::Sitemap.default_host = "http://yourdomain.com"
+SitemapGenerator::Sitemap.default_host = "http://characterforparties.com"
 
 SitemapGenerator::Sitemap.create do
   add '/', :changefreq => 'weekly', :priority => 1.0

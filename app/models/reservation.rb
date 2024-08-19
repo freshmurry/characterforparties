@@ -4,18 +4,18 @@ class Reservation < ApplicationRecord
   after_create_commit :create_notification
 
   belongs_to :user
-  belongs_to :bouncehouse
+  belongs_to :character
 
-  validates :start_date, :end_date, :bouncehouse_id, presence: true
+  validates :start_date, :end_date, :character_id, presence: true
 
   scope :current_week_revenue, -> (user) {
-    joins(:bouncehouse)
-    .where("bouncehouses.user_id = ? AND reservations.updated_at >= ? AND reservations.status = ?", user.id, 1.week.ago, statuses[:Approved])
+    joins(:character)
+    .where("characters.user_id = ? AND reservations.updated_at >= ? AND reservations.status = ?", user.id, 1.week.ago, statuses[:Approved])
     .order(updated_at: :asc)
   }
 
-  def self.is_conflict(bouncehouse, start_date, end_date)
-    bouncehouse.reservations.where("start_date < ? AND end_date > ?", end_date, start_date).exists?
+  def self.is_conflict(character, start_date, end_date)
+    character.reservations.where("start_date < ? AND end_date > ?", end_date, start_date).exists?
   end
 
   def booking_fee
@@ -26,9 +26,9 @@ class Reservation < ApplicationRecord
   private
 
   def create_notification
-    type = self.bouncehouse.Instant? ? "New Booking" : "New Request"
+    type = self.character.Instant? ? "New Booking" : "New Request"
     guest = User.find(self.user_id)
 
-    Notification.create(content: "#{type} from #{guest.fullname}", user_id: self.bouncehouse.user_id)
+    Notification.create(content: "#{type} from #{guest.fullname}", user_id: self.character.user_id)
   end
 end

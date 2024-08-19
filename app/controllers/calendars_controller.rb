@@ -7,13 +7,13 @@ class CalendarsController < ApplicationController
     date_to = Date.parse(calendar_params[:end_date])
 
     (date_from..date_to).each do |date|
-      calendar = Calendar.where(bouncehouse_id: params[:bouncehouse_id], day: date)
+      calendar = Calendar.where(character_id: params[:character_id], day: date)
 
       if calendar.present?
         calendar.update_all(price: calendar_params[:price], status: calendar_params[:status])
       else
         Calendar.create(
-          bouncehouse_id: params[:bouncehouse_id],
+          character_id: params[:character_id],
           day: date,
           price: calendar_params[:price],
           status: calendar_params[:status]
@@ -25,32 +25,32 @@ class CalendarsController < ApplicationController
   end
   
   def host
-    @bouncehouses = current_user.bouncehouses
+    @characters = current_user.characters
 
     params[:start_date] ||= Date.current.to_s
-    params[:bouncehouse_id] ||= @bouncehouses[0] ? @bouncehouses[0].id : nil
+    params[:character_id] ||= @character[0] ? @character[0].id : nil
 
     if params[:q].present?
       params[:start_date] = params[:q][:start_date]
-      params[:bouncehouse_id] = params[:q][:bouncehouse_id]
+      params[:character_id] = params[:q][:character_id]
     end
 
     @search = Reservation.ransack(params[:q])
   
-    if params[:bouncehouse_id]
-      @bouncehouse = Bouncehouse.find(params[:bouncehouse_id])
+    if params[:character_id]
+      @character = Character.find(params[:character_id])
       start_date = Date.parse(params[:start_date])
 
       first_of_month = (start_date - 1.months).beginning_of_month # => Jun 1
       end_of_month = (start_date + 1.months).end_of_month # => Aug 31
 
-      @events = @bouncehouse.reservations.joins(:user)
+      @events = @character.reservations.joins(:user)
                       .select('reservations.*, users.fullname, users.image, users.email, users.uid')
                       .where('(start_date BETWEEN ? AND ?) AND status <> ?', first_of_month, end_of_month, 3)
       @events.each{ |e| e.image = image_url(e) }
-      @days = Calendar.where("bouncehouse_id = ? AND day BETWEEN ? AND ?", params[:bouncehouse_id], first_of_month, end_of_month)
+      @days = Calendar.where("character_id = ? AND day BETWEEN ? AND ?", params[:character_id], first_of_month, end_of_month)
     else
-      @bouncehouse = nil
+      @character = nil
       @events = []
       @days = []
     end

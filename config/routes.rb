@@ -33,8 +33,8 @@ Rails.application.routes.draw do
     end
   end
 
-  # BOUNCEHOUSES MANAGEMENT
-  resources :bouncehouses do
+  # CHARACTERS MANAGEMENT
+  resources :characters do
     member do
       get 'photo_upload'
       get 'preload_reservations'

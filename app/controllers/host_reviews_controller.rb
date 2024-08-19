@@ -3,7 +3,7 @@ class HostReviewsController < ApplicationController
   def create
     @reservation = Reservation.find_by(
       id: host_review_params[:reservation_id],
-      bouncehouse_id: host_review_params[:bouncehouse_id],
+      character_id: host_review_params[:character_id],
       user_id: host_review_params[:guest_id]
     )
 
@@ -42,6 +42,6 @@ class HostReviewsController < ApplicationController
   private
 
   def host_review_params
-    params.require(:host_review).permit(:comment, :star, :bouncehouse_id, :reservation_id, :guest_id)
+    params.require(:host_review).permit(:comment, :star, :character_id, :reservation_id, :guest_id)
   end
 end

@@ -4,9 +4,9 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "BouncieHouse"
+  config.site_title = "Character for Prties"
   
-  config.site_title_image = "bounciehouse-logo.svg"
+  config.site_title_image = "characterforparties-logo.svg"
 
   # == Default Namespace
   #

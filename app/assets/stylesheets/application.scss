@@ -79,15 +79,13 @@ div.panel-body {
     border-radius: 0;
 }
 
-.navbar-brand {
-  padding: 10px 15px;
-}
-
 .navbar-default .navbar-brand {
-  color: #2C3E50;
-  font-size: 2.5em;
-  font-weight: bold; font-family: Ubuntu;
-  margin-top: 5px;
+  color: #2C3E50; /* Text color */
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: Ubuntu;
+  margin-top: 10px;
+  padding: 10px 15px;
 }
 
 ul.nav.navbar-nav.navbar-right a {
@@ -157,8 +155,8 @@ button.btn.btn-form.btn-small {
 
 .btn.btn-form:active {
   outline: none;
-  border-color: #066165;
-  background-color: #066165;
+  border-color: #34495E;
+  background-color: #34495E;
 }
 
 .btn.btn-facebook {
@@ -168,8 +166,8 @@ button.btn.btn-form.btn-small {
 
 .btn.btn-facebook:active {
   outline: none;
-  border-color: #2d467b;
-  background-color: #2d467b;
+  border-color: #2D467B;
+  background-color: #2D467B;
 }
 
 // PANELS

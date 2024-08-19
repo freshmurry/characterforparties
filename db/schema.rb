@@ -43,41 +43,31 @@ ActiveRecord::Schema.define(version: 20240801033424) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "bouncehouses", force: :cascade do |t|
-    t.string   "bouncehouse_type"
+  create_table "calendars", force: :cascade do |t|
+    t.date     "day"
+    t.integer  "price"
+    t.integer  "status"
+    t.integer  "character_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["character_id"], name: "index_calendars_on_character_id"
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string   "character_type"
     t.string   "address"
     t.string   "listing_name"
     t.text     "description"
     t.string   "time_limit"
     t.integer  "price"
-    t.integer  "tip"
-    t.string   "pickup_type"
-    t.boolean  "is_heated"
-    t.boolean  "is_slide"
-    t.boolean  "is_waterslide"
-    t.boolean  "is_basketball_hoop"
-    t.boolean  "is_lighting"
-    t.boolean  "is_speakers"
-    t.boolean  "is_wall_climb"
-    t.boolean  "is_sprinkler"
     t.boolean  "active"
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "instant"
     t.integer  "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["user_id"], name: "index_bouncehouses_on_user_id"
-  end
-
-  create_table "calendars", force: :cascade do |t|
-    t.date     "day"
-    t.integer  "price"
-    t.integer  "status"
-    t.integer  "bouncehouse_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["bouncehouse_id"], name: "index_calendars_on_bouncehouse_id"
+    t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -106,41 +96,41 @@ ActiveRecord::Schema.define(version: 20240801033424) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer  "bouncehouse_id"
+    t.integer  "character_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
-    t.integer  "image_file_size"
+    t.bigint   "image_file_size"
     t.datetime "image_updated_at"
-    t.index ["bouncehouse_id"], name: "index_photos_on_bouncehouse_id"
+    t.index ["character_id"], name: "index_photos_on_character_id"
   end
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "bouncehouse_id"
+    t.integer  "character_id"
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer  "price"
     t.integer  "total"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "status",         default: 0
-    t.index ["bouncehouse_id"], name: "index_reservations_on_bouncehouse_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "status",       default: 0
+    t.index ["character_id"], name: "index_reservations_on_character_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.text     "comment"
     t.integer  "star",           default: 1
-    t.integer  "bouncehouse_id"
+    t.integer  "character_id"
     t.integer  "reservation_id",             null: false
     t.integer  "guest_id",                   null: false
     t.integer  "host_id",                    null: false
     t.string   "type"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.index ["bouncehouse_id"], name: "index_reviews_on_bouncehouse_id"
+    t.index ["character_id"], name: "index_reviews_on_character_id"
     t.index ["guest_id"], name: "index_reviews_on_guest_id"
     t.index ["host_id"], name: "index_reviews_on_host_id"
     t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
@@ -186,7 +176,7 @@ ActiveRecord::Schema.define(version: 20240801033424) do
     t.integer  "unread",                 default: 0
     t.string   "image_file_name"
     t.string   "image_content_type"
-    t.integer  "image_file_size"
+    t.bigint   "image_file_size"
     t.datetime "image_updated_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

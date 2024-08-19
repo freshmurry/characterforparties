@@ -51,10 +51,10 @@
 
     <!-- Your Listings -->
     <div class="panel panel-default">
-      <div class="panel-heading">Your Listings (<%= @bouncehouses.length %>)</div>
+      <div class="panel-heading">Your Listings (<%= @characters.length %>)</div>
       <div class="panel-body">
         <div class="container">
-          <%= render partial: "bouncehouses/bouncehouses_list", locals: {bouncehouses: @bouncehouses} %>
+          <%= render partial: "characters/characters_list", locals: {characters: @characters} %>
         </div>  
       </div>
     </div>
