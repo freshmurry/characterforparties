@@ -1,2 +1,3 @@
-$('#character_listing').html('<%= j render partial: "character/character_list", locals: {character: @arrCharacters} %>')
-initialize(<%= raw @arrBouncehouses.to_json %>)
+$('#character_listing').html('<%= j render partial: "characters/characters_list", locals: {characters: @arrCharacters} %>');
+
+initialize(<%= raw @arrCharacters.to_json %>);

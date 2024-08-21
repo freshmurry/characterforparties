@@ -191,10 +191,11 @@
     <div class="container">
       <div class="row">
         <div id="map" style="width: 100%; height: 400px"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwN_tpAAKnHhy14HzNqK-XeuarVJhNHg8"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script>
          function initialize() {
-            var location = {lat: <%= @character.latitude %>, lng: <%= @character.longitude %>};
+            // var location = { lat: 41.881832, lng: -87.623177 }; // Default location
+            var location = <%= @character.latitude.present? && @character.longitude.present? ? "{lat: #{@character.latitude.to_f}, lng: #{@character.longitude.to_f}}" : "{lat: 41.881832, lng: -87.623177}" %>;
             var map = new google.maps.Map(document.getElementById('map'), {
               center: location,
               zoom: 12
@@ -206,7 +207,7 @@
             });
     
             var infoWindow = new google.maps.InfoWindow({
-              content: '<div id="content"><%= image_tag @character.photos(:medium) %></div>'
+              content: '<div class="text-center"><b>$<%= @character.price.to_s %></b><br></br></div><div id="content"><%= j image_tag @character.cover_photo(:medium) %></div>'
             });
     
             infoWindow.open(map, marker);

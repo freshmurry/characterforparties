@@ -10,9 +10,14 @@ class Character < ApplicationRecord
   has_many :calendars
 
   geocoded_by :address
-  after_validation :geocode, if: ->(obj) { obj.address.present? && obj.address_changed? }
+  after_validation :geocode, if: :address_changed?
+  # after_validation :geocode, if: ->(obj) { obj.address.present? && obj.address_changed? }
 
-  validates :character_type, :time_limit, :price, :listing_name, :description, :address, presence: true
+  validates :character_type, presence: true
+  validates :time_limit, presence: true
+  validates :price, presence: true
+  validates :description, presence: true
+  # validates :address, presence: true
   validates :listing_name, :description, length: { maximum: 50 }
   validates :price, numericality: { greater_than: 0 } # Ensure price is positive
 

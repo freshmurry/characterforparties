@@ -29,5 +29,34 @@ class PagesController < ApplicationController
     @characters = @search.result
 
     @arrCharacters = @characters.to_a
+
+    if (params[:start_date] && params[:end_date] && !params[:start_date].empty? &&  !params[:end_date].empty?)
+      
+      start_date = Date.parse(params[:start_date])
+      end_date = Date.parse(params[:end_date])
+
+      @characters.each do |character|
+
+        not_available = character.reservations.where(
+          "((? <= start_date AND start_date <= ?)
+          OR (? <= end_date AND end_date <= ?)
+          OR (start_date < ? AND ? < end_date))
+          AND status = ?",
+          start_date, end_date,
+          start_date, end_date,
+          start_date, end_date,
+          1
+        ).limit(1)
+        
+        not_available_in_calendar = Calendar.where(
+          "character_id = ? AND status = ? AND day <= ? AND day >= ?",
+          character.id, 1, end_date, start_date
+        ).limit(1)
+        
+        if not_available.length > 0 || not_available_in_calendar.length > 0
+          @arrCharacters.delete(character)
+        end
+      end
+    end
   end
 end

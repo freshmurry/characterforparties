@@ -60,10 +60,47 @@
       </div>
     </div>
     <br>
-    <div id="map" style="width: 100%; height: 400px; margin-top: 20px;"></div>
 
+    <!-- GOOGLE MAP WILL BE HERE -->
+
+    <div id="map" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCa0Y1ZKXoASepQNlMeYoUO6pLZIwAovg"></script>
   </div>
-    
+    <script>
+
+      function initialize(characters) {
+        var location = {lat: 44.5403, lng: -78.5463}
+
+        if (characters.length > 0) {
+          location = {lat: characters[0].latitude, lng: characters[0].longitude}
+        }
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: location,
+          zoom: 12
+        });
+
+        var marker, infowindow;
+
+        characters.forEach(function(character){
+          marker = new google.maps.Marker({
+            position: {lat: character.latitude, lng: character.longitude},
+            map: map
+          });
+
+          infowindow = new google.maps.InfoWindow({
+            content: "<div class='map_price'>$" + character.price + "</div>"
+          });
+
+          infowindow.open(map, marker);
+        });
+
+      }
+
+      google.maps.event.addDomListener(window, 'load', function () {
+        initialize(<%= raw @arrCharacters.to_json %>)
+      });
+    </script>
   </div>
 </div>
 

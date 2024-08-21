@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:update, :edit]
-
+  # before_action :set_character, only: [:index, :new, :create, :update, :edit]
 
   def index
     @characters = current_user.characters
@@ -87,9 +87,9 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
   end
 
-  def authorized_user!
-    redirect_to root_path, alert: "You don't have permission" unless current_user.id == @character.user_id
-  end
+  # def authorized_user!
+  #   redirect_to root_path, alert: "You don't have permission" unless current_user.id == @character.user_id
+  # end
 
   def character_params
     params.require(:character).permit(:character_type, :time_limit, :instant, :listing_name, :description, :address, :price, :active, photos_attributes: [:id, :image, :_destroy])

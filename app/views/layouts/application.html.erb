@@ -6,10 +6,11 @@
     <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCa0Y1ZKXoASepQNlMeYoUO6pLZIwAovg&libraries=places"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Google Maps API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=[GOOGLE_API_KEY]&callback=initMap"></script>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=[GOOGLE_API_KEY]&callback=initMap"></script> -->
 
     <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu|Cabin" rel="stylesheet">
@@ -23,7 +24,7 @@
     <meta name="author" content="Character for Parties">
     <meta name="keywords" content="Character for Parties, Party Characters, Party Entertainment Characters">
     <meta name="description" content="Character for Parties allows you to book a character near you.">
-    <meta name="google-site-verification" content="iaOgBh0ngIx4hheLrH4JU1_1Cl2Mq9SBgpVRf_av_zM">
+    <meta name="google-site-verification" content="">
     <meta property="og:site_name" content="Character for Parties">
     <meta property="og:url" content="https://characterforparties.com">
     <meta property="og:title" content="Character for Parties | Book a Character">
@@ -37,7 +38,6 @@
     <meta name="twitter:image" content="<%= image_url('characterforparties-logo.svg') %>">
 
     <!-- Scripts -->
-    <script src="https://secure.quantserve.com/quant.js" async></script>
     <script src="https://www.googleadservices.com/pagead/conversion_async.js" async></script>
     <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script>
 
