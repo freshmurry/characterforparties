@@ -29,10 +29,14 @@ module ApplicationHelper
   end
 
   def stripe_express_path
+<<<<<<< HEAD
     if Rails.env.development?
       "https://connect.stripe.com/express/oauth/authorize?redirect_uri=http://localhost:3000/auth/stripe_connect/callback&client_id=ca_Bz12s2Z5ijkGknATCnWx9EmDZIvGMf0e&state={STATE_VALUE}"
     else
       "https://connect.stripe.com/express/oauth/authorize?redirect_uri=https://bouncyhouse.herokuapp.com/auth/stripe_connect/callback&client_id=ca_Hms44phcleeZY7RlWjYEQM5K864Cfb1Q&state={STATE_VALUE}"
     end
+=======
+    "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_BbF7P33JByDX2Ctz0xrzJxMRtBdw6GX8&scope=read_write"
+>>>>>>> parent of a23e74d5... Created Stripe Accout, updated Stripe Connect API keys
   end
 end

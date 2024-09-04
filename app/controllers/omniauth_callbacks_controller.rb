@@ -16,6 +16,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = current_user
 
     if @user.persisted?
+<<<<<<< HEAD
       @user.update(merchant_id: auth_data.uid)
 
       if @user.merchant_id.present?
@@ -37,6 +38,24 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       else
         flash[:alert] = "Stripe account not created."
         redirect_to dashboard_path
+=======
+      @user.merchant_id = auth_data.uid
+      @user.save
+
+      if !@user.merchant_id.blank?
+
+        # Update Payout Schedule
+        account = Stripe::Account.retrieve(current_user.merchant_id)
+        account.payout_schedule.delay_days = 7
+        account.payout_schedule.interval = "daily"
+
+        # account.payout_schedule.monthly_anchor = 15
+        # account.payout_schedule.interval = "monthly"
+
+        account.save
+
+        logger.debug "#{account}"
+>>>>>>> parent of a23e74d5... Created Stripe Accout, updated Stripe Connect API keys
       end
     else
       session["devise.stripe_connect_data"] = request.env["omniauth.auth"]
