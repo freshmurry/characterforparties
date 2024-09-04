@@ -4,7 +4,7 @@
       <div class="col-md-6 select">
         <div class="form-group">
           <label>Your Listings</label>
-          <%= f.select :bouncehouse_id, options_for_select(@characters.collect {|u| [u.listing_name, u.id]}, params[:bouncehouse_id]), {}, {
+          <%= f.select :character_id, options_for_select(@characters.collect {|u| [u.listing_name, u.id]}, params[:character_id]), {}, {
             onchange: "$(this.form).submit()",
             class: "form-control"
           } %>
@@ -20,7 +20,7 @@
   <div class="col-md-12 text-center">
     <% if @characters.blank? %>
       <h3>There are no current characters available.</h3><br/>
-        <%= link_to "Search for Bounce Houses", search_path, class: "btn btn-normal" %>
+        <%= link_to "Search for Characters", search_path, class: "btn btn-normal" %>
      <% end %>
   </div>
   

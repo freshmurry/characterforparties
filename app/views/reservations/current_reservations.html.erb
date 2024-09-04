@@ -13,7 +13,7 @@
       </div>
       <div class="panel-body">
         <div class="container">
-          <% if @characters.present? %>
+          <% if @characters.any? { |character| character.reservations.any? } %>
             <% @characters.each do |character| %>
               <% character.reservations.each do |reservation| %>
                 <div class="row">
