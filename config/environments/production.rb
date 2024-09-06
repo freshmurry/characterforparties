@@ -88,7 +88,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   #Required for Heroku
-<<<<<<< HEAD
   # config.action_mailer.default_url_options = { host: 'characterforparties.com' }
 
   config.action_mailer.raise_delivery_errors = true
@@ -104,18 +103,6 @@ Rails.application.configure do
       :password       => ENV['SENDGRID_PASSWORD'],
       :domain         => 'bounciehouse.com',
       :enable_starttls_auto => true
-=======
-  #Note to set this to your actual host
-  config.action_mailer.default_url_options = { :host => 'http://shindigspace.herokuapp.com/' }
-  
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-    :s3_region => 'us-east-1',
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
->>>>>>> parent of a23e74d5... Created Stripe Accout, updated Stripe Connect API keys
     }
   
   if ENV["RAILS_LOG_TO_STDOUT"].present?
