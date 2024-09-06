@@ -1,17 +1,18 @@
 <head>
   <title><%= @character.listing_name %></title>
   <meta property="og:title" content="<%= @character.listing_name %>" />
-  <meta property="og:description" content="Book this amazing character for <%= number_to_currency(@character.price/ 100.0) %>!" />
+  <meta property="og:description" content="Book this amazing character for <%= number_to_currency(@character.price / 100.0) %>!" />
   <meta property="og:description" content="<%= @character.description %>" />
   <meta property="og:image" content="<%= @character.photos %>" />
   <meta property="og:url" content="<%= character_url(@character) %>" />
 
-  <% @character.images.each do |image| %>
-    <meta property="og:image" content="<%= image_url(image) %>" />
-    <meta property="og:image:alt" content="<%= @character.name %>" />
+  <!-- Assuming `@character.photos` is a collection of image URLs -->
+  <% @character.photos.each do |photo_url| %>
+    <meta property="og:image" content="<%= photo_url %>" />
+    <meta property="og:image:alt" content="Character for Parties" />
   <% end %>
 
-  <meta property="og:title" content="<%= @character.name %>" />
+  <meta property="og:title" content="" />
   <meta property="og:description" content="<%= @character.description %>" />
 </head>
 
