@@ -9,22 +9,23 @@ class CharactersController < ApplicationController
       title: 'My Character Listing',
       description: 'Check out our amazing character listing.',
       keywords: 'Character for Parties',
-      image: 'default_image_url'  # Default image if specific listing image is not set
+      image: 'default_image_url',  # Default image if specific listing image is not set
       og: {
-          title: '<%= @character.listing_name %>',
-          description: '<%= @character.description %>',
-          type: '',
-          url: '<%= character_url(@character) %>',
-          image: '<%= @character.photos %>',
-          site_name: 'Test'
+        title: @character&.listing_name || 'Default Title',
+        description: @character&.description || 'Default Description',
+        type: 'website',
+        url: character_url(@character),
+        image: @character&.photos || 'default_image_url',
+        site_name: 'Test'
       },
       twitter: {
         card: 'summary',
-        site: 'https://characterforparties.com',
-        title: '<%= @character.listing_name %>',
-        description: '<%= @character.description %>',
-        image: '<%= @character.photos %>'
+        site: '@sitehandle',
+        title: @character&.listing_name || 'Default Title',
+        description: @character&.description || 'Default Description',
+        image: @character&.photos || 'default_image_url'
       }
+    )
   end
 
   def show
