@@ -46,6 +46,7 @@ gem 'puma'
 gem 'figaro'
 gem 'redis'
 gem 'groupdate'
+gem 'meta-tags'
 
 group :production do
   gem 'pg', '~> 0.20.0'

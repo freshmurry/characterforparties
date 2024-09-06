@@ -1,9 +1,30 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:update, :edit]
+  before_action :set_character, only: %i[:update, :edit]
   # before_action :set_character, only: [:index, :new, :create, :update, :edit]
 
   def index
     @characters = current_user.characters
+
+    set_meta_tags
+      title: 'My Character Listing',
+      description: 'Check out our amazing character listing.',
+      keywords: 'Character for Parties',
+      image: 'default_image_url'  # Default image if specific listing image is not set
+      og: {
+          title: '<%= @character.listing_name %>',
+          description: '<%= @character.description %>',
+          type: '',
+          url: '<%= character_url(@character) %>',
+          image: '<%= @character.photos %>',
+          site_name: 'Test'
+      },
+      twitter: {
+        card: 'summary',
+        site: 'https://characterforparties.com',
+        title: '<%= @character.listing_name %>',
+        description: '<%= @character.description %>',
+        image: '<%= @character.photos %>'
+      }
   end
 
   def show

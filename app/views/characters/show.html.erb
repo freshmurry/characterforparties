@@ -2,8 +2,17 @@
   <title><%= @character.listing_name %></title>
   <meta property="og:title" content="<%= @character.listing_name %>" />
   <meta property="og:description" content="Book this amazing character for <%= number_to_currency(@character.price/ 100.0) %>!" />
+  <meta property="og:description" content="<%= @character.description %>" />
   <meta property="og:image" content="<%= @character.photos %>" />
   <meta property="og:url" content="<%= character_url(@character) %>" />
+
+  <% @character.images.each do |image| %>
+    <meta property="og:image" content="<%= image_url(image) %>" />
+    <meta property="og:image:alt" content="<%= @character.name %>" />
+  <% end %>
+
+  <meta property="og:title" content="<%= @character.name %>" />
+  <meta property="og:description" content="<%= @character.description %>" />
 </head>
 
 <script>
@@ -255,5 +264,13 @@
   <div class="col-md-4">
     <!-- RESERVATION FORM -->
     <%= render 'reservations/form', reservation: @reservation %>
+    <div class="social-share">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>" target="_blank">
+        Share on Facebook
+      </a>
+      <a href="https://twitter.com/intent/tweet?url=<%= request.original_url %>&text=Check%20out%20this%20venue!" target="_blank">
+        Share on Twitter
+      </a>
+    </div>
   </div>
 </div>

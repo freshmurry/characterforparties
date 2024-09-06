@@ -275,7 +275,6 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-<<<<<<< HEAD
   # config.omniauth :facebook, '', '', scope: 'email', info_fields: 'email, name'
   config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], scope: 'email', info_fields: 'email, name'
   # config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], callback_url: 'https://characterforparties.com/auth/facebook/callback'
@@ -293,8 +292,3 @@ Devise.setup do |config|
   #----- STRIPE LIVE -----
   config.omniauth :stripe_connect, ENV['STRIPE_PUBLISHABLE_KEY'], ENV['STRIPE_SECRET_KEY'], scope: 'read_write', stripe_landing: 'login'
 end
-=======
-  config.omniauth :facebook, '1934116976802195', 'c79899f97ee847e89297d2e841e95779', scope: 'email', info_fields: 'email, name'
-  config.omniauth :stripe_connect, 'ca_BbF7P33JByDX2Ctz0xrzJxMRtBdw6GX8', 'sk_test_25ExbWKt6MIfjnJkgUSVHI6P', scope: 'read_write', stripe_landing: 'login'
-end
->>>>>>> parent of a23e74d5... Created Stripe Accout, updated Stripe Connect API keys
