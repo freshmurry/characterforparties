@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
   def index
     @characters = current_user.characters
 
-    set_meta_tags
+    set_meta_tags(
       title: 'My Character Listing',
       description: 'Check out our amazing character listing.',
       keywords: 'Character for Parties',
