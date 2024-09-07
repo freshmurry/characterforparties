@@ -1,26 +1,34 @@
 <div class="row">
   <div class="col-md-12 banner text-center">
-    <h1><span class="text-blue">Book a chracter for your party</span> simple and easy.</h1>
+    <h1><span>Book a chracter for your event<span style="color: #FF385C;"> simple and easy.</spand></h1>
   </div>
 
-  <div class="col-md-12"><h4>Search for a caracter for your party</h4></div>
+  <div class="col-md-12"><h4>Search for a character for your event</h4></div>
 </div>
 
+<div class="row">
+  <div class="col-md-6">
+    <%= form_tag search_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for a Chracter", class: "form-control", id: "autolocation" %>
+  </div>&nbsp;
 
-  <div class="row">
-    <div class="col-md-6">
-      <%= form_tag search_path, method: :get do %>
-
-      <%= text_field_tag :search, params[:search], placeholder: "Search for a Chracter", class: "form-control", id: "autolocation" %>
-    </div>&nbsp;
-
-    <div class="col-md-2">
-      <%= submit_tag "Search", class: "btn btn-form btn-block" %>
-    </div>
+  <div class="col-md-2">
+    <%= submit_tag "Search", class: "btn btn-form btn-block" %>
   </div>
+</div>
+<% end %>&nbsp;
 
-<% end %>
+<h2 class="col-md-12 text-center">Luigi is out here making <span style="color: green; font-size: 1.5em;">$$$</span> on this app.</h2>
 
+<div class="text-center">
+  <!-- Video element -->
+  <video class="col-xs-4-offset-3" id="myVideo" controls autoplay>
+    <source src="/assets/luigi-dancing-on-car.mp4" type="video/mp4">
+    <source src="/assets/luigi-dancing-on-car.webm" type="video/webm">
+    <source src="/assets/luigi-dancing-on-car.ogv" type="video/ogg">
+    Your browser does not support the video tag.
+  </video>
+</div>
 <br>
 
 <!-- CHARACTERS -->
@@ -33,10 +41,18 @@
   <%= render partial: "characters/characters_list", locals: {characters: @characters} %>
 </div>
 
-<!--<h2 class="col-md-12 banner"><span class="text-blue">Why use</span> Characters for Parties</h2>-->
+<%# <h2 class="col-md-12 text-center">Luigi is out here making <span style="color: green; font-size: 1.5em;">$$$</span> on this app.</h2> %>
 
-<!-- CITIES -->
-<div class="text-center"><h2>Characters in other Cities Coming Soon!</h2></div>
+<!-- VIDEO -->
+<%# <div class="text-center"> %>
+  <!-- Video element -->
+  <%# <video class="col-xs-4-offset-3" id="myVideo" controls autoplay>
+    <source src="/assets/luigi-dancing-on-car.mp4" type="video/mp4">
+    <source src="/assets/luigi-dancing-on-car.webm" type="video/webm">
+    <source src="/assets/luigi-dancing-on-car.ogv" type="video/ogg">
+    Your browser does not support the video tag.
+  </video>
+</div> %>
 <br/>
 
 <!-- HOW IT WORKS -->
@@ -101,7 +117,7 @@
       
       <div class="col-lg-4 text-center">
         <h3>Larry P.</h3>
-        <p>"There's probably no other better way to beat the rediculous hosting fees other marketplaces charge. I now enjoy having the ability to see more of my earning using my own booking website."</p>
+        <p>"There's probably no other better way to escape the ridiculous fees other marketplaces charge. I now enjoy having the ability to see more of my earning using my own booking website."</p>
         <div class="col-md-12 text-center">
           <img alt="1" src="/assets/star-on.png">
           <img alt="1" src="/assets/star-on.png">
@@ -125,7 +141,7 @@
 
       <div class="col-lg-4 text-center">
         <h3>Patricia M.</h3>
-        <p>"I once tried creating my own booking website using Wix but not only did it not turn out right, I was getting eaten alive with all of their fees just to get the site live. Glad that I found this company because I no longer have that issue. Thank you!"</p>
+        <p>"We booked Luigi for my friend's bachelorette party and he was better than the "hired adult entertainer." I'll be booking again soon. Thank you!"</p>
         <div class="col-md-12 text-center">
           <img alt="1" src="/assets/star-on.png">
           <img alt="1" src="/assets/star-on.png">
@@ -137,7 +153,7 @@
 
       <div class="col-lg-4 text-center">
         <h3>Cole B.</h3>
-        <p>"The fact that client request and revenue shoot through the roof was a true testiment that having a seperate booking website made all the difference. This was exactly what I was looking for!"</p>
+        <p>"I had a spiderman costume collecting dust and then out of nowhere I found CharactersForParties. Client request and revenue shoot through the roof almost immediately. This is one highly lucrative side hustle!"</p>
         <div class="col-md-12 text-center">
           <img alt="1" src="/assets/star-on.png">
           <img alt="1" src="/assets/star-on.png">
@@ -185,11 +201,11 @@
     <div class="row">
       <div class="banner col-lg-12 text-center">
         <button class="btn btn-form">
-          <%= link_to "Get Started Now!", "mailto:lawrencemurry@yahoo.com?subject=Vacation%20Booking%20Website%20Inquiry&body=I%20want%20my%20own%20vacation%20booking%20website.", style: "text-decoration: none; color: #FFF; font-weight: 500; font-size: 20px" %>
+          <%= link_to "Get Started Now!", new_user_registration_path, style: "text-decoration: none; color: #FFF; font-weight: 500; font-size: 20px" %>
         </button>
         </div>
 
-        <div class="banner text-blue text-center"><h2>We will help you create your very own short-term vaction home and room rental website buisness on your terms!</h2></div>
+        <div class="banner text-blue text-center"><h2>Time to dust off that Character Mascot costome! Character for Parties allows you to book more buisness!</h2></div>
         <br/>
 
 <div class="row">
