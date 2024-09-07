@@ -39,7 +39,7 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = 'http://assets.example.com'
+  config.action_controller.asset_host = 'https://assets.characterforparties.com'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -47,10 +47,10 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  # config.action_cable.url = 'wss://example.com/cable'
+  config.action_cable.url = "wss://characterforparties.com/cable"
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
   config.web_socket_server_url = "wss://action-cable-characterforpraties.com/cable"
-  config.action_cable.allowed_request_origins = ['https://action-cable-characteforparties.com/cable', 'https://action-cable-bounciehouse.com/cable' ]
+  config.action_cable.allowed_request_origins = ['https://action-cable-characteforparties.com/cable', 'https://action-cable-characteforparties.com/cable' ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -67,7 +67,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "BouncieHouse#{Rails.env}"
+  # config.active_job.queue_name_prefix = "CharacterForParties#{Rails.env}"
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -93,7 +93,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   
     config.action_mailer.delivery_method = :smtp
-    host = 'bounciehouse.herokuapp.com'
+    host = 'characteforparties.com'
     config.action_mailer.default_url_options = { host: 'characterforparties.com' }
     ActionMailer::Base.smtp_settings = {
       :address        => 'smtp.sendgrid.net',
@@ -101,7 +101,7 @@ Rails.application.configure do
       :authentication => :plain,
       :user_name      => ENV['SENDGRID_USERNAME'],
       :password       => ENV['SENDGRID_PASSWORD'],
-      :domain         => 'bounciehouse.com',
+      :domain         => 'characteforparties.com',
       :enable_starttls_auto => true
     }
   
