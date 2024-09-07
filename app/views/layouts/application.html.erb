@@ -12,6 +12,14 @@
     <!-- Google Maps API -->
     <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=[GOOGLE_API_KEY]&callback=initMap"></script> -->
 
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PTTV85GM');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu|Cabin" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -43,21 +51,27 @@
 
   </head>
   <body>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PZE9T4L33"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-2PZE9T4L33');
+    </script>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTTV85GM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <%= render 'shared/navbar' %>
     <%= render 'shared/message' %>
 
     <div class="container">
       <%= yield %>
     </div>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=TAG-HERE"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-TAG-HERE');
-    </script>
 
     <%= render 'shared/footer' %>
     <% debug(params) if Rails.env.development? %>
