@@ -1,29 +1,23 @@
-<% if !@characters.blank? %>
+<% if @characters.present? %>
   <div class="row">
     <%= search_form_for @search, class: 'form-group', remote: true, url: host_calendar_path do |f| %>
       <div class="col-md-6 select">
         <div class="form-group">
           <label>Your Listings</label>
-          <%= f.select :character_id, options_for_select(@characters.collect {|u| [u.listing_name, u.id]}, params[:character_id]), {}, {
+          <%= f.select :character_id, options_for_select(@characters.collect { |u| [u.listing_name, u.id] }, params[:character_id]), {}, {
             onchange: "$(this.form).submit()",
             class: "form-control"
           } %>
         </div>
       </div>
-
       <%= f.hidden_field :start_date, id: "start-date", value: params[:start_date], onchange: "$(this.form).submit()" %>
     <% end %>
   </div>
-
-  <% else %>
-  
+<% else %>
   <div class="col-md-12 text-center">
-    <% if @characters.blank? %>
-      <h3>There are no current characters available.</h3><br/>
-        <%= link_to "Search for Characters", search_path, class: "btn btn-normal" %>
-     <% end %>
+    <h3>There are no current characters available.</h3><br/>
+    <%= link_to "Search for Characters", search_path, class: "btn btn-normal" %>
   </div>
-  
 <% end %>
 
 <%= render 'form' %>
@@ -72,36 +66,26 @@
         return e.day === date.format();
       });
 
-      console.log(dayInfo);
-
-      <% if !@characters.blank? %>
-        if (dayInfo.length > 0) {
-          if (dayInfo[0].status == "Not_Available") {
-            cell.addClass('fc-past');
-          } else {
-            cell.append('<span class="day-price">' + '$' + dayInfo[0].price + '</span>')
-          }
+      if (dayInfo.length > 0) {
+        if (dayInfo[0].status === "Not_Available") {
+          cell.addClass('fc-past');
         } else {
-          cell.append('<span class="day-price">' + '$<%= @character.price %>' + '</span>')
+          cell.append('<span class="day-price">' + '$' + dayInfo[0].price + '</span>');
         }
-      <% end %>
-
-
+      } else {
+        cell.append('<span class="day-price">' + '$<%= @character.price %>' + '</span>');
+      }
     },
     selectable: true,
     select: function(start, end, jsEvent, view) {
       var start_date = moment(start);
       var end_date = moment(end).subtract(1, "days");
 
-      <% if @characters.blank? %>
-          $('#calendar').fullCalendar('unselect');
-      <% end %>
-
       var overlap = reservations.filter(function(e) {
         var r_start_date = moment(e.start_date);
         var r_end_date = moment(e.end_date).subtract(1, "days");
 
-        return (r_start_date.isSameOrBefore(end_date) && r_end_date.isSameOrAfter(start_date))
+        return (r_start_date.isSameOrBefore(end_date) && r_end_date.isSameOrAfter(start_date));
       }).length > 0;
 
       if(start.isBefore(moment()) || overlap) {
@@ -126,17 +110,15 @@
 
   $('.fc-prev-button').click(function() {
     var current = new Date($('#start-date').val());
-    var prev = new Date(current.getFullYear(), current.getMonth() - 1, 1)
-    $('#start-date').val(moment(prev).format('MM/DD/YYYY'))
-    $('#start-date').trigger('change')
+    var prev = new Date(current.getFullYear(), current.getMonth() - 1, 1);
+    $('#start-date').val(moment(prev).format('MM/DD/YYYY'));
+    $('#start-date').trigger('change');
   });
 
   $('.fc-next-button').click(function() {
     var current = new Date($('#start-date').val());
-    var next = new Date(current.getFullYear(), current.getMonth() + 1, 1)
-    $('#start-date').val(moment(next).format('MM/DD/YYYY'))
-    $('#start-date').trigger('change')
+    var next = new Date(current.getFullYear(), current.getMonth() + 1, 1);
+    $('#start-date').val(moment(next).format('MM/DD/YYYY'));
+    $('#start-date').trigger('change');
   });
-
-
 </script>

@@ -18,18 +18,18 @@
 </div>
 <% end %>&nbsp;
 
-<h2 class="container text-center">Luigi is out here making <span style="color: green; font-size: 1.5em;">$$$</span> on this app.</h2>
+<%# <h2 class="container text-center">Luigi is out here making <span style="color: green;">$$$</span> on this app.</h2> %>
 
-<div class="video-container text-center">
+<%# <div class="video-container text-center"> %>
   <!-- Video element -->
-  <video class="col-xs-4-offset-3" id="myVideo" controls autoplay>
+  <%# <video class="col-xs-4-offset-3" id="myVideo" controls autoplay>
     <source src="/assets/luigi-dancing-on-car.mp4" type="video/mp4">
     <source src="/assets/luigi-dancing-on-car.webm" type="video/webm">
     <source src="/assets/luigi-dancing-on-car.ogv" type="video/ogg">
     Your browser does not support the video tag.
   </video>
 </div>
-<br>
+<br> %>
 
 <!-- CHARACTERS -->
 <div class="text-center"><h2>Characters Near You</h2>
@@ -40,20 +40,6 @@
 <div class="row">
   <%= render partial: "characters/characters_list", locals: {characters: @characters} %>
 </div>
-
-<%# <h2 class="col-md-12 text-center">Luigi is out here making <span style="color: green; font-size: 1.5em;">$$$</span> on this app.</h2> %>
-
-<!-- VIDEO -->
-<%# <div class="text-center"> %>
-  <!-- Video element -->
-  <%# <video class="col-xs-4-offset-3" id="myVideo" controls autoplay>
-    <source src="/assets/luigi-dancing-on-car.mp4" type="video/mp4">
-    <source src="/assets/luigi-dancing-on-car.webm" type="video/webm">
-    <source src="/assets/luigi-dancing-on-car.ogv" type="video/ogg">
-    Your browser does not support the video tag.
-  </video>
-</div> %>
-<br/>
 
 <!-- HOW IT WORKS -->
 <section class="">

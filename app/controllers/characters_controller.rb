@@ -1,7 +1,8 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:update, :edit]
-  # before_action :set_character, only: [:index, :new, :create, :update, :edit]
-
+  before_action :authenticate_user!, except: [:show, :preload, :preview]
+  before_action :is_authorized, only: [:listing, :pricing, :description, :photo_upload, :location, :update]
+  
   def index
     @characters = current_user.characters
   end
@@ -53,6 +54,9 @@ class CharactersController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def location
   end
   
   # ----- RESERVATIONS -----

@@ -25,32 +25,31 @@ class CalendarsController < ApplicationController
   end
   
   def host
-  @characters = current_user.characters
-
-  # Set default values for params[:start_date] and params[:character_id]
-  params[:start_date] ||= Date.current.to_s
-  params[:character_id] ||= @characters.first ? @characters.first.id : nil
-
-  # Ensure params[:q] is a hash before accessing its keys
-  if params[:q].present? && params[:q].is_a?(Hash)
-    params[:start_date] = params[:q][:start_date] if params[:q][:start_date].present?
-    params[:character_id] = params[:q][:character_id] if params[:q][:character_id].present?
-  end
-
-  @search = Reservation.ransack(params[:q])
-
-  if params[:character_id]
-    @character = Character.find_by(id: params[:character_id])
-
-    if @character
+    @characters = current_user.characters
+  
+    # Initialize @character to avoid the nil error
+    @character = @characters.first if @characters.present?
+  
+    params[:start_date] ||= Date.current.to_s
+    params[:character_id] ||= @character ? @character.id : nil
+  
+    if params[:q].present?
+      params[:start_date] = params[:q][:start_date]
+      params[:character_id] = params[:q][:character_id]
+    end
+  
+    @search = Reservation.ransack(params[:q])
+  
+    if params[:character_id]
+      @character = Character.find(params[:character_id])
       start_date = Date.parse(params[:start_date])
-
+  
       first_of_month = (start_date - 1.month).beginning_of_month
       end_of_month = (start_date + 1.month).end_of_month
-
+  
       @events = @character.reservations.joins(:user)
-                          .select('reservations.*, users.fullname, users.image, users.email, users.uid')
-                          .where('(start_date BETWEEN ? AND ?) AND status <> ?', first_of_month, end_of_month, 3)
+                      .select('reservations.*, users.fullname, users.image, users.email, users.uid')
+                      .where('(start_date BETWEEN ? AND ?) AND status <> ?', first_of_month, end_of_month, 2)
       @events.each { |e| e.image = image_url(e) }
       @days = Calendar.where("character_id = ? AND day BETWEEN ? AND ?", params[:character_id], first_of_month, end_of_month)
     else
@@ -58,12 +57,7 @@ class CalendarsController < ApplicationController
       @events = []
       @days = []
     end
-  else
-    @character = nil
-    @events = []
-    @days = []
   end
-end
 
   private
     def calendar_params
